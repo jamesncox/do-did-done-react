@@ -1,0 +1,22 @@
+// Session
+const SET_TOKEN = 'SET_TOKEN'
+
+// User
+const SET_USER = 'SET_USER'
+const CLEAR_USER = 'CLEAR_USER'
+const USER_ERRORS = 'USER_ERRORS'
+const LOADING_USER = 'LOADING_USER'
+const CLEAR_IS_USER_LOADING = 'CLEAR_IS_USER_LOADING'
+
+export {
+    // Session
+    SET_TOKEN,
+
+    // User
+    SET_USER,
+    USER_ERRORS,
+    CLEAR_USER,
+    CLEAR_ERRORS,
+    LOADING_USER,
+    CLEAR_IS_USER_LOADING
+}
