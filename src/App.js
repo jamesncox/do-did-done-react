@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
 import './stylesheets/App.css';
+import './stylesheets/responsive.css'
+import { connect } from 'react-redux';
+import { getToken } from './actions/sessions'
+import { setCurrentUser } from './actions/users'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// import Header from './components/Layout/Header'
+// import Home from './components/Layout/Home'
+// import SignIn from './components/User/SignIn'
+// import SignUp from './components/User/SignUp'
+// import LogOut from './components/User/LogOut'
+// import MyStats from './components/Layout/MyStats'
+
+class App extends Component {
+
+  componentDidMount() {
+    this.props.getToken()
+    this.props.setCurrentUser()
+  }
+
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          {/* <Header /> */}
+          <Switch>
+            <Route exact path="/">
+              {/* <Home /> */}
+            </Route>
+            <Route exact path="/SignUp">
+              {/* <SignUp /> */}
+            </Route>
+            <Route exact path="/SignIn">
+              {/* <SignIn /> */}
+            </Route>
+            <Route exact path="/LogOut">
+              {/* <LogOut /> */}
+            </Route>
+            <Route exact path="/MyStats">
+              {/* <MyStats /> */}
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    )
+  }
 }
 
-export default App;
+export default connect(null, { getToken, setCurrentUser })(App);
