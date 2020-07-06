@@ -13,7 +13,23 @@ const useStyles = makeStyles((theme) => ({
             margin: ".1rem",
             width: "99vw",
             height: "98vh",
-            zIndex: "-1"
+            zIndex: "-1",
+            [theme.breakpoints.up('xl')]: {
+                width: "40vw",
+                margin: "auto"
+            },
+            [theme.breakpoints.up('lg')]: {
+                width: "40vw",
+                margin: "auto"
+            },
+            [theme.breakpoints.up('md')]: {
+                width: "50vw",
+                margin: "auto"
+            },
+            [theme.breakpoints.up('sm')]: {
+                width: "70vw",
+                margin: "auto"
+            }
         },
     },
     blackBorder: {
@@ -27,8 +43,22 @@ const useStyles = makeStyles((theme) => ({
         height: "30%",
         marginLeft: "20%",
         marginTop: "20%",
-        // zIndex: "1",
         position: "absolute",
+        [theme.breakpoints.up('lg')]: {
+            width: "20%",
+            marginLeft: "11%",
+            marginTop: "8%",
+        },
+        [theme.breakpoints.up('md')]: {
+            width: "30%",
+            marginLeft: "11%",
+            marginTop: "8%",
+        },
+        [theme.breakpoints.up('sm')]: {
+            width: "45%",
+            marginLeft: "15%",
+            marginTop: "10%",
+        }
     },
     whiteBoxBorder: {
         border: "solid black 2px",
@@ -43,13 +73,15 @@ const useStyles = makeStyles((theme) => ({
     title: {
         fontSize: "2.8rem",
         alignSelf: "center",
-        marginTop: theme.spacing(1)
+        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(3)
     },
     signInButton: {
         fontFamily: "'Nanum Pen Script', cursive",
         fontSize: "1.8em",
         fontWeight: "bold",
         alignSelf: "flex-end",
+        marginBottom: "-1em"
     },
     signUpButton: {
         fontFamily: "'Nanum Pen Script', cursive",
