@@ -3,6 +3,7 @@ import CompositionJournal from '../../assets/composition_background.jpg'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
         height: "30%",
         marginLeft: "20%",
         marginTop: "20%",
-        zIndex: "1",
-        position: "absolute"
+        // zIndex: "1",
+        position: "absolute",
     },
     whiteBoxBorder: {
         border: "solid black 2px",
@@ -35,11 +36,26 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "rgba (0, 0, 0, 0)",
         margin: "1em",
         height: "85%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
     },
     title: {
-        textAlign: "center",
         fontSize: "2.8rem",
+        alignSelf: "center",
         marginTop: theme.spacing(1)
+    },
+    signInButton: {
+        fontFamily: "'Nanum Pen Script', cursive",
+        fontSize: "1.8em",
+        fontWeight: "bold",
+        alignSelf: "flex-end",
+    },
+    signUpButton: {
+        fontFamily: "'Nanum Pen Script', cursive",
+        fontSize: "1.8em",
+        fontWeight: "bold",
+        alignSelf: "flex-end",
     }
 }));
 
@@ -54,6 +70,12 @@ function Home(props) {
                         <h1 className={classes.title}>
                             Git-R-Done
                         </h1>
+                        <Button className={classes.signInButton} color="primary">
+                            Sign In
+                        </Button>
+                        <Button className={classes.signUpButton} color="secondary">
+                            Sign Up
+                        </Button>
                     </div>
                 </Paper>
                 <Paper className={classes.blackBorder} />
