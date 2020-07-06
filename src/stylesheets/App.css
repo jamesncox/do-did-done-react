@@ -1,3 +1,7 @@
-.CompositionJournal {
+.composition-journal {
   background-image: url('../assets/composition_background.jpg')
+}
+
+.test-color {
+  color: rgb(22, 22, 22) 
 }
