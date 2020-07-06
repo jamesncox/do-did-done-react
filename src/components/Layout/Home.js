@@ -29,9 +29,16 @@ const useStyles = makeStyles((theme) => ({
         zIndex: "1",
         position: "absolute"
     },
+    whiteBoxBorder: {
+        border: "solid black 2px",
+        borderRadius: "3px",
+        backgroundColor: "rgba (0, 0, 0, 0)",
+        margin: "1em",
+        height: "85%",
+    },
     title: {
         textAlign: "center",
-        fontSize: "2.5rem",
+        fontSize: "2.8rem",
         marginTop: theme.spacing(1)
     }
 }));
@@ -43,9 +50,11 @@ function Home(props) {
         <div className={classes.root}>
             <Paper style={{ backgroundImage: `url("${CompositionJournal}")` }}>
                 <Paper className={classes.whiteBox}>
-                    <h1 className={classes.title}>
-                        Git-R-Done
-                    </h1>
+                    <div className={classes.whiteBoxBorder}>
+                        <h1 className={classes.title}>
+                            Git-R-Done
+                        </h1>
+                    </div>
                 </Paper>
                 <Paper className={classes.blackBorder} />
             </Paper>
