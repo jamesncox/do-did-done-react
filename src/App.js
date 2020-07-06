@@ -11,7 +11,7 @@ import { getToken } from './actions/sessions'
 import { setCurrentUser } from './actions/users'
 
 // import Header from './components/Layout/Header'
-// import Home from './components/Layout/Home'
+import Home from './components/Layout/Home'
 // import SignIn from './components/User/SignIn'
 // import SignUp from './components/User/SignUp'
 // import LogOut from './components/User/LogOut'
@@ -31,7 +31,7 @@ class App extends Component {
           {/* <Header /> */}
           <Switch>
             <Route exact path="/">
-              {/* <Home /> */}
+              <Home />
             </Route>
             <Route exact path="/SignUp">
               {/* <SignUp /> */}
