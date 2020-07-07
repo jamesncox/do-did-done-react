@@ -116,7 +116,7 @@ function SignIn(props) {
                         >
                             Sign In
                     </Button>
-                        <Grid container>
+                        <Grid container justify="center">
                             <Grid item>
                                 <Link component={RouterLink} to="/SignUp">
                                     {"Don't have an account? Sign Up"}
