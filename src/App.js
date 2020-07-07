@@ -11,11 +11,9 @@ import { connect } from 'react-redux';
 import { getToken } from './actions/sessions'
 import { setCurrentUser } from './actions/users'
 
-// import Header from './components/Layout/Header'
 import Home from './components/Layout/Home'
 import SignIn from './components/User/Signin'
 import SignUp from './components/User/Signup'
-import BottomNavigation from './components/Layout/BottomNavigation'
 import Profile from './components/Layout/Profile'
 // import LogOut from './components/User/LogOut'
 // import MyStats from './components/Layout/MyStats'
@@ -48,7 +46,6 @@ class App extends Component {
               {/* <Profile /> */}
             </Route>
           </Switch>
-          {/* <BottomNavigation /> */}
         </div>
       </Router>
     )

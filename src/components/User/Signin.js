@@ -5,6 +5,7 @@ import { loginUser, clearIsUserLoading } from '../../actions/users'
 import Copyright from '../Layout/Copyright'
 // import { clearErrors } from '../../actions/errors'
 
+import Header from '../Layout/Header'
 import BottomNavigation from '../Layout/BottomNavigation'
 
 import Avatar from '@material-ui/core/Avatar';
@@ -66,6 +67,7 @@ function SignIn(props) {
 
     return (
         <>
+            <Header />
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className={classes.paper}>

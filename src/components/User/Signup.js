@@ -4,6 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { signupUser, clearIsUserLoading } from '../../actions/users'
 import Copyright from '../Layout/Copyright'
 
+import Header from '../Layout/Header'
 import BottomNavigation from '../Layout/BottomNavigation'
 
 import Avatar from '@material-ui/core/Avatar';
@@ -72,6 +73,7 @@ function SignUp(props) {
 
     return (
         <>
+            <Header />
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className={classes.paper}>
