@@ -5,6 +5,8 @@ import { loginUser, clearIsUserLoading } from '../../actions/users'
 import Copyright from '../Layout/Copyright'
 // import { clearErrors } from '../../actions/errors'
 
+import BottomNavigation from '../Layout/BottomNavigation'
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -63,67 +65,70 @@ function SignIn(props) {
     }
 
     return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-                <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Sign in
+        <>
+            <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                <div className={classes.paper}>
+                    <Avatar className={classes.avatar}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Sign in
                 </Typography>
-                <form
-                    className={classes.form}
-                    noValidate
-                    onSubmit={e => handleLogin(e)}
-                >
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="username"
-                        label="Username"
-                        name="username"
-                        autoComplete="username"
-                        onChange={handleUsername}
-                        value={username}
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        onChange={handlePassword}
-                        value={password}
-                        autoComplete="current-password"
-                    />
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
+                    <form
+                        className={classes.form}
+                        noValidate
+                        onSubmit={e => handleLogin(e)}
                     >
-                        Sign In
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="username"
+                            label="Username"
+                            name="username"
+                            autoComplete="username"
+                            onChange={handleUsername}
+                            value={username}
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            onChange={handlePassword}
+                            value={password}
+                            autoComplete="current-password"
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                        >
+                            Sign In
                     </Button>
-                    <Grid container>
-                        <Grid item>
-                            <Link component={RouterLink} to="/SignUp">
-                                {"Don't have an account? Sign Up"}
-                            </Link>
+                        <Grid container>
+                            <Grid item>
+                                <Link component={RouterLink} to="/SignUp">
+                                    {"Don't have an account? Sign Up"}
+                                </Link>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </form>
-            </div>
-            <Box mt={8}>
-                <Copyright />
-            </Box>
-        </Container>
+                    </form>
+                </div>
+                <Box mt={8}>
+                    <Copyright />
+                </Box>
+            </Container>
+            <BottomNavigation />
+        </>
     );
 }
 

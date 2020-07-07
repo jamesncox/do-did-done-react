@@ -4,6 +4,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import { signupUser, clearIsUserLoading } from '../../actions/users'
 import Copyright from '../Layout/Copyright'
 
+import BottomNavigation from '../Layout/BottomNavigation'
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -69,87 +71,84 @@ function SignUp(props) {
     }
 
     return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-                <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Sign up
+        <>
+            <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                <div className={classes.paper}>
+                    <Avatar className={classes.avatar}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Sign up
                 </Typography>
-                <form
-                    className={classes.form}
-                    noValidate
-                    onSubmit={e => handleLogin(e)}
-                >
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="username"
-                        label="Username"
-                        name="username"
-                        autoComplete="username"
-                        onChange={handleUsername}
-                        value={username}
-                    // autoFocus
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        onChange={handlePassword}
-                        value={password}
-                        autoComplete="current-password"
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="passwordConfirmation"
-                        label="Confirm Password"
-                        type="password"
-                        id="passwordConfirmation"
-                        onChange={handlePasswordConfirmation}
-                        value={passwordConfirmation}
-                        autoComplete="current-password"
-                    />
-                    {/* <Grid item xs={12}>
-                            <FormControlLabel
-                                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                label="I want to receive inspiration, marketing promotions and updates via email."
-                            />
-                        </Grid> */}
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
+                    <form
+                        className={classes.form}
+                        noValidate
+                        onSubmit={e => handleLogin(e)}
                     >
-                        Sign Up
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="username"
+                            label="Username"
+                            name="username"
+                            autoComplete="username"
+                            onChange={handleUsername}
+                            value={username}
+                        // autoFocus
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            onChange={handlePassword}
+                            value={password}
+                            autoComplete="current-password"
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="passwordConfirmation"
+                            label="Confirm Password"
+                            type="password"
+                            id="passwordConfirmation"
+                            onChange={handlePasswordConfirmation}
+                            value={passwordConfirmation}
+                            autoComplete="current-password"
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                        >
+                            Sign Up
                     </Button>
-                    <Grid container justify="flex-end">
-                        <Grid item>
-                            <Link component={RouterLink} to="/SignIn" variant="body2">
-                                Already have an account? Sign in
+                        <Grid container justify="flex-end">
+                            <Grid item>
+                                <Link component={RouterLink} to="/SignIn" variant="body2">
+                                    Already have an account? Sign in
                             </Link>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </form>
-            </div>
-            <Box mt={5}>
-                <Copyright />
-            </Box>
-        </Container >
+                    </form>
+                </div>
+                <Box mt={5}>
+                    <Copyright />
+                </Box>
+            </Container >
+            <BottomNavigation />
+        </>
     );
 }
 

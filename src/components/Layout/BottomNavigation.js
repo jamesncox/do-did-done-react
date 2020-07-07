@@ -17,10 +17,18 @@ const useStyles = makeStyles((theme) => ({
         bottom: "0",
         overflow: "hidden",
         backgroundColor: "#e0e0e0",
+        [theme.breakpoints.up('md')]: {
+            display: "none",
+        },
     },
     icons: {
         color: "#757575",
-        // color: "white"
+    },
+    personIcon: {
+        fontSize: "1.5rem"
+    },
+    homeIcon: {
+        fontSize: "1.5rem"
     }
 }));
 
@@ -34,10 +42,30 @@ export default function LabelBottomNavigation() {
 
     return (
         <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-            <BottomNavigationAction className={classes.icons} label="Home" value="home" component={RouterLink} to="/" icon={<HomeIcon />} />
-            <BottomNavigationAction className={classes.icons} label="Profile" value="profile" component={RouterLink} to="/Profile" icon={<PersonIcon />} />
-            <BottomNavigationAction className={classes.icons} label="Favorites" value="favorites" icon={<FavoriteIcon />} />
-            <BottomNavigationAction className={classes.icons} label="Folder" value="folder" icon={<FolderIcon />} />
+            <BottomNavigationAction
+                className={classes.icons}
+                label="Home" value="home"
+                component={RouterLink} to="/"
+                icon={<HomeIcon className={classes.homeIcon} />}
+            />
+            <BottomNavigationAction
+                className={classes.icons}
+                label="Profile" value="profile"
+                component={RouterLink} to="/Profile"
+                icon={<PersonIcon className={classes.personIcon} />}
+            />
+            <BottomNavigationAction
+                className={classes.icons}
+                label="Favorites"
+                value="favorites"
+                icon={<FavoriteIcon />}
+            />
+            <BottomNavigationAction
+                className={classes.icons}
+                label="Folder"
+                value="folder"
+                icon={<FolderIcon />}
+            />
         </BottomNavigation>
     );
 }

@@ -48,7 +48,7 @@ class App extends Component {
               {/* <Profile /> */}
             </Route>
           </Switch>
-          <BottomNavigation />
+          {/* <BottomNavigation /> */}
         </div>
       </Router>
     )
