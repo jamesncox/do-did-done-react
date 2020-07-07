@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
             margin: ".1rem",
             width: "99vw",
             height: "98vh",
-            zIndex: "-1",
             [theme.breakpoints.up('xl')]: {
                 width: "40vw",
                 margin: "auto"
@@ -66,13 +65,13 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "rgba (0, 0, 0, 0)",
         margin: "1em",
         height: "85%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
+        // display: "flex",
+        // flexDirection: "column",
+        // alignItems: "flex-start",
     },
     title: {
         fontSize: "2.8rem",
-        alignSelf: "center",
+        textAlign: "center",
         marginTop: theme.spacing(1),
         marginBottom: theme.spacing(3)
     },
@@ -80,14 +79,17 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: "'Nanum Pen Script', cursive",
         fontSize: "1.8em",
         fontWeight: "bold",
-        alignSelf: "flex-end",
-        marginBottom: "-1em"
+        alignSelf: "flex-start",
+        marginTop: "1rem",
+        float: "left",
+        bottom: "0px"
     },
     signUpButton: {
         fontFamily: "'Nanum Pen Script', cursive",
         fontSize: "1.8em",
         fontWeight: "bold",
-        alignSelf: "flex-end",
+        marginTop: "1rem",
+        float: "right"
     }
 }));
 
