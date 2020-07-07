@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
+        fontFamily: "'Nanum Pen Script', cursive",
         '& > *': {
             margin: ".1rem",
             width: "99vw",
@@ -66,9 +67,6 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "rgba (0, 0, 0, 0)",
         margin: "1em",
         height: "85%",
-        // display: "flex",
-        // flexDirection: "column",
-        // alignItems: "flex-start",
     },
     title: {
         fontSize: "2.8rem",

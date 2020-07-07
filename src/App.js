@@ -16,7 +16,6 @@ import SignIn from './components/User/Signin'
 import SignUp from './components/User/Signup'
 import Profile from './components/Layout/Profile'
 // import LogOut from './components/User/LogOut'
-// import MyStats from './components/Layout/MyStats'
 
 class App extends Component {
 
