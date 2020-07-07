@@ -16,6 +16,7 @@ import Home from './components/Layout/Home'
 import SignIn from './components/User/Signin'
 import SignUp from './components/User/Signup'
 import BottomNavigation from './components/Layout/BottomNavigation'
+import Profile from './components/Layout/Profile'
 // import LogOut from './components/User/LogOut'
 // import MyStats from './components/Layout/MyStats'
 
@@ -43,8 +44,8 @@ class App extends Component {
             <Route exact path="/LogOut">
               {/* <LogOut /> */}
             </Route>
-            <Route exact path="/MyStats">
-              {/* <MyStats /> */}
+            <Route exact path="/Profile">
+              {/* <Profile /> */}
             </Route>
           </Switch>
           <BottomNavigation />
