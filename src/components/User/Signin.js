@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom';
+import { loginUser, clearIsUserLoading } from '../../actions/users'
+// import { clearErrors } from '../../actions/errors'
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -111,10 +114,6 @@ function SignIn(props) {
                         value={password}
                         autoComplete="current-password"
                     />
-                    {/* <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
-                        label="Remember me"
-                    /> */}
                     <Button
                         type="submit"
                         fullWidth
@@ -125,11 +124,6 @@ function SignIn(props) {
                         Sign In
                     </Button>
                     <Grid container>
-                        {/* <Grid item xs>
-                            <Link href="#" variant="body2">
-                                Forgot password?
-                            </Link>
-                        </Grid> */}
                         <Grid item>
                             <Link component={RouterLink} to="/SignUp">
                                 {"Don't have an account? Sign Up"}
@@ -145,4 +139,11 @@ function SignIn(props) {
     );
 }
 
-export default SignIn
+const mapStateToProps = state => ({
+    user: state.users.user,
+    // errors: state.errors.errors,
+    loggedIn: state.users.loggedIn,
+    loadingUser: state.users.loadingUser
+})
+
+export default connect(mapStateToProps, { loginUser, clearIsUserLoading })(SignIn)
