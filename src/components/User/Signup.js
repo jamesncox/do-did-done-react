@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux'
+import { Link as RouterLink } from 'react-router-dom';
+import { signupUser, clearIsUserLoading } from '../../actions/users'
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -46,8 +48,37 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function SignUp() {
+function SignUp(props) {
     const classes = useStyles();
+
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [passwordConfirmation, setPasswordConfirmation] = useState('')
+
+    const handleUsername = (e) => {
+        setUsername(e.target.value)
+    }
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const handlePasswordConfirmation = (e) => {
+        setPasswordConfirmation(e.target.value)
+    }
+
+    const handleLogin = e => {
+        e.preventDefault()
+        const user = {
+            username: username,
+            password: password,
+            password_confirmation: passwordConfirmation
+        }
+        props.signupUser(props.token, user)
+        setUsername('')
+        setPassword('')
+        setPasswordConfirmation('')
+    }
 
     return (
         <Container component="main" maxWidth="xs">
@@ -59,61 +90,56 @@ function SignUp() {
                 <Typography component="h1" variant="h5">
                     Sign up
                 </Typography>
-                <form className={classes.form} noValidate>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                autoComplete="fname"
-                                name="firstName"
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="firstName"
-                                label="First Name"
-                                autoFocus
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="lastName"
-                                label="Last Name"
-                                name="lastName"
-                                autoComplete="lname"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
+                <form
+                    className={classes.form}
+                    noValidate
+                    onSubmit={e => handleLogin(e)}
+                >
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="username"
+                        label="Username"
+                        name="username"
+                        autoComplete="username"
+                        onChange={handleUsername}
+                        value={username}
+                    // autoFocus
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        onChange={handlePassword}
+                        value={password}
+                        autoComplete="current-password"
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="passwordConfirmation"
+                        label="Confirm Password"
+                        type="password"
+                        id="passwordConfirmation"
+                        onChange={handlePasswordConfirmation}
+                        value={passwordConfirmation}
+                        autoComplete="current-password"
+                    />
+                    {/* <Grid item xs={12}>
                             <FormControlLabel
                                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                                 label="I want to receive inspiration, marketing promotions and updates via email."
                             />
-                        </Grid>
-                    </Grid>
+                        </Grid> */}
                     <Button
                         type="submit"
                         fullWidth
@@ -125,7 +151,7 @@ function SignUp() {
                     </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
-                            <Link href="#" variant="body2">
+                            <Link component={RouterLink} to="/SignIn" variant="body2">
                                 Already have an account? Sign in
                             </Link>
                         </Grid>
@@ -135,8 +161,17 @@ function SignUp() {
             <Box mt={5}>
                 <Copyright />
             </Box>
-        </Container>
+        </Container >
     );
 }
 
-export default SignUp
+const mapStateToProps = state => ({
+    user: state.users.user,
+    // errors: state.errors.errors,
+    loggedIn: state.users.loggedIn,
+    token: state.sessions.token,
+    loadingUser: state.users.loadingUser
+})
+
+
+export default connect(mapStateToProps, { signupUser, clearIsUserLoading })(SignUp)
