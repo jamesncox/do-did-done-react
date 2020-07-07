@@ -1,5 +1,6 @@
 import React from 'react';
 import CompositionJournal from '../../assets/composition_background.jpg'
+import { Link as RouterLink } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -104,10 +105,20 @@ function Home(props) {
                         <h1 className={classes.title}>
                             Git-R-Done
                         </h1>
-                        <Button className={classes.signInButton} color="primary">
+                        <Button
+                            className={classes.signInButton}
+                            color="primary"
+                            component={RouterLink}
+                            to="/SignIn"
+                        >
                             Sign In
                         </Button>
-                        <Button className={classes.signUpButton} color="secondary">
+                        <Button
+                            className={classes.signUpButton}
+                            color="secondary"
+                            component={RouterLink}
+                            to="/SignUp"
+                        >
                             Sign Up
                         </Button>
                     </div>

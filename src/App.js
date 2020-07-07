@@ -13,8 +13,8 @@ import { setCurrentUser } from './actions/users'
 
 // import Header from './components/Layout/Header'
 import Home from './components/Layout/Home'
-// import SignIn from './components/User/SignIn'
-// import SignUp from './components/User/SignUp'
+import SignIn from './components/User/Signin'
+import SignUp from './components/User/Signup'
 // import LogOut from './components/User/LogOut'
 // import MyStats from './components/Layout/MyStats'
 
@@ -35,10 +35,10 @@ class App extends Component {
               <Home />
             </Route>
             <Route exact path="/SignUp">
-              {/* <SignUp /> */}
+              <SignUp />
             </Route>
             <Route exact path="/SignIn">
-              {/* <SignIn /> */}
+              <SignIn />
             </Route>
             <Route exact path="/LogOut">
               {/* <LogOut /> */}
