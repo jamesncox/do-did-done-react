@@ -6,7 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 export default function Copyright() {
     return (
-        <Typography variant="body2" color="textSecondary" align="center" style={{ marginBottom: "2em" }}>
+        <Typography variant="body2" color="textSecondary" align="center" style={{ marginBottom: "2em", marginTop: "2em" }}>
             {'Copyright © '}
             <Link color="inherit" component={RouterLink} to="/">
                 Git-R-Done

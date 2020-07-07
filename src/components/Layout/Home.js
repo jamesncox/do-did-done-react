@@ -2,6 +2,8 @@ import React from 'react';
 import CompositionJournal from '../../assets/composition_background.jpg'
 import { Link as RouterLink } from 'react-router-dom';
 
+import Copyright from '../Layout/Copyright'
+
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -122,6 +124,7 @@ function Home(props) {
                     </div>
                 </Paper>
                 <Paper className={classes.blackBorder} />
+                <Copyright />
             </Paper>
         </div >
     )
