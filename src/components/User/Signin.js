@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -46,8 +46,30 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function SignIn() {
+function SignIn(props) {
     const classes = useStyles();
+
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleUsername = (e) => {
+        setUsername(e.target.value)
+    }
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const handleLogin = e => {
+        e.preventDefault()
+        const user = {
+            username: username,
+            password: password
+        }
+        props.loginUser(user)
+        setUsername('')
+        setPassword('')
+    }
 
     return (
         <Container component="main" maxWidth="xs">
@@ -59,17 +81,22 @@ function SignIn() {
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography>
-                <form className={classes.form} noValidate>
+                <form
+                    className={classes.form}
+                    noValidate
+                    onSubmit={e => handleLogin(e)}
+                >
                     <TextField
                         variant="outlined"
                         margin="normal"
                         required
                         fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
-                        autoFocus
+                        id="username"
+                        label="Username"
+                        name="username"
+                        autoComplete="username"
+                        onChange={handleUsername}
+                        value={username}
                     />
                     <TextField
                         variant="outlined"
@@ -80,12 +107,14 @@ function SignIn() {
                         label="Password"
                         type="password"
                         id="password"
+                        onChange={handlePassword}
+                        value={password}
                         autoComplete="current-password"
                     />
-                    <FormControlLabel
+                    {/* <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
                         label="Remember me"
-                    />
+                    /> */}
                     <Button
                         type="submit"
                         fullWidth
@@ -96,13 +125,13 @@ function SignIn() {
                         Sign In
                     </Button>
                     <Grid container>
-                        <Grid item xs>
+                        {/* <Grid item xs>
                             <Link href="#" variant="body2">
                                 Forgot password?
                             </Link>
-                        </Grid>
+                        </Grid> */}
                         <Grid item>
-                            <Link href="#" variant="body2">
+                            <Link component={RouterLink} to="/SignUp">
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>
