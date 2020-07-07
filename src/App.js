@@ -15,6 +15,7 @@ import { setCurrentUser } from './actions/users'
 import Home from './components/Layout/Home'
 import SignIn from './components/User/Signin'
 import SignUp from './components/User/Signup'
+import BottomNavigation from './components/Layout/BottomNavigation'
 // import LogOut from './components/User/LogOut'
 // import MyStats from './components/Layout/MyStats'
 
@@ -29,7 +30,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          {/* <Header /> */}
           <Switch>
             <Route exact path="/">
               <Home />
@@ -47,6 +47,7 @@ class App extends Component {
               {/* <MyStats /> */}
             </Route>
           </Switch>
+          <BottomNavigation />
         </div>
       </Router>
     )

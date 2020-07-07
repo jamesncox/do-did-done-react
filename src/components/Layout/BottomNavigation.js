@@ -9,8 +9,12 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const useStyles = makeStyles({
     root: {
-        width: 500,
-    },
+        width: "100%",
+        margin: "auto",
+        position: "fixed",
+        bottom: "0",
+        overflow: "hidden"
+    }
 });
 
 export default function LabelBottomNavigation() {
