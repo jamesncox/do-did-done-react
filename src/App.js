@@ -38,11 +38,11 @@ class App extends Component {
             <Route exact path="/SignIn">
               <SignIn />
             </Route>
-            <Route exact path="/LogOut">
-              {/* <LogOut /> */}
-            </Route>
+            {/* <Route exact path="/LogOut">
+              <LogOut />
+            </Route> */}
             <Route exact path="/Profile">
-              {/* <Profile /> */}
+              <Profile />
             </Route>
           </Switch>
         </div>
