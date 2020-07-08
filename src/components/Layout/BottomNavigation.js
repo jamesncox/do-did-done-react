@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import LogOutAlert from '../User/LogOutAlert'
+import AddCategory from '../Category/AddCategory'
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -53,7 +54,6 @@ export default function LabelBottomNavigation() {
 
     return (
         <>
-            {/* {showLogoutAlert === true ? <Alert /> : null} */}
             <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
                 <BottomNavigationAction
                     className={classes.icons}
@@ -69,9 +69,9 @@ export default function LabelBottomNavigation() {
                 />
                 <BottomNavigationAction
                     className={classes.icons}
-                    label="Folder"
-                    value="folder"
-                    icon={<FolderIcon />}
+                    label="Add List"
+                    value="addCategory"
+                    icon={<AddCategory />}
                 />
                 <BottomNavigationAction
                     className={classes.icons}
