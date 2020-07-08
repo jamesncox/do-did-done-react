@@ -77,31 +77,31 @@ function Header(props) {
     //     handleClose()
     // }
 
-    const randomNumber = () => {
-        const rand = Math.floor((Math.random() * 1000000) + 1)
-        return rand.toString()
-    }
+    // const randomNumber = () => {
+    //     const rand = Math.floor((Math.random() * 1000000) + 1)
+    //     return rand.toString()
+    // }
 
-    const handleGuestSignUp = e => {
-        e.preventDefault()
-        const user = {
-            username: "Guest" + randomNumber(),
-            password: "guest",
-            password_confirmation: "guest"
-        }
-        props.signupUser(props.token, user)
-    }
+    // const handleGuestSignUp = e => {
+    //     e.preventDefault()
+    //     const user = {
+    //         username: "Guest" + randomNumber(),
+    //         password: "guest",
+    //         password_confirmation: "guest"
+    //     }
+    //     props.signupUser(props.token, user)
+    // }
 
-    const handleCloseAndGuestSignUp = e => {
-        e.preventDefault()
-        const user = {
-            username: "Guest" + randomNumber(),
-            password: "guest",
-            password_confirmation: "guest"
-        }
-        props.signupUser(props.token, user)
-        // setAnchorEl(null);
-    }
+    // const handleCloseAndGuestSignUp = e => {
+    //     e.preventDefault()
+    //     const user = {
+    //         username: "Guest" + randomNumber(),
+    //         password: "guest",
+    //         password_confirmation: "guest"
+    //     }
+    //     props.signupUser(props.token, user)
+    //     // setAnchorEl(null);
+    // }
 
     // if (props.loggedIn === false) {
     //     return (

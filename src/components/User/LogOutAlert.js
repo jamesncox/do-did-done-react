@@ -3,13 +3,20 @@ import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert';
 
-function Alert(props) {
+const useStyles = makeStyles((theme) => ({
+    alert: {
+        borderRadius: "0",
+        backgroundColor: "#ff9100"
+    }
+}))
+
+function LogOutAlert(props) {
+    const classes = useStyles();
 
     const [open, setOpen] = React.useState(false);
 
@@ -30,12 +37,14 @@ function Alert(props) {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">{`${props.user.username}`}</DialogTitle>
-                <DialogContent>
+                <Alert className={classes.alert} variant="filled" severity="warning" id="alert-dialog-title">
+                    {`${props.user.username}`}
+                </Alert>
+                <DialogActions>
                     <DialogContentText id="alert-dialog-description">
                         Are you sure you want to log out?
                     </DialogContentText>
-                </DialogContent>
+                </DialogActions>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
                         Yes
@@ -53,4 +62,4 @@ const mapStateToProps = (state) => ({
     user: state.users.user
 })
 
-export default connect(mapStateToProps)(Alert)
+export default connect(mapStateToProps)(LogOutAlert)
