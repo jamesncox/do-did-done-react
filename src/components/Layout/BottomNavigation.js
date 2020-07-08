@@ -3,12 +3,13 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import Alert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 
 import FolderIcon from '@material-ui/icons/Folder';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,6 +41,10 @@ export default function LabelBottomNavigation() {
         setValue(newValue);
     };
 
+    const handleLogoutAlert = () => {
+        console.log("inside log out alert")
+    }
+
     return (
         <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
             <BottomNavigationAction
@@ -56,9 +61,10 @@ export default function LabelBottomNavigation() {
             />
             <BottomNavigationAction
                 className={classes.icons}
-                label="Favorites"
-                value="favorites"
-                icon={<FavoriteIcon />}
+                label="Log Out"
+                value="logout"
+                icon={<ExitToAppIcon />}
+                onClick={handleLogoutAlert}
             />
             <BottomNavigationAction
                 className={classes.icons}
