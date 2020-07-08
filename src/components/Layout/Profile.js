@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from "react-router";
 
 import Header from './Header'
 import BottomNavigation from './BottomNavigation'
-import Page from './Page'
+// import Page from './Page'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -30,11 +31,7 @@ function Profile(props) {
     const classes = useStyles();
     if (props.loggedIn === false) {
         return (
-            <>
-                <Header />
-                {/* <Page /> */}
-                <BottomNavigation />
-            </>
+            <Redirect to="/" />
         )
     } else {
         return (

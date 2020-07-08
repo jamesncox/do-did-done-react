@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom';
 import { loginUser, clearIsUserLoading } from '../../actions/users'
 import Copyright from '../Layout/Copyright'
+import { Redirect } from "react-router";
 // import { clearErrors } from '../../actions/errors'
 
 import Header from '../Layout/Header'
@@ -23,10 +24,13 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(14),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        [theme.breakpoints.up('md')]: {
+            marginTop: theme.spacing(16)
+        },
     },
     avatar: {
         margin: theme.spacing(1),
@@ -74,74 +78,80 @@ function SignIn(props) {
         setPassword('')
     }
 
-    return (
-        <>
-            <Header />
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <div className={classes.paper}>
-                    <Title />
-                    <Avatar className={classes.avatar}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign in
+    if (props.loggedIn === true) {
+        return (
+            <Redirect to="/Profile" />
+        )
+    } else {
+        return (
+            <>
+                <Header />
+                <Container component="main" maxWidth="xs">
+                    <CssBaseline />
+                    <div className={classes.paper}>
+                        <Title />
+                        <Avatar className={classes.avatar}>
+                            <LockOutlinedIcon />
+                        </Avatar>
+                        <Typography component="h1" variant="h5">
+                            Sign in
                 </Typography>
-                    <form
-                        className={classes.form}
-                        noValidate
-                        onSubmit={e => handleLogin(e)}
-                    >
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="username"
-                            label="Username"
-                            name="username"
-                            autoComplete="username"
-                            onChange={handleUsername}
-                            value={username}
-                        />
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            onChange={handlePassword}
-                            value={password}
-                            autoComplete="current-password"
-                        />
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
+                        <form
+                            className={classes.form}
+                            noValidate
+                            onSubmit={e => handleLogin(e)}
                         >
-                            Sign In
+                            <TextField
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="username"
+                                label="Username"
+                                name="username"
+                                autoComplete="username"
+                                onChange={handleUsername}
+                                value={username}
+                            />
+                            <TextField
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                onChange={handlePassword}
+                                value={password}
+                                autoComplete="current-password"
+                            />
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
+                            >
+                                Sign In
                     </Button>
-                        <Grid container justify="center">
-                            <Grid item>
-                                <Link component={RouterLink} to="/SignUp">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
+                            <Grid container justify="center">
+                                <Grid item>
+                                    <Link component={RouterLink} to="/SignUp">
+                                        {"Don't have an account? Sign Up"}
+                                    </Link>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </form>
-                </div>
-                <Box mt={8}>
-                    <Copyright />
-                </Box>
-            </Container>
-            <BottomNavigation />
-        </>
-    );
+                        </form>
+                    </div>
+                    <Box mt={8}>
+                        <Copyright />
+                    </Box>
+                </Container>
+                <BottomNavigation />
+            </>
+        )
+    }
 }
 
 const mapStateToProps = state => ({

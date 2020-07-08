@@ -22,10 +22,13 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(14),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        [theme.breakpoints.up('md')]: {
+            marginTop: theme.spacing(16)
+        },
     },
     avatar: {
         margin: theme.spacing(1),

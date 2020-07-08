@@ -67,10 +67,10 @@ function Header(props) {
         }
     }
 
-    const handleLogout = () => {
-        props.clearCurrentUser()
-        props.getToken()
-    }
+    // const handleLogout = () => {
+    //     props.clearCurrentUser()
+    //     props.getToken()
+    // }
 
     // const handleBoth = () => {
     //     handleLogout()
