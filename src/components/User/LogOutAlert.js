@@ -5,7 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     logoutAlert: {
-        marginTop: theme.spacing(2),
+        // position: "fixed",
+        zIndex: "99",
+        marginTop: theme.spacing(20),
         width: "20em",
         margin: "auto"
     }
