@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-
 import { connect } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom';
 import { clearCurrentUser, signupUser } from '../../actions/users'
 import { getToken } from '../../actions/sessions'
+
+import LogOutAlert from '../User/LogOutAlert'
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -53,11 +54,6 @@ const useStyles = makeStyles((theme) => ({
             display: "none",
         }
     },
-    logoutAlert: {
-        marginTop: theme.spacing(20),
-        width: "20em",
-        margin: "auto"
-    }
 }));
 
 function Header(props) {
@@ -238,16 +234,12 @@ function Header(props) {
                         className={classes.userActions}
                         onClick={handleLogoutAlert}
                         color="inherit"
-                    // component={RouterLink}
-                    // to="/Profile"
                     >
                         Log Out
                     </Button>
                 </Toolbar>
             </AppBar>
-            {showLogoutAlert === true ? <Alert severity="warning" className={classes.logoutAlert}>
-                Are you sure you want to log out?
-            </Alert> : null}
+            {showLogoutAlert === true ? <LogOutAlert /> : null}
         </>
     )
 }
