@@ -1,6 +1,11 @@
 # TO DOs
 
 []  Create conditionals to show navigation options for logged in true/false
+    [] No Log Out icon when no one is logged in
+    [] No profile button when no one is logged in
+    [] Add an info icon with info about the app, me, etc.
+    [] What other icons can I think of for navigation?
+[x] Add loggedIn true/false conditionals to SignUp
 [x] Find Material UI that can simulate the lines of pages
     [] looks great, but not sure how to make functional yet
 [x] Create Profile component to welcome User

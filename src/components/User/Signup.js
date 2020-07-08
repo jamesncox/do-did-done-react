@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom';
+import { Redirect } from "react-router";
 import { signupUser, clearIsUserLoading } from '../../actions/users'
 import Copyright from '../Layout/Copyright'
 
@@ -75,88 +76,94 @@ function SignUp(props) {
         setPasswordConfirmation('')
     }
 
-    return (
-        <>
-            <Header />
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <div className={classes.paper}>
-                    <Title />
-                    <Avatar className={classes.avatar}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign up
+    if (props.loggedIn === true) {
+        return (
+            <Redirect to="/Profile" />
+        )
+    } else {
+        return (
+            <>
+                <Header />
+                <Container component="main" maxWidth="xs">
+                    <CssBaseline />
+                    <div className={classes.paper}>
+                        <Title />
+                        <Avatar className={classes.avatar}>
+                            <LockOutlinedIcon />
+                        </Avatar>
+                        <Typography component="h1" variant="h5">
+                            Sign up
                 </Typography>
-                    <form
-                        className={classes.form}
-                        noValidate
-                        onSubmit={e => handleLogin(e)}
-                    >
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="username"
-                            label="Username"
-                            name="username"
-                            autoComplete="username"
-                            onChange={handleUsername}
-                            value={username}
-                        // autoFocus
-                        />
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            onChange={handlePassword}
-                            value={password}
-                            autoComplete="current-password"
-                        />
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="passwordConfirmation"
-                            label="Confirm Password"
-                            type="password"
-                            id="passwordConfirmation"
-                            onChange={handlePasswordConfirmation}
-                            value={passwordConfirmation}
-                            autoComplete="current-password"
-                        />
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
+                        <form
+                            className={classes.form}
+                            noValidate
+                            onSubmit={e => handleLogin(e)}
                         >
-                            Sign Up
+                            <TextField
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="username"
+                                label="Username"
+                                name="username"
+                                autoComplete="username"
+                                onChange={handleUsername}
+                                value={username}
+                            // autoFocus
+                            />
+                            <TextField
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                onChange={handlePassword}
+                                value={password}
+                                autoComplete="current-password"
+                            />
+                            <TextField
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="passwordConfirmation"
+                                label="Confirm Password"
+                                type="password"
+                                id="passwordConfirmation"
+                                onChange={handlePasswordConfirmation}
+                                value={passwordConfirmation}
+                                autoComplete="current-password"
+                            />
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
+                            >
+                                Sign Up
                     </Button>
-                        <Grid container justify="center">
-                            <Grid item>
-                                <Link component={RouterLink} to="/SignIn" variant="body2">
-                                    Already have an account? Sign in
+                            <Grid container justify="center">
+                                <Grid item>
+                                    <Link component={RouterLink} to="/SignIn" variant="body2">
+                                        Already have an account? Sign in
                             </Link>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </form>
-                </div>
-                <Box mt={5}>
-                    <Copyright />
-                </Box>
-            </Container >
-            <BottomNavigation />
-        </>
-    );
+                        </form>
+                    </div>
+                    <Box mt={5}>
+                        <Copyright />
+                    </Box>
+                </Container >
+                <BottomNavigation />
+            </>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
