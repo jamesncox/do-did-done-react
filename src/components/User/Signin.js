@@ -7,6 +7,7 @@ import Copyright from '../Layout/Copyright'
 
 import Header from '../Layout/Header'
 import BottomNavigation from '../Layout/BottomNavigation'
+import Title from '../Layout/Title'
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -38,6 +39,13 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+    title: {
+        fontFamily: "'Nanum Pen Script', cursive",
+        fontSize: "3rem",
+        position: "fixed",
+        top: theme.spacing(2),
+        color: "#448aff"
+    }
 }));
 
 function SignIn(props) {
@@ -71,6 +79,7 @@ function SignIn(props) {
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className={classes.paper}>
+                    <Title />
                     <Avatar className={classes.avatar}>
                         <LockOutlinedIcon />
                     </Avatar>

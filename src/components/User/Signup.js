@@ -6,6 +6,7 @@ import Copyright from '../Layout/Copyright'
 
 import Header from '../Layout/Header'
 import BottomNavigation from '../Layout/BottomNavigation'
+import Title from '../Layout/Title'
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -77,6 +78,7 @@ function SignUp(props) {
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className={classes.paper}>
+                    <Title />
                     <Avatar className={classes.avatar}>
                         <LockOutlinedIcon />
                     </Avatar>
