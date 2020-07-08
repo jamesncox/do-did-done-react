@@ -1,21 +1,16 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 
+import NewCategoryForm from './NewCategoryForm'
+
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 import Paper from '@material-ui/core/Paper';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import RemoveIcon from '@material-ui/icons/Remove'
-import IconButton from '@material-ui/core/IconButton'
 import { Typography } from '@material-ui/core';
-// import { ColorPalette } from 'material-ui-color';
 
 import PostAddIcon from '@material-ui/icons/PostAdd';
 
@@ -100,7 +95,8 @@ function AddCategory(props) {
             >
 
                 <Grid container component={Paper} justify="space-between">
-                    <Typography className={classes.paper}>
+                    <NewCategoryForm />
+                    {/* <Typography className={classes.paper}>
                         Select Category
                     </Typography>
                     <form
@@ -119,8 +115,8 @@ function AddCategory(props) {
                             autoComplete="name"
                             onChange={handleName}
                             value={name}
-                        />
-                        {/* <TextField
+                        /> */}
+                    {/* <TextField
                             // variant="outlined"
                             margin="normal"
                             required
@@ -131,15 +127,15 @@ function AddCategory(props) {
                             onChange={handleStoreType}
                             value={storeType}
                         /> */}
-                        <Typography className={classes.paper}>
+                    {/* <Typography className={classes.paper}>
                             select color for store header
-                        </Typography>
-                        {/* <ColorPalette
+                        </Typography> */}
+                    {/* <ColorPalette
                             palette={palette}
                             onSelect={e => handleColor(e)}
                             size={31}
                         /> */}
-                        <Button
+                    {/* <Button
                             type="submit"
                             fullWidth
                             variant="contained"
@@ -148,7 +144,7 @@ function AddCategory(props) {
                         >
                             Add Category
                     </Button>
-                    </form>
+                    </form> */}
                 </Grid>
                 {/* <Alert className={classes.alert} variant="filled" severity="warning" id="alert-dialog-title">
                     {`${props.user.username}`}
