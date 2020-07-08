@@ -221,7 +221,7 @@ function Header(props) {
                     </Button>
                     <Button
                         className={classes.userActions}
-                        onClick={handleLogout}
+                        // onClick={handleLogout}
                         color="inherit"
                         component={RouterLink}
                         to="/Profile"

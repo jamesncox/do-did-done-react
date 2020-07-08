@@ -32,7 +32,7 @@ function Profile(props) {
         return (
             <>
                 <Header />
-                <Page />
+                {/* <Page /> */}
                 <BottomNavigation />
             </>
         )

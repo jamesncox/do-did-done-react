@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { clearCurrentUser } from '../../actions/users'
+import { getToken } from '../../actions/sessions'
+
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -26,7 +29,13 @@ function LogOutAlert(props) {
 
     const handleClose = () => {
         setOpen(false);
-    };
+    }
+
+    const handleLogout = () => {
+        props.clearCurrentUser()
+        props.getToken()
+    }
+
 
     return (
         <div>
@@ -46,7 +55,7 @@ function LogOutAlert(props) {
                     </DialogContentText>
                 </DialogActions>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleLogout} color="primary">
                         Yes
                     </Button>
                     <Button onClick={handleClose} color="primary" autoFocus>
@@ -59,7 +68,8 @@ function LogOutAlert(props) {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.users.user
+    user: state.users.user,
+    token: state.sessions.token,
 })
 
-export default connect(mapStateToProps)(LogOutAlert)
+export default connect(mapStateToProps, { clearCurrentUser, getToken })(LogOutAlert)
