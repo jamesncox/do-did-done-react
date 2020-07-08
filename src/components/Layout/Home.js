@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
                 margin: "auto"
             },
             [theme.breakpoints.up('xl')]: {
-                width: "40vw",
+                width: "35vw",
                 margin: "auto"
             },
         },
@@ -60,6 +60,11 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('lg')]: {
             width: "20%",
             marginLeft: "11%",
+            marginTop: "8%",
+        },
+        [theme.breakpoints.up('xl')]: {
+            width: "20%",
+            marginLeft: "9%",
             marginTop: "8%",
         },
     },
@@ -99,7 +104,7 @@ function Home(props) {
 
     return (
         <div className={classes.root}>
-            <Paper style={{ backgroundImage: `url("${CompositionJournal}")` }}>
+            <Paper style={{ backgroundImage: `url("${CompositionJournal}")`, borderRadius: "1.5rem" }}>
                 <Paper className={classes.whiteBox}>
                     <div className={classes.whiteBoxBorder}>
                         <h1 className={classes.title}>
