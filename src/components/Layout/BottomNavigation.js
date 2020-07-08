@@ -16,13 +16,14 @@ const useStyles = makeStyles((theme) => ({
         position: "fixed",
         bottom: "0",
         overflow: "hidden",
-        backgroundColor: "#e0e0e0",
+        backgroundColor: "#448aff",
         [theme.breakpoints.up('md')]: {
             display: "none",
         },
     },
     icons: {
-        color: "#757575",
+        // color: "#757575",
+        color: "white",
     },
     personIcon: {
         fontSize: "1.5rem"

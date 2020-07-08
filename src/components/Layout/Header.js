@@ -19,6 +19,7 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        backgroundColor: "#448aff",
         [theme.breakpoints.down('sm')]: {
             display: "none",
         }
