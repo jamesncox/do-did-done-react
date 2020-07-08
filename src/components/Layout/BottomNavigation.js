@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     icons: {
-        // color: "#757575",
         color: "white",
     },
     personIcon: {
