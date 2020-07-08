@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { withStyles } from '@material-ui/core/styles';
 
 function Alert(props) {
 
