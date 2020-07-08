@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
-import Alert from '../User/Alert'
+import LogOutAlert from '../User/LogOutAlert'
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -78,7 +78,7 @@ export default function LabelBottomNavigation() {
                     className={classes.icons}
                     label="Log Out"
                     value="logout"
-                    icon={<Alert />}
+                    icon={<LogOutAlert />}
                     onClick={handleLogoutAlert}
                 />
             </BottomNavigation>
