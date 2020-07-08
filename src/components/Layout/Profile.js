@@ -18,7 +18,10 @@ const useStyles = makeStyles((theme) => ({
         // position: "fixed",
         // top: theme.spacing(2),
         color: "#448aff",
-        textAlign: "Center"
+        textAlign: "Center",
+        [theme.breakpoints.up('sm')]: {
+            display: "none",
+        }
     }
 }))
 

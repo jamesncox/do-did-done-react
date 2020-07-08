@@ -30,6 +30,11 @@ const useStyles = makeStyles((theme) => ({
     },
     homeIcon: {
         fontSize: "1.5rem"
+    },
+    logoutAlert: {
+        marginTop: theme.spacing(2),
+        width: "20em",
+        margin: "auto"
     }
 }));
 
@@ -80,7 +85,7 @@ export default function LabelBottomNavigation() {
                     icon={<FolderIcon />}
                 />
             </BottomNavigation>
-            {showLogoutAlert === true ? <Alert severity="warning">
+            {showLogoutAlert === true ? <Alert className={classes.logoutAlert} severity="warning">
                 Are you sure you want to log out?
             </Alert> : null}
         </>

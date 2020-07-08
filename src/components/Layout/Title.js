@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         position: "fixed",
         top: theme.spacing(1),
         color: "#448aff"
-    }
+    },
 }));
 
 export default function Title(props) {

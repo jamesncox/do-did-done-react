@@ -11,6 +11,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Alert from '@material-ui/lab/Alert';
 import Fab from '@material-ui/core/Fab';
 
 const useStyles = makeStyles((theme) => ({
@@ -52,30 +53,35 @@ const useStyles = makeStyles((theme) => ({
             display: "none",
         }
     },
+    logoutAlert: {
+        marginTop: theme.spacing(20),
+        width: "20em",
+        margin: "auto"
+    }
 }));
 
 function Header(props) {
     const classes = useStyles();
 
-    const [anchorEl, setAnchorEl] = useState(null);
+    const [showLogoutAlert, setShowLogoutAlert] = useState(false)
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const handleLogoutAlert = () => {
+        if (!showLogoutAlert) {
+            setShowLogoutAlert(true)
+        } else {
+            setShowLogoutAlert(false)
+        }
+    }
 
     const handleLogout = () => {
         props.clearCurrentUser()
         props.getToken()
     }
 
-    const handleBoth = () => {
-        handleLogout()
-        handleClose()
-    }
+    // const handleBoth = () => {
+    //     handleLogout()
+    //     handleClose()
+    // }
 
     const randomNumber = () => {
         const rand = Math.floor((Math.random() * 1000000) + 1)
@@ -100,7 +106,7 @@ function Header(props) {
             password_confirmation: "guest"
         }
         props.signupUser(props.token, user)
-        setAnchorEl(null);
+        // setAnchorEl(null);
     }
 
     // if (props.loggedIn === false) {
@@ -228,8 +234,20 @@ function Header(props) {
                     >
                         Profile
                     </Button>
+                    <Button
+                        className={classes.userActions}
+                        onClick={handleLogoutAlert}
+                        color="inherit"
+                    // component={RouterLink}
+                    // to="/Profile"
+                    >
+                        Log Out
+                    </Button>
                 </Toolbar>
             </AppBar>
+            {showLogoutAlert === true ? <Alert severity="warning" className={classes.logoutAlert}>
+                Are you sure you want to log out?
+            </Alert> : null}
         </>
     )
 }
