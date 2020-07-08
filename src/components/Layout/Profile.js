@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import Header from './Header'
 import BottomNavigation from './BottomNavigation'
 import Page from './Page'
-import NotebookPaper from '../../assets/notebook-paper.jpg'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';

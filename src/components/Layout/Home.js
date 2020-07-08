@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import CompositionJournal from '../../assets/composition_background.jpg'
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -96,43 +97,83 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: "bold",
         marginTop: "1rem",
         float: "right"
+    },
+    profileButton: {
+        fontFamily: "'Nanum Pen Script', cursive",
+        fontSize: "2em",
+        fontWeight: "bold",
+    },
+    alignCenter: {
+        textAlign: "center",
     }
 }));
 
 function Home(props) {
     const classes = useStyles();
 
-    return (
-        <div className={classes.root}>
-            <Paper style={{ backgroundImage: `url("${CompositionJournal}")`, borderRadius: "1.5rem" }}>
-                <Paper className={classes.whiteBox}>
-                    <div className={classes.whiteBoxBorder}>
-                        <h1 className={classes.title}>
-                            Git-R-Done
-                        </h1>
-                        <Button
-                            className={classes.signInButton}
-                            color="primary"
-                            component={RouterLink}
-                            to="/SignIn"
-                        >
-                            Sign In
-                        </Button>
-                        <Button
-                            className={classes.signUpButton}
-                            color="secondary"
-                            component={RouterLink}
-                            to="/SignUp"
-                        >
-                            Sign Up
-                        </Button>
-                    </div>
+    if (props.loggedIn === false) {
+        return (
+            <div className={classes.root}>
+                <Paper style={{ backgroundImage: `url("${CompositionJournal}")`, borderRadius: "1.5rem" }}>
+                    <Paper className={classes.whiteBox}>
+                        <div className={classes.whiteBoxBorder}>
+                            <h1 className={classes.title}>
+                                Git-R-Done
+                            </h1>
+                            <Button
+                                className={classes.signInButton}
+                                color="primary"
+                                component={RouterLink}
+                                to="/SignIn"
+                            >
+                                Sign In
+                            </Button>
+                            <Button
+                                className={classes.signUpButton}
+                                color="secondary"
+                                component={RouterLink}
+                                to="/SignUp"
+                            >
+                                Sign Up
+                            </Button>
+                        </div>
+                    </Paper>
+                    <Paper className={classes.blackBorder} />
+                    <Copyright />
                 </Paper>
-                <Paper className={classes.blackBorder} />
-                <Copyright />
-            </Paper>
-        </div >
-    )
+            </div >
+        )
+    } else {
+        return (
+            <div className={classes.root}>
+                <Paper style={{ backgroundImage: `url("${CompositionJournal}")`, borderRadius: "1.5rem" }}>
+                    <Paper className={classes.whiteBox}>
+                        <div className={classes.whiteBoxBorder}>
+                            <h1 className={classes.title}>
+                                Git-R-Done
+                            </h1>
+                            <div className={classes.alignCenter}>
+                                <Button
+                                    className={classes.profileButton}
+                                    color="primary"
+                                    component={RouterLink}
+                                    to="/Profile"
+                                >
+                                    Profile
+                                </Button>
+                            </div>
+                        </div>
+                    </Paper>
+                    <Paper className={classes.blackBorder} />
+                    <Copyright />
+                </Paper>
+            </div >
+        )
+    }
 }
 
-export default Home
+const mapStateToProps = (state) => ({
+    loggedIn: state.users.loggedIn
+})
+
+export default connect(mapStateToProps)(Home)
