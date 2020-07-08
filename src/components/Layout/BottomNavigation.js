@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
+import LogOutAlert from '../User/LogOutAlert'
+
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import Alert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 
 import FolderIcon from '@material-ui/icons/Folder';
@@ -31,11 +32,6 @@ const useStyles = makeStyles((theme) => ({
     homeIcon: {
         fontSize: "1.5rem"
     },
-    logoutAlert: {
-        marginTop: theme.spacing(2),
-        width: "20em",
-        margin: "auto"
-    }
 }));
 
 export default function LabelBottomNavigation() {
@@ -58,6 +54,7 @@ export default function LabelBottomNavigation() {
 
     return (
         <>
+            {showLogoutAlert === true ? <LogOutAlert /> : null}
             <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
                 <BottomNavigationAction
                     className={classes.icons}
@@ -73,21 +70,18 @@ export default function LabelBottomNavigation() {
                 />
                 <BottomNavigationAction
                     className={classes.icons}
+                    label="Folder"
+                    value="folder"
+                    icon={<FolderIcon />}
+                />
+                <BottomNavigationAction
+                    className={classes.icons}
                     label="Log Out"
                     value="logout"
                     icon={<ExitToAppIcon />}
                     onClick={handleLogoutAlert}
                 />
-                <BottomNavigationAction
-                    className={classes.icons}
-                    label="Folder"
-                    value="folder"
-                    icon={<FolderIcon />}
-                />
             </BottomNavigation>
-            {showLogoutAlert === true ? <Alert className={classes.logoutAlert} severity="warning">
-                Are you sure you want to log out?
-            </Alert> : null}
         </>
     );
 }
