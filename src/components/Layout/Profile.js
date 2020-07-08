@@ -53,6 +53,7 @@ function Profile(props) {
             <Divider className={classes.blueDivider} />
             <Divider className={classes.blueDivider} />
             <Divider className={classes.blueDivider} />
+            <Divider className={classes.blueDivider} />
             <BottomNavigation />
         </>
     )
