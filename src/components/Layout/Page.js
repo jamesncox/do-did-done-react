@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     topDivider: {
         backgroundColor: "#81d4fa",
         opacity: "50%",
-        marginTop: theme.spacing(6),
+        marginTop: theme.spacing(10),
         marginBottom: theme.spacing(5),
     },
     blueDivider: {
@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
         opacity: "20%",
         marginLeft: "4rem",
         position: "absolute",
-        top: "0"
+        top: "0",
+        bottom: "0"
     }
 
 }))
@@ -32,6 +33,7 @@ function Page(props) {
         <>
             <Divider className={classes.redDivider} orientation="vertical" />
             <Divider className={classes.topDivider} />
+            <Divider className={classes.blueDivider} />
             <Divider className={classes.blueDivider} />
             <Divider className={classes.blueDivider} />
             <Divider className={classes.blueDivider} />
