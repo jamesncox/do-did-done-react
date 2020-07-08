@@ -17,22 +17,22 @@ const useStyles = makeStyles((theme) => ({
             margin: ".1rem",
             width: "99vw",
             height: "98vh",
-            [theme.breakpoints.up('xl')]: {
-                width: "40vw",
-                margin: "auto"
-            },
-            [theme.breakpoints.up('lg')]: {
-                width: "40vw",
+            [theme.breakpoints.up('sm')]: {
+                width: "70vw",
                 margin: "auto"
             },
             [theme.breakpoints.up('md')]: {
                 width: "50vw",
                 margin: "auto"
             },
-            [theme.breakpoints.up('sm')]: {
-                width: "70vw",
+            [theme.breakpoints.up('lg')]: {
+                width: "40vw",
                 margin: "auto"
-            }
+            },
+            [theme.breakpoints.up('xl')]: {
+                width: "40vw",
+                margin: "auto"
+            },
         },
     },
     blackBorder: {
@@ -47,21 +47,21 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: "20%",
         marginTop: "20%",
         position: "absolute",
-        [theme.breakpoints.up('lg')]: {
-            width: "20%",
-            marginLeft: "11%",
-            marginTop: "8%",
+        [theme.breakpoints.up('sm')]: {
+            width: "45%",
+            marginLeft: "15%",
+            marginTop: "10%",
         },
         [theme.breakpoints.up('md')]: {
             width: "30%",
             marginLeft: "11%",
             marginTop: "8%",
         },
-        [theme.breakpoints.up('sm')]: {
-            width: "45%",
-            marginLeft: "15%",
-            marginTop: "10%",
-        }
+        [theme.breakpoints.up('lg')]: {
+            width: "20%",
+            marginLeft: "11%",
+            marginTop: "8%",
+        },
     },
     whiteBoxBorder: {
         border: "solid black 2px",
