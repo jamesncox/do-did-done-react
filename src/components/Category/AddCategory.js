@@ -86,9 +86,7 @@ function AddCategory(props) {
             userId: props.user.id
         }
 
-        console.log(category)
-
-        // props.createCategory(category)
+        props.createCategory(category)
         setName("")
         setColor("")
     }
@@ -144,4 +142,4 @@ const mapStateToProps = (state) => ({
     user: state.users.user
 })
 
-export default connect(mapStateToProps)(AddCategory)
+export default connect(mapStateToProps, { createCategory })(AddCategory)

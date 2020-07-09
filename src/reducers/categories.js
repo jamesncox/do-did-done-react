@@ -25,6 +25,7 @@ export default (state = {
             return { ...state, categories: action.payload, loadingCategories: false }
 
         case CREATE_CATEGORY:
+            console.log(action.payload)
             return { ...state, categories: [...state.categories, action.payload], loadingSingleCategory: false }
 
         default:
