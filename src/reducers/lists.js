@@ -22,7 +22,6 @@ export default (state = {
             return { ...state, lists: [...state.lists], loadingSingleList: true }
 
         case SET_LISTS:
-            console.log(action.payload)
             return { ...state, lists: action.payload, loadingLists: false }
 
         case CREATE_LIST:

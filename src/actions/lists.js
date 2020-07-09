@@ -13,6 +13,7 @@ const setLists = lists => {
 }
 
 export const getLists = (id) => {
+
     return async dispatch => {
 
         dispatch({ type: LOADING_LISTS })
