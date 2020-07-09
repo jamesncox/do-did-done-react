@@ -12,6 +12,13 @@ function MyLists(props) {
 
     const renderLists = (id) => {
         const userLists = props.lists.filter(list => list.user_id === id)
+        userLists.map(list => {
+            return (
+                <Paper>
+                    {list.category}
+                </Paper>
+            )
+        })
     }
 
     const hasLists = props.lists.filter(list => list.user_id === props.user.id)
