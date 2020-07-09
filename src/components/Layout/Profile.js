@@ -5,7 +5,7 @@ import { getCategories } from '../../actions/categories'
 
 import Header from './Header'
 import BottomNavigation from './BottomNavigation'
-// import Page from './Page'
+import MyCategory from '../Category/MyCategories'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -48,7 +48,7 @@ function Profile(props) {
                 <Typography className={classes.header}>
                     Welcome, {props.user.username}
                 </Typography>
-
+                <MyCategory />
                 <BottomNavigation />
             </div>
         )
