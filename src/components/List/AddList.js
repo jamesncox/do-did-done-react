@@ -97,6 +97,7 @@ function AddList(props) {
         props.createList(list)
         setCategory("")
         setColor("")
+        setOpen(false);
     }
 
     return (

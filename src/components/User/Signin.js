@@ -23,7 +23,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
-    paper: {
+    root: {
         marginTop: theme.spacing(14),
         display: 'flex',
         flexDirection: 'column',
@@ -88,7 +88,7 @@ function SignIn(props) {
                 <Header />
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
-                    <div className={classes.paper}>
+                    <div className={classes.root}>
                         <Title />
                         <Avatar className={classes.avatar}>
                             <LockOutlinedIcon />

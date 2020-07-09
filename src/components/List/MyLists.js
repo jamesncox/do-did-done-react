@@ -6,6 +6,15 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        marginTop: theme.spacing(4),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        [theme.breakpoints.up('md')]: {
+            marginTop: theme.spacing(16)
+        },
+    },
     category: {
         width: "75%",
         height: "3rem",
@@ -14,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center",
         color: "white",
         fontFamily: "'Nanum Pen Script', cursive",
-        margin: theme.spacing(2)
+        margin: theme.spacing(1)
     }
 
 }))
@@ -25,13 +34,17 @@ function MyLists(props) {
     const renderLists = (id) => {
         const userLists = props.lists.filter(list => list.user_id === id)
         return (
-            userLists.map(list => {
-                return (
-                    <Paper key={list.id} className={classes.category} style={{ backgroundColor: `${list.color}` }}>
-                        {list.category}
-                    </Paper>
-                )
-            })
+            <div className={classes.root}>
+                {userLists.map(list => {
+                    return (
+
+                        <Button key={list.id} className={classes.category} style={{ backgroundColor: `${list.color}` }}>
+                            {list.category}
+                        </Button>
+
+                    )
+                })}
+            </div>
         )
     }
 
