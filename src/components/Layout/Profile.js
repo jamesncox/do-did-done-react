@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#448aff",
         textAlign: "Center",
         [theme.breakpoints.up('md')]: {
-            display: "none",
+            marginTop: "1.5em",
         }
     }
 }))
