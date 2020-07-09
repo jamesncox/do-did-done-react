@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
+        backgroundColor: "#0d47a1"
     },
 }));
 
@@ -146,7 +147,7 @@ function SignUp(props) {
                                 className={classes.submit}
                             >
                                 Sign Up
-                    </Button>
+                            </Button>
                             <Grid container justify="center">
                                 <Grid item>
                                     <Link component={RouterLink} to="/SignIn" variant="body2">
