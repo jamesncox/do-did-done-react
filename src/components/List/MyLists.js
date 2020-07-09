@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 function MyLists(props) {
 
     const renderLists = (id) => {
-        const userCategories = props.categories.filter(list => list.user_id === id)
+        const userLists = props.lists.filter(list => list.user_id === id)
     }
 
     const hasLists = props.lists.filter(list => list.user_id === props.user.id)
