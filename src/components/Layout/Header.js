@@ -52,20 +52,13 @@ const useStyles = makeStyles((theme) => ({
             display: "none",
         }
     },
+    logoutIcon: {
+        fontSize: "1.5rem"
+    }
 }));
 
 function Header(props) {
     const classes = useStyles();
-
-    const [showLogoutAlert, setShowLogoutAlert] = useState(false)
-
-    const handleLogoutAlert = () => {
-        if (!showLogoutAlert) {
-            setShowLogoutAlert(true)
-        } else {
-            setShowLogoutAlert(false)
-        }
-    }
 
     // const handleLogout = () => {
     //     props.clearCurrentUser()
@@ -228,16 +221,9 @@ function Header(props) {
                     >
                         Profile
                     </Button>
-                    <Button
-                        className={classes.userActions}
-                        onClick={handleLogoutAlert}
-                        color="inherit"
-                    >
-                        Log Out
-                    </Button>
+                    <LogOutAlert />
                 </Toolbar>
             </AppBar>
-            {showLogoutAlert === true ? <LogOutAlert /> : null}
         </>
     )
 }

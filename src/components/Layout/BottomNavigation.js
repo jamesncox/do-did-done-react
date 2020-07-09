@@ -43,13 +43,13 @@ export default function LabelBottomNavigation() {
         setValue(newValue);
     };
 
-    const handleLogoutAlert = () => {
-        if (!showLogoutAlert) {
-            setShowLogoutAlert(true)
-        } else {
-            setShowLogoutAlert(false)
-        }
-    }
+    // const handleLogoutAlert = () => {
+    //     if (!showLogoutAlert) {
+    //         setShowLogoutAlert(true)
+    //     } else {
+    //         setShowLogoutAlert(false)
+    //     }
+    // }
 
     return (
         <>
@@ -77,7 +77,6 @@ export default function LabelBottomNavigation() {
                     label="Log Out"
                     value="logout"
                     icon={<LogOutAlert />}
-                    onClick={handleLogoutAlert}
                 />
             </BottomNavigation>
         </>

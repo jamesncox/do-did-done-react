@@ -15,6 +15,12 @@ const useStyles = makeStyles((theme) => ({
     alert: {
         borderRadius: "0",
         backgroundColor: "#ff9100"
+    },
+    icon: {
+        [theme.breakpoints.up('md')]: {
+            fontSize: "2.5em",
+            cursor: "pointer",
+        },
     }
 }))
 
@@ -39,7 +45,7 @@ function LogOutAlert(props) {
 
     return (
         <div>
-            <ExitToAppIcon onClick={handleClickOpen} />
+            <ExitToAppIcon onClick={handleClickOpen} className={classes.icon} />
             <Dialog
                 open={open}
                 onClose={handleClose}
