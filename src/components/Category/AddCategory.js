@@ -1,52 +1,41 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 
-import NewCategoryForm from './NewCategoryForm'
-
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
-
-import Grid from '@material-ui/core/Grid'
-import TextField from '@material-ui/core/TextField'
-import Paper from '@material-ui/core/Paper';
-import { Typography } from '@material-ui/core';
 
 import PostAddIcon from '@material-ui/icons/PostAdd';
 
 const useStyles = makeStyles((theme) => ({
-    paper: {
-        padding: theme.spacing(1),
-        margin: 'auto',
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
+    root: {
+
     },
-    form: {
-        width: '95%',
-        margin: 'auto',
-        marginTop: theme.spacing(1)
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
     },
-    submit: {
-        margin: theme.spacing(5, 0, 2),
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
     },
-    loader: {
-        margin: 'auto',
-        padding: '5em',
-    },
-    progressBar: {
-        margin: 'auto',
-        marginTop: theme.spacing(2),
-        width: '20em',
-        height: "1.5em",
-        backgroundColor: theme.palette.primary.main,
-        borderRadius: "20px",
-    }
 }))
 
 function AddCategory(props) {
     const classes = useStyles();
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [category, setCategory] = useState('');
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -54,35 +43,36 @@ function AddCategory(props) {
 
     const handleClose = () => {
         setOpen(false);
+        setCategory('')
     }
 
-    const [name, setName] = useState("")
-    const [storeType, setStoreType] = useState("")
-    const [color, setColor] = useState("")
+    // const handleName = (e) => {
+    //     setName(e.target.value)
+    // }
 
-    const handleName = (e) => {
-        setName(e.target.value)
-    }
+    // const handleColor = (color) => {
+    //     setColor(color)
+    // }
 
-    const handleColor = (color) => {
-        setColor(color)
-    }
+    const handleChange = (event) => {
+        setCategory(event.target.value);
+    };
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
 
-        const store = {
-            name: name,
-            storeType: storeType,
-            color: color,
-            userId: props.user.id
-        }
+    //     const store = {
+    //         name: name,
+    //         storeType: storeType,
+    //         color: color,
+    //         userId: props.user.id
+    //     }
 
-        props.createStore(store)
-        setName("")
-        setStoreType("")
-        setColor("")
-    }
+    //     props.createStore(store)
+    //     setName("")
+    //     setStoreType("")
+    //     setColor("")
+    // }
 
     return (
         <div>
@@ -93,75 +83,38 @@ function AddCategory(props) {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-
                 <Grid container component={Paper} justify="space-between">
-                    <NewCategoryForm />
-                    {/* <Typography className={classes.paper}>
-                        Select Category
-                    </Typography>
-                    <form
-                        className={classes.form}
-                        noValidate
-                        onSubmit={e => handleSubmit(e)}
-                    >
-                        <TextField
-                            // variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="name"
-                            label="Category name"
-                            name="name"
-                            autoComplete="name"
-                            onChange={handleName}
-                            value={name}
-                        /> */}
-                    {/* <TextField
-                            // variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="storeType"
-                            label="Store Type (e.g. grocery)"
-                            name="storeType"
-                            onChange={handleStoreType}
-                            value={storeType}
-                        /> */}
-                    {/* <Typography className={classes.paper}>
-                            select color for store header
-                        </Typography> */}
-                    {/* <ColorPalette
-                            palette={palette}
-                            onSelect={e => handleColor(e)}
-                            size={31}
-                        /> */}
-                    {/* <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                        >
-                            Add Category
-                    </Button>
-                    </form> */}
+                    <DialogTitle>Select Category</DialogTitle>
+                    <DialogContent>
+                        <form className={classes.container}>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel id="demo-dialog-select-label">Categories</InputLabel>
+                                <Select
+                                    labelId="demo-dialog-select-label"
+                                    id="demo-dialog-select"
+                                    value={category}
+                                    onChange={handleChange}
+                                    input={<Input />}
+                                >
+                                    <MenuItem value={"Work"}>Work</MenuItem>
+                                    <MenuItem value={"Family"}>Family</MenuItem>
+                                    <MenuItem value={"Chores"}>Chores</MenuItem>
+                                    <MenuItem value={"Fun"}>Fun</MenuItem>
+                                    <MenuItem value={"Wellness"}>Wellness</MenuItem>
+                                    <MenuItem value={"Dreading"}>Dreading</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </form>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Ok
+                        </Button>
+                        <Button onClick={handleClose} color="primary">
+                            Cancel
+                        </Button>
+                    </DialogActions>
                 </Grid>
-                {/* <Alert className={classes.alert} variant="filled" severity="warning" id="alert-dialog-title">
-                    {`${props.user.username}`}
-                </Alert>
-                <DialogActions>
-                    <DialogContentText id="alert-dialog-description">
-                        Are you sure you want to log out?
-                    </DialogContentText>
-                </DialogActions>
-                <DialogActions>
-                    <Button onClick={handleLogout} color="primary">
-                        Yes
-                    </Button>
-                    <Button onClick={handleClose} color="primary" autoFocus>
-                        No
-                    </Button>
-                </DialogActions> */}
             </Dialog>
         </div>
     );

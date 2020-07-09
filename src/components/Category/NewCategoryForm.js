@@ -15,7 +15,7 @@ import Select from '@material-ui/core/Select';
 const useStyles = makeStyles((theme) => ({
     container: {
         display: 'flex',
-        // flexWrap: 'wrap',
+        flexWrap: 'wrap',
     },
     formControl: {
         margin: theme.spacing(1),
