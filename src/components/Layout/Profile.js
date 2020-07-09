@@ -1,6 +1,7 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react'
+import { connect, useDispatch } from 'react-redux'
 import { Redirect } from "react-router";
+import { getCategories } from '../../actions/categories'
 
 import Header from './Header'
 import BottomNavigation from './BottomNavigation'
@@ -28,7 +29,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 function Profile(props) {
+    const dispatch = useDispatch()
     const classes = useStyles();
+
+    useEffect(() => {
+        dispatch(getCategories(props.user.id))
+        // dispatch(getItems(props.user.id))
+    }, [dispatch, props.user.id])
+
     if (props.loggedIn === false) {
         return (
             <Redirect to="/" />
@@ -52,4 +60,4 @@ const mapStateToProps = (state) => ({
     loggedIn: state.users.loggedIn
 })
 
-export default connect(mapStateToProps)(Profile)
+export default connect(mapStateToProps, { getCategories })(Profile)
