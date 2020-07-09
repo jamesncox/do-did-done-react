@@ -23,7 +23,6 @@ export const getCategories = (id) => {
                 throw res
             }
             const categoryData = await res.json()
-            console.log(categoryData)
             dispatch(setCategories(categoryData))
 
         } catch (err) {
