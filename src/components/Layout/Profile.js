@@ -11,16 +11,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-
-    },
     header: {
         fontFamily: "'Nanum Pen Script', cursive",
         fontSize: "3rem",
         // position: "fixed",
         // top: theme.spacing(2),
-        color: "#448aff",
-        textAlign: "Center",
+        color: "rgba(27, 27, 27, .8)",
+        textAlign: "center",
         [theme.breakpoints.up('md')]: {
             marginTop: "1.5em",
         }

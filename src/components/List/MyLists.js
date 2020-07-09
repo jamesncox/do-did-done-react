@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,6 +15,13 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             marginTop: theme.spacing(2)
         },
+    },
+    header: {
+        color: "rgba(27, 27, 27, .5)",
+        textAlign: "center",
+        fontFamily: "'Nanum Pen Script', cursive",
+        // fontWeight: "bold",
+        fontSize: "1.8rem",
     },
     category: {
         width: "75%",
@@ -41,13 +49,14 @@ function MyLists(props) {
         const userLists = props.lists.filter(list => list.user_id === id)
         return (
             <div className={classes.root}>
+                <Typography className={classes.header}>
+                    Git-R-Do Lists
+                </Typography>
                 {userLists.map(list => {
                     return (
-
                         <Button key={list.id} className={classes.category} style={{ backgroundColor: `${list.color}` }}>
                             {list.category}
                         </Button>
-
                     )
                 })}
             </div>
