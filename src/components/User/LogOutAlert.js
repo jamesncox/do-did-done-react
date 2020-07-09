@@ -10,6 +10,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
     alert: {
@@ -20,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             fontSize: "2.5em",
             cursor: "pointer",
+            marginLeft: theme.spacing(1)
         },
     }
 }))
@@ -45,7 +47,9 @@ function LogOutAlert(props) {
 
     return (
         <div>
-            <ExitToAppIcon onClick={handleClickOpen} className={classes.icon} />
+            <Tooltip title="Log Out">
+                <ExitToAppIcon onClick={handleClickOpen} className={classes.icon} />
+            </Tooltip>
             <Dialog
                 open={open}
                 onClose={handleClose}

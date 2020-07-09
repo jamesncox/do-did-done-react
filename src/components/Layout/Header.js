@@ -5,6 +5,7 @@ import { clearCurrentUser, signupUser } from '../../actions/users'
 import { getToken } from '../../actions/sessions'
 
 import LogOutAlert from '../User/LogOutAlert'
+import AddList from '../List/AddList'
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -221,6 +222,7 @@ function Header(props) {
                     >
                         Profile
                     </Button>
+                    <AddList />
                     <LogOutAlert />
                 </Toolbar>
             </AppBar>

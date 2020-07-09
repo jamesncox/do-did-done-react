@@ -14,6 +14,7 @@ import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles } from '@material-ui/core/styles';
 
 import PostAddIcon from '@material-ui/icons/PostAdd';
@@ -30,6 +31,13 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
         minWidth: 120,
     },
+    icon: {
+        [theme.breakpoints.up('md')]: {
+            fontSize: "2.5em",
+            cursor: "pointer",
+            marginLeft: theme.spacing(1)
+        },
+    }
 }))
 
 function AddList(props) {
@@ -93,7 +101,9 @@ function AddList(props) {
 
     return (
         <div>
-            <PostAddIcon onClick={handleClickOpen} />
+            <Tooltip title="Add List">
+                <PostAddIcon className={classes.icon} onClick={handleClickOpen} />
+            </Tooltip>
             <Dialog
                 open={open}
                 onClose={handleClose}

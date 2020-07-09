@@ -48,7 +48,7 @@ function Profile(props) {
                 <Typography className={classes.header}>
                     Welcome, {props.user.username}
                 </Typography>
-                {/* <MyLists /> */}
+                <MyLists />
                 <BottomNavigation />
             </div>
         )
