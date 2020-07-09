@@ -23,7 +23,7 @@ export const getLists = (id) => {
                 throw res
             }
             const listData = await res.json()
-            dispatch(setLists(categoryData))
+            dispatch(setLists(listData))
 
         } catch (err) {
             console.log(err)
@@ -31,12 +31,12 @@ export const getLists = (id) => {
     }
 }
 
-export const createCategory = (category) => {
+export const createList = (list) => {
     return async (dispatch) => {
         dispatch({ type: LOADING_SINGLE_LIST })
 
         const formData = {
-            name: list.name,
+            category: list.category,
             color: list.color,
             user_id: list.userId
         }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import LogOutAlert from '../User/LogOutAlert'
-import AddCategory from '../Category/AddCategory'
+import AddList from '../List/AddList'
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -69,8 +69,8 @@ export default function LabelBottomNavigation() {
                 <BottomNavigationAction
                     className={classes.icons}
                     label="Add List"
-                    value="addCategory"
-                    icon={<AddCategory />}
+                    value="addList"
+                    icon={<AddList />}
                 />
                 <BottomNavigationAction
                     className={classes.icons}

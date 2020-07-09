@@ -8,23 +8,23 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function MyCategories(props) {
+function MyLists(props) {
 
-    const renderCategoryLists = (id) => {
-        const userCategories = props.categories.filter(category => category.user_id === id)
+    const renderLists = (id) => {
+        const userCategories = props.categories.filter(list => list.user_id === id)
     }
 
-    const hasCategories = props.categories.filter(category => category.user_id === props.user.id)
-    if (hasCategories.length === 0) {
+    const hasLists = props.lists.filter(list => list.user_id === props.user.id)
+    if (hasLists.length === 0) {
         return <h1> No Lists Yet </h1>
     } else {
-        return renderCategoryLists(props.user.id)
+        return renderLists(props.user.id)
     }
 }
 
 const mapStateToProps = (state) => ({
     user: state.users.user,
-    categories: state.categories.categories
+    lists: state.lists.lists
 })
 
-export default connect(mapStateToProps)(MyCategories)
+export default connect(mapStateToProps)(MyLists)

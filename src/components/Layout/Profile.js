@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { Redirect } from "react-router";
-import { getCategories } from '../../actions/categories'
+import { getLists } from '../../actions/lists'
 
 import Header from './Header'
 import BottomNavigation from './BottomNavigation'
-import MyCategories from '../Category/MyCategories'
+import MyLists from '../List/MyLists'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -33,7 +33,7 @@ function Profile(props) {
     const classes = useStyles();
 
     useEffect(() => {
-        dispatch(getCategories(props.user.id))
+        dispatch(getLists(props.user.id))
         // dispatch(getItems(props.user.id))
     }, [dispatch, props.user.id])
 
@@ -48,7 +48,7 @@ function Profile(props) {
                 <Typography className={classes.header}>
                     Welcome, {props.user.username}
                 </Typography>
-                <MyCategories />
+                <MyLists />
                 <BottomNavigation />
             </div>
         )
@@ -60,4 +60,4 @@ const mapStateToProps = (state) => ({
     loggedIn: state.users.loggedIn
 })
 
-export default connect(mapStateToProps, { getCategories })(Profile)
+export default connect(mapStateToProps, { getLists })(Profile)

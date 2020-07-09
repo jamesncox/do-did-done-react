@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
-import { createCategory } from '../../actions/categories'
+import { createList } from '../../actions/lists'
 
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper';
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-function AddCategory(props) {
+function AddList(props) {
     const classes = useStyles();
 
     const [open, setOpen] = useState(false);
@@ -80,13 +80,13 @@ function AddCategory(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const category = {
-            name: name,
+        const list = {
+            category: category,
             color: color,
             userId: props.user.id
         }
 
-        props.createCategory(category)
+        props.createList(list)
         setName("")
         setColor("")
     }
@@ -101,7 +101,7 @@ function AddCategory(props) {
                 aria-describedby="alert-dialog-description"
             >
                 <Grid container component={Paper} justify="space-between">
-                    <DialogTitle>Select Category</DialogTitle>
+                    <DialogTitle>Select List Category</DialogTitle>
                     <DialogContent>
                         <form className={classes.container}>
                             <FormControl className={classes.formControl}>
@@ -142,4 +142,4 @@ const mapStateToProps = (state) => ({
     user: state.users.user
 })
 
-export default connect(mapStateToProps, { createCategory })(AddCategory)
+export default connect(mapStateToProps, { createList })(AddList)
