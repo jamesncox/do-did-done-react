@@ -40,6 +40,10 @@ function NewCategoryForm(props) {
         setCategory(Number(event.target.value) || '');
     };
 
+    const handleSubmit = () => {
+
+    }
+
     return (
         <>
             <DialogTitle>Select Category</DialogTitle>
@@ -68,8 +72,8 @@ function NewCategoryForm(props) {
                 <Button onClick={handleClose} color="primary">
                     Cancel
                 </Button>
-                <Button onClick={handleClose} color="primary">
-                    Ok
+                <Button onClick={handleSubmit} color="primary">
+                    New Category
                 </Button>
             </DialogActions>
         </>

@@ -96,21 +96,22 @@ function AddCategory(props) {
                                     onChange={handleChange}
                                     input={<Input />}
                                 >
-                                    <MenuItem value={"Work"}>Work</MenuItem>
-                                    <MenuItem value={"Family"}>Family</MenuItem>
-                                    <MenuItem value={"Chores"}>Chores</MenuItem>
-                                    <MenuItem value={"Fun"}>Fun</MenuItem>
-                                    <MenuItem value={"Wellness"}>Wellness</MenuItem>
-                                    <MenuItem value={"Dreading"}>Dreading</MenuItem>
+                                    <MenuItem style={{ color: "#1976d2", fontWeight: "bold" }} value={"Work"}>Work</MenuItem>
+                                    <MenuItem style={{ color: "#00897b", fontWeight: "bold" }} value={"Family"}>Family</MenuItem>
+                                    <MenuItem style={{ color: "#ef6c00", fontWeight: "bold" }} value={"Chores"}>Chores</MenuItem>
+                                    <MenuItem style={{ color: "#e53935", fontWeight: "bold" }} value={"Fun"}>Fun</MenuItem>
+                                    <MenuItem style={{ color: "#c2185b", fontWeight: "bold" }} value={"Dreading"}>Dreading</MenuItem>
+                                    <MenuItem style={{ color: "#6a1b9a", fontWeight: "bold" }} value={"Wellness"}>Wellness</MenuItem>
+
                                 </Select>
                             </FormControl>
                         </form>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleClose} color="primary">
-                            Ok
+                            Add
                         </Button>
-                        <Button onClick={handleClose} color="primary">
+                        <Button onClick={handleClose} color="secondary">
                             Cancel
                         </Button>
                     </DialogActions>
