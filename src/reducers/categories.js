@@ -16,13 +16,13 @@ export default (state = {
 }, action) => {
     switch (action.type) {
         case LOADING_CATEGORIES:
-            console.log(action.payload)
             return { ...state, categories: [...state.categories], loadingCategories: true }
 
         case LOADING_SINGLE_CATEGORY:
             return { ...state, categories: [...state.categories], loadingSingleCategory: true }
 
         case SET_CATEGORIES:
+            console.log(action.payload)
             return { ...state, categories: action.payload, loadingCategories: false }
 
         case CREATE_CATEGORY:
