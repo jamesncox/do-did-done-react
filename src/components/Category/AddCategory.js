@@ -35,7 +35,8 @@ function AddCategory(props) {
     const classes = useStyles();
 
     const [open, setOpen] = useState(false);
-    const [category, setCategory] = useState('');
+    const [name, setName] = useState('')
+    const [color, setColor] = useState('')
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -43,7 +44,8 @@ function AddCategory(props) {
 
     const handleClose = () => {
         setOpen(false);
-        setCategory('')
+        setName('')
+        setColor('')
     }
 
     // const handleName = (e) => {
@@ -55,24 +57,48 @@ function AddCategory(props) {
     // }
 
     const handleChange = (event) => {
-        setCategory(event.target.value);
+        let name = event.target.value
+        setName(name);
+
+        switch (name) {
+            case "Work":
+                setColor("#1976d2")
+                break;
+            case "Family":
+                setColor("#00897b")
+                break;
+            case "Chores":
+                setColor("#ef6c00")
+                break;
+            case "Fun":
+                setColor("#e53935")
+                break;
+            case "Dreading":
+                setColor("#c2185b")
+                break;
+            case "Wellness":
+                setColor("#6a1b9a")
+                break;
+            default:
+                setColor("")
+        }
     };
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
-    //     const store = {
-    //         name: name,
-    //         storeType: storeType,
-    //         color: color,
-    //         userId: props.user.id
-    //     }
+        const category = {
+            name: name,
+            color: color,
+            userId: props.user.id
+        }
 
-    //     props.createStore(store)
-    //     setName("")
-    //     setStoreType("")
-    //     setColor("")
-    // }
+        console.log(category)
+
+        // props.createCategory(category)
+        setName("")
+        setColor("")
+    }
 
     return (
         <div>
@@ -92,23 +118,23 @@ function AddCategory(props) {
                                 <Select
                                     labelId="demo-dialog-select-label"
                                     id="demo-dialog-select"
-                                    value={category}
+                                    value={name}
                                     onChange={handleChange}
                                     input={<Input />}
                                 >
-                                    <MenuItem style={{ color: "#1976d2", fontWeight: "bold" }} value={"Work"}>Work</MenuItem>
-                                    <MenuItem style={{ color: "#00897b", fontWeight: "bold" }} value={"Family"}>Family</MenuItem>
-                                    <MenuItem style={{ color: "#ef6c00", fontWeight: "bold" }} value={"Chores"}>Chores</MenuItem>
-                                    <MenuItem style={{ color: "#e53935", fontWeight: "bold" }} value={"Fun"}>Fun</MenuItem>
-                                    <MenuItem style={{ color: "#c2185b", fontWeight: "bold" }} value={"Dreading"}>Dreading</MenuItem>
-                                    <MenuItem style={{ color: "#6a1b9a", fontWeight: "bold" }} value={"Wellness"}>Wellness</MenuItem>
+                                    <MenuItem value={"Work"}>Work</MenuItem>
+                                    <MenuItem value={"Family"}>Family</MenuItem>
+                                    <MenuItem value={"Chores"}>Chores</MenuItem>
+                                    <MenuItem value={"Fun"}>Fun</MenuItem>
+                                    <MenuItem value={"Dreading"}>Dreading</MenuItem>
+                                    <MenuItem value={"Wellness"}>Wellness</MenuItem>
 
                                 </Select>
                             </FormControl>
                         </form>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleClose} color="primary">
+                        <Button onClick={handleSubmit} color="primary">
                             Add
                         </Button>
                         <Button onClick={handleClose} color="secondary">
@@ -121,4 +147,8 @@ function AddCategory(props) {
     );
 }
 
-export default AddCategory
+const mapStateToProps = (state) => ({
+    user: state.users.user
+})
+
+export default connect(mapStateToProps)(AddCategory)
