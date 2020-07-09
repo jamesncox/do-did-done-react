@@ -51,7 +51,7 @@ function AddList(props) {
 
     const handleChange = (event) => {
         let category = event.target.value
-        setName(category);
+        setCategory(category);
 
         switch (category) {
             case "Work":
