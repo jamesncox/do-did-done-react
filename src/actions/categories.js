@@ -37,7 +37,7 @@ export const createCategory = (category) => {
 
         const formData = {
             name: category.name,
-            color: store.color,
+            color: category.color,
             user_id: category.userId
         }
 
@@ -56,7 +56,7 @@ export const createCategory = (category) => {
         if (categoryObj.errors) {
             dispatch({ type: SET_ERRORS, payload: categoryObj.error })
         } else {
-            dispatch({ type: CREATE_STORE, payload: categoryObj })
+            dispatch({ type: CREATE_CATEGORY, payload: categoryObj })
         }
     }
 }
