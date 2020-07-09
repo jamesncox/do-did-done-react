@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         [theme.breakpoints.up('md')]: {
-            marginTop: theme.spacing(16)
+            marginTop: theme.spacing(2)
         },
     },
     category: {
@@ -23,7 +23,13 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center",
         color: "white",
         fontFamily: "'Nanum Pen Script', cursive",
-        margin: theme.spacing(1)
+        margin: theme.spacing(1),
+        [theme.breakpoints.up('md')]: {
+            width: "50%"
+        },
+        [theme.breakpoints.up('lg')]: {
+            width: "25%"
+        },
     }
 
 }))
