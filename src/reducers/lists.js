@@ -1,33 +1,33 @@
 import {
-    SET_CATEGORIES,
-    LOADING_CATEGORIES,
-    CREATE_CATEGORY,
-    UPDATE_CATEGORY,
-    DELETE_CATEGORY,
-    LOADING_SINGLE_CATEGORY
+    SET_LISTS,
+    LOADING_LISTS,
+    CREATE_LIST,
+    UPDATE_LIST,
+    DELETE_LIST,
+    LOADING_SINGLE_LIST
 } from '../actionTypes'
 
 export default (state = {
-    categories: [],
-    loadingCategories: false,
+    lists: [],
+    loadingLists: false,
     errors: null,
-    categoryId: null,
-    loadingSingleCategory: false
+    listId: null,
+    loadingSingleList: false
 }, action) => {
     switch (action.type) {
-        case LOADING_CATEGORIES:
-            return { ...state, categories: [...state.categories], loadingCategories: true }
+        case LOADING_LISTS:
+            return { ...state, lists: [...state.lists], loadingLists: true }
 
-        case LOADING_SINGLE_CATEGORY:
-            return { ...state, categories: [...state.categories], loadingSingleCategory: true }
+        case LOADING_SINGLE_LIST:
+            return { ...state, lists: [...state.lists], loadingSingleList: true }
 
-        case SET_CATEGORIES:
+        case SET_LISTS:
             console.log(action.payload)
-            return { ...state, categories: action.payload, loadingCategories: false }
+            return { ...state, lists: action.payload, loadingLists: false }
 
-        case CREATE_CATEGORY:
+        case CREATE_LIST:
             console.log(action.payload)
-            return { ...state, categories: [...state.categories, action.payload], loadingSingleCategory: false }
+            return { ...state, lists: [...state.lists, action.payload], loadingSingleList: false }
 
         default:
             return state
