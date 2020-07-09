@@ -36,7 +36,7 @@ function AddList(props) {
     const classes = useStyles();
 
     const [open, setOpen] = useState(false);
-    const [name, setName] = useState('')
+    const [category, setCategory] = useState('')
     const [color, setColor] = useState('')
 
     const handleClickOpen = () => {
@@ -45,15 +45,15 @@ function AddList(props) {
 
     const handleClose = () => {
         setOpen(false);
-        setName('')
+        setCategory('')
         setColor('')
     }
 
     const handleChange = (event) => {
-        let name = event.target.value
-        setName(name);
+        let category = event.target.value
+        setName(category);
 
-        switch (name) {
+        switch (category) {
             case "Work":
                 setColor("#1976d2")
                 break;
@@ -87,7 +87,7 @@ function AddList(props) {
         }
 
         props.createList(list)
-        setName("")
+        setCategory("")
         setColor("")
     }
 
@@ -109,7 +109,7 @@ function AddList(props) {
                                 <Select
                                     labelId="demo-dialog-select-label"
                                     id="demo-dialog-select"
-                                    value={name}
+                                    value={category}
                                     onChange={handleChange}
                                     input={<Input />}
                                 >
