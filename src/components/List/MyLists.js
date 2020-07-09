@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
             width: "25%"
         },
     }
-
 }))
 
 function MyLists(props) {
@@ -54,7 +53,12 @@ function MyLists(props) {
                 </Typography>
                 {userLists.map(list => {
                     return (
-                        <Button key={list.id} className={classes.category} style={{ backgroundColor: `${list.color}` }}>
+                        <Button
+                            key={list.id}
+                            style={{ backgroundColor: `${list.color}` }}
+                            className={classes.category}
+                            variant="contained"
+                        >
                             {list.category}
                         </Button>
                     )
