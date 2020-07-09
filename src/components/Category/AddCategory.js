@@ -48,14 +48,6 @@ function AddCategory(props) {
         setColor('')
     }
 
-    // const handleName = (e) => {
-    //     setName(e.target.value)
-    // }
-
-    // const handleColor = (color) => {
-    //     setColor(color)
-    // }
-
     const handleChange = (event) => {
         let name = event.target.value
         setName(name);
