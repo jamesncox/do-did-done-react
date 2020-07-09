@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
+import { createCategory } from '../../actions/categories'
 
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper';
