@@ -65,14 +65,30 @@ const useStyles = makeStyles((theme) => ({
     },
     openIcon: {
         cursor: "pointer",
-        marginRight: theme.spacing(2)
+        // marginRight: theme.spacing(2)
     },
     deleteIcon: {
         cursor: "pointer",
     },
-    typography: {
+    typographyOne: {
         opacity: "50%",
-        alignSelf: "flex-start"
+        [theme.breakpoints.down('xs')]: {
+            fontSize: ".8rem",
+            marginRight: "0",
+        },
+        [theme.breakpoints.up('sm')]: {
+            marginRight: theme.spacing(5),
+        },
+    },
+    typographyTwo: {
+        opacity: "50%",
+        [theme.breakpoints.down('xs')]: {
+            fontSize: ".8rem",
+            marginLeft: "0",
+        },
+        [theme.breakpoints.up('sm')]: {
+            marginLeft: theme.spacing(5),
+        },
     }
 }))
 
@@ -106,10 +122,10 @@ function MyLists(props) {
                                 <Tooltip title="Open List">
                                     <OpenInNewIcon className={classes.openIcon} />
                                 </Tooltip>
-                                <Typography className={classes.typography}>
+                                <Typography className={classes.typographyOne}>
                                     Click to open
                                 </Typography>
-                                <Typography className={classes.typography}>
+                                <Typography className={classes.typographyTwo}>
                                     Delete your list?
                                 </Typography>
                                 <Tooltip title="Delete List">
