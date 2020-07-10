@@ -79,7 +79,7 @@ function AddList(props) {
                 setColor("#e53935")
                 break;
             case "Wellness":
-                setColor("#6a1b9a")
+                setColor("#8e24aa")
                 break;
             case "Financial":
                 setColor("#00c853")
