@@ -15,14 +15,20 @@ const useStyles = makeStyles({
         maxWidth: 275,
         margin: "auto",
         marginTop: 90,
-        display: "flex"
+        display: "flex",
+        backgroundColor: "#ef5350",
+        color: "white"
     },
     title: {
         fontSize: 20,
+        color: "white"
     },
     icon: {
         margin: "auto",
-        cursor: "pointer"
+        cursor: "pointer",
+    },
+    divider: {
+        width: "2px",
     }
 });
 
@@ -36,7 +42,7 @@ function NoListsYet(props) {
                     Create your first Git-R-Do category!
                 </Typography>
             </CardContent>
-            <Divider orientation="vertical" flexItem />
+            <Divider className={classes.divider} orientation="vertical" flexItem />
             <CardActions>
                 <AddList className={classes.icon} />
             </CardActions>
