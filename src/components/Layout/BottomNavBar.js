@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function LabelBottomNavigation() {
+export default function BottomNavBar() {
     const classes = useStyles();
     const [value, setValue] = React.useState('')
 

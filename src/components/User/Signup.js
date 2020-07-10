@@ -8,7 +8,7 @@ import Errors from '../Layout/Errors'
 import Copyright from '../Layout/Copyright'
 
 import Header from '../Layout/Header'
-import BottomNavigation from '../Layout/BottomNavigation'
+import BottomNavBar from '../Layout/BottomNavBar'
 import Title from '../Layout/Title'
 
 import Avatar from '@material-ui/core/Avatar';
@@ -164,7 +164,7 @@ function SignUp(props) {
                         <Copyright />
                     </Box>
                 </Container >
-                <BottomNavigation />
+                <BottomNavBar />
             </>
         );
     }

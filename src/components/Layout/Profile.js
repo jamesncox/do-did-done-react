@@ -4,7 +4,7 @@ import { Redirect } from "react-router";
 import { getLists } from '../../actions/lists'
 
 import Header from './Header'
-import BottomNavigation from './BottomNavigation'
+import BottomNavBar from './BottomNavBar'
 import MyLists from '../List/MyLists'
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -46,7 +46,7 @@ function Profile(props) {
                     Welcome, {props.user.username}
                 </Typography>
                 <MyLists />
-                <BottomNavigation />
+                <BottomNavBar />
             </div>
         )
     }
