@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { createList } from '../../actions/lists'
+import Errors from '../Layout/Errors'
 
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper';
@@ -111,6 +112,7 @@ function AddList(props) {
 
     return (
         <div>
+            <Errors />
             <Tooltip title="Add List">
                 <PostAddIcon className={classes.icon} onClick={handleClickOpen} />
             </Tooltip>

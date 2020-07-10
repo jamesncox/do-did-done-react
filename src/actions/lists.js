@@ -55,7 +55,6 @@ export const createList = (list) => {
         const listObj = await res.json()
 
         if (listObj.errors) {
-            console.log(listObj.errors)
             dispatch({ type: SET_ERRORS, payload: listObj.errors })
         } else {
             dispatch({ type: CREATE_LIST, payload: listObj })

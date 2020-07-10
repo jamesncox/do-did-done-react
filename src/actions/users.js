@@ -85,7 +85,6 @@ export function loginUser(user) {
     }
 }
 
-// getting unexpected end of json input error in setCurrentUser
 export function setCurrentUser() {
     return async (dispatch) => {
         try {
