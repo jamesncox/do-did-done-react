@@ -56,7 +56,7 @@ function DeleteList(props) {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <Alert className={classes.alert} variant="filled" severity="warning" id="alert-dialog-title">
+                <Alert className={classes.alert} variant="filled" severity="error" id="alert-dialog-title">
                     {`${props.user.username}`}
                 </Alert>
                 <DialogActions>

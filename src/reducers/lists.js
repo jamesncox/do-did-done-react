@@ -28,6 +28,10 @@ export default (state = {
             console.log(action.payload)
             return { ...state, lists: [...state.lists, action.payload], loadingSingleList: false }
 
+        case DELETE_LIST:
+            const persistedLists = state.lists.filter(list => list.id !== action.payload.id)
+            return { ...state, lists: persistedLists }
+
         default:
             return state
     }
