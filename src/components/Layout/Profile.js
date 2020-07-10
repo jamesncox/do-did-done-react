@@ -14,8 +14,6 @@ const useStyles = makeStyles((theme) => ({
     header: {
         fontFamily: "'Nanum Pen Script', cursive",
         fontSize: "3rem",
-        // position: "fixed",
-        // top: theme.spacing(2),
         color: "rgba(27, 27, 27, .8)",
         textAlign: "center",
         [theme.breakpoints.up('md')]: {
@@ -30,8 +28,10 @@ function Profile(props) {
     const classes = useStyles();
 
     useEffect(() => {
-        dispatch(getLists(props.user.id))
-        // dispatch(getItems(props.user.id))
+        if (props.loggedIn) {
+            dispatch(getLists(props.user.id))
+            // dispatch(getItems(props.user.id))
+        }
     }, [dispatch, props.user.id])
 
     if (props.loggedIn === false) {

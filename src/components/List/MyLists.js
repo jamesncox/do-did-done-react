@@ -37,17 +37,10 @@ const useStyles = makeStyles((theme) => ({
         color: "rgba(27, 27, 27, .5)",
         textAlign: "center",
         fontFamily: "'Nanum Pen Script', cursive",
-        // fontWeight: "bold",
         fontSize: "1.8rem",
     },
     category: {
-        // display: 'flex',
-        // width: "75%",
-        // height: "3rem",
-        // margin: "auto",
-        // textAlign: "center",
         color: "white",
-        // fontFamily: "'Nanum Pen Script', cursive",
         margin: theme.spacing(1),
         [theme.breakpoints.up('sm')]: {
             width: "75%"
@@ -94,16 +87,6 @@ function MyLists(props) {
                                     </Typography>
                             </AccordionDetails>
                         </Accordion>
-
-
-                        // <Button
-                        //     key={list.id}
-                        //     style={{ backgroundColor: `${list.color}` }}
-                        //     className={classes.category}
-                        //     variant="contained"
-                        // >
-                        //     {list.category}
-                        // </Button>
                     )
                 })}
             </div>
