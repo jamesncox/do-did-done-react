@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
 import PostAddIcon from '@material-ui/icons/PostAdd';
@@ -14,14 +14,16 @@ const useStyles = makeStyles({
     root: {
         maxWidth: 275,
         margin: "auto",
-        marginTop: 275
+        marginTop: 90,
+        display: "flex"
     },
     title: {
-        fontSize: 14,
+        fontSize: 20,
     },
-    pos: {
-        marginBottom: 12,
-    },
+    icon: {
+        margin: "auto",
+        cursor: "pointer"
+    }
 });
 
 function NoListsYet(props) {
@@ -31,11 +33,12 @@ function NoListsYet(props) {
         <Card className={classes.root}>
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    Click <PostAddIcon /> below to add your first Git-R-Do category!
+                    Create your first Git-R-Do category!
                 </Typography>
             </CardContent>
+            <Divider orientation="vertical" flexItem />
             <CardActions>
-                <AddList />
+                <AddList className={classes.icon} />
             </CardActions>
         </Card>
     );
