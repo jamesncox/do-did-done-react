@@ -14,7 +14,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 const useStyles = makeStyles((theme) => ({
     alert: {
         borderRadius: "0",
-        backgroundColor: "#d50000"
+        backgroundColor: "#dd2c00"
     },
     icon: {
         cursor: "pointer",
