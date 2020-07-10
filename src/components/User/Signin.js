@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom';
-import { loginUser, clearIsUserLoading } from '../../actions/users'
-import Copyright from '../Layout/Copyright'
 import { Redirect } from "react-router";
+import { loginUser, clearIsUserLoading } from '../../actions/users'
+
+import Errors from '../Layout/Errors'
+import Copyright from '../Layout/Copyright'
+
 // import { clearErrors } from '../../actions/errors'
 
 import Header from '../Layout/Header'
@@ -82,10 +85,15 @@ function SignIn(props) {
         return (
             <Redirect to="/Profile" />
         )
+        // } else if (props.errors) {
+        //     return (
+        //         <Errors />
+        //     )
     } else {
         return (
             <>
                 <Header />
+                <Errors />
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
                     <div className={classes.root}>
@@ -156,7 +164,7 @@ function SignIn(props) {
 
 const mapStateToProps = state => ({
     user: state.users.user,
-    // errors: state.errors.errors,
+    errors: state.errors.errors,
     loggedIn: state.users.loggedIn,
     loadingUser: state.users.loadingUser
 })
