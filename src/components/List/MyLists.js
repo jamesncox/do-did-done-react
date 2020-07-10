@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NoListsYet from './NoListsYet'
+import DeleteList from './DeleteList'
 
 // import Paper from '@material-ui/core/Paper';
 // import Button from '@material-ui/core/Button';
@@ -11,7 +12,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+// import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Tooltip from '@material-ui/core/Tooltip';
 
@@ -129,7 +130,7 @@ function MyLists(props) {
                                     Delete your list?
                                 </Typography>
                                 <Tooltip title="Delete List">
-                                    <DeleteForeverIcon className={classes.deleteIcon} />
+                                    <DeleteList className={classes.deleteIcon} />
                                 </Tooltip>
                             </AccordionDetails>
                         </Accordion>
