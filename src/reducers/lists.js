@@ -4,7 +4,8 @@ import {
     CREATE_LIST,
     UPDATE_LIST,
     DELETE_LIST,
-    LOADING_SINGLE_LIST
+    LOADING_SINGLE_LIST,
+    SELECTED_LIST
 } from '../actionTypes'
 
 export default (state = {
@@ -12,7 +13,8 @@ export default (state = {
     loadingLists: false,
     errors: null,
     listId: null,
-    loadingSingleList: false
+    loadingSingleList: false,
+    selectedList: null
 }, action) => {
     switch (action.type) {
         case LOADING_LISTS:
@@ -25,12 +27,14 @@ export default (state = {
             return { ...state, lists: action.payload, loadingLists: false }
 
         case CREATE_LIST:
-            console.log(action.payload)
             return { ...state, lists: [...state.lists, action.payload], loadingSingleList: false }
 
         case DELETE_LIST:
             const persistedLists = state.lists.filter(list => list.id !== action.payload.id)
             return { ...state, lists: persistedLists }
+
+        case SELECTED_LIST:
+            return { ...state, selectedList: action.payload }
 
         default:
             return state

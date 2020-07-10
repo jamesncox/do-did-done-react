@@ -15,6 +15,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Tooltip from '@material-ui/core/Tooltip';
+import { SELECTED_LIST } from '../../actionTypes';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -99,7 +100,12 @@ function MyLists(props) {
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
-    };
+        props.selectedList(panel)
+    }
+
+    const handleSelectList = (list) => {
+        props.selectedList(list)
+    }
 
     const renderLists = (id) => {
         const userLists = props.lists.filter(list => list.user_id === id)
@@ -130,7 +136,7 @@ function MyLists(props) {
                                     Delete your list?
                                 </Typography>
                                 <Tooltip title="Delete List">
-                                    <DeleteList className={classes.deleteIcon} />
+                                    <DeleteList />
                                 </Tooltip>
                             </AccordionDetails>
                         </Accordion>
@@ -153,4 +159,8 @@ const mapStateToProps = (state) => ({
     lists: state.lists.lists
 })
 
-export default connect(mapStateToProps)(MyLists)
+const mapDispatchToProps = (dispatch) => ({
+    selectedList: (list) => dispatch({ type: SELECTED_LIST, payload: list })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyLists)

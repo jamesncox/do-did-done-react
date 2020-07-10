@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { clearCurrentUser } from '../../actions/users'
-import { getToken } from '../../actions/sessions'
+import { deleteList } from '../../actions/lists'
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -40,8 +39,9 @@ function DeleteList(props) {
         setOpen(false);
     }
 
-    const handleDeleteList = () => {
-
+    const handleDeleteList = (id) => {
+        props.deleteList(id)
+        setOpen(false)
     }
 
 
@@ -65,7 +65,7 @@ function DeleteList(props) {
                     </DialogContentText>
                 </DialogActions>
                 <DialogActions>
-                    <Button onClick={handleDeleteList} color="primary">
+                    <Button onClick={() => handleDeleteList(props.selectedListId)} color="primary">
                         Yes
                     </Button>
                     <Button onClick={handleClose} color="primary" autoFocus>
@@ -79,6 +79,7 @@ function DeleteList(props) {
 
 const mapStateToProps = (state) => ({
     user: state.users.user,
+    selectedListId: state.lists.selectedList
 })
 
-export default connect(mapStateToProps, { clearCurrentUser, getToken })(DeleteList)
+export default connect(mapStateToProps, { deleteList })(DeleteList)
