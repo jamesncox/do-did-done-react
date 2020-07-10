@@ -49,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
         color: "white",
         // fontFamily: "'Nanum Pen Script', cursive",
         margin: theme.spacing(1),
+        [theme.breakpoints.up('sm')]: {
+            width: "75%"
+        },
         [theme.breakpoints.up('md')]: {
             width: "50%"
         },
