@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import NoListsYet from './NoListsYet'
 
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -95,7 +96,7 @@ function MyLists(props) {
 
     const hasLists = props.lists.filter(list => list.user_id === props.user.id)
     if (hasLists.length === 0) {
-        return <h1> No Lists Yet </h1>
+        return <NoListsYet />
     } else {
         return renderLists(props.user.id)
     }
