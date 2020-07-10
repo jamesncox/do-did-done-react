@@ -72,13 +72,22 @@ function AddList(props) {
                 setColor("#ef6c00")
                 break;
             case "Fun":
-                setColor("#e53935")
+                setColor("#c2185b")
                 break;
             case "Dreading":
-                setColor("#c2185b")
+                setColor("#e53935")
                 break;
             case "Wellness":
                 setColor("#6a1b9a")
+                break;
+            case "Financial":
+                setColor("#00c853")
+                break;
+            case "Longterm":
+                setColor("#ffb300")
+                break;
+            case "Misc":
+                setColor("#0d47a1")
                 break;
             default:
                 setColor("")
@@ -130,7 +139,9 @@ function AddList(props) {
                                     <MenuItem value={"Fun"}>Fun</MenuItem>
                                     <MenuItem value={"Dreading"}>Dreading</MenuItem>
                                     <MenuItem value={"Wellness"}>Wellness</MenuItem>
-
+                                    <MenuItem value={"Financial"}>Financial</MenuItem>
+                                    <MenuItem value={"Longterm"}>Long-term</MenuItem>
+                                    <MenuItem value={"Misc"}>Misc.</MenuItem>
                                 </Select>
                             </FormControl>
                         </form>

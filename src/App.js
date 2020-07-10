@@ -15,7 +15,6 @@ import Home from './components/Layout/Home'
 import SignIn from './components/User/Signin'
 import SignUp from './components/User/Signup'
 import Profile from './components/Layout/Profile'
-// import LogOut from './components/User/LogOut'
 
 class App extends Component {
 
@@ -38,9 +37,6 @@ class App extends Component {
             <Route exact path="/SignIn">
               <SignIn />
             </Route>
-            {/* <Route exact path="/LogOut">
-              <LogOut />
-            </Route> */}
             <Route exact path="/Profile">
               <Profile />
             </Route>
