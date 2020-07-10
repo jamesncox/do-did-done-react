@@ -45,6 +45,9 @@ const useStyles = makeStyles((theme) => ({
     category: {
         color: "white",
         margin: theme.spacing(1),
+        [theme.breakpoints.up('xs')]: {
+            width: "75%"
+        },
         [theme.breakpoints.up('sm')]: {
             width: "75%"
         },
@@ -55,8 +58,21 @@ const useStyles = makeStyles((theme) => ({
             width: "25%"
         },
     },
+    accordian: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
+    openIcon: {
+        cursor: "pointer",
+        marginRight: theme.spacing(2)
+    },
     deleteIcon: {
-        cursor: "pointer"
+        cursor: "pointer",
+    },
+    typography: {
+        opacity: "50%",
+        alignSelf: "flex-start"
     }
 }))
 
@@ -86,14 +102,16 @@ function MyLists(props) {
                                 <Typography className={classes.heading}>{list.category}</Typography>
                                 {/* <Typography className={classes.secondaryHeading}>See your Git-R-Dos</Typography> */}
                             </AccordionSummary>
-                            <AccordionDetails>
-                                {/* <Typography>
-                                    Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-                                    diam eros in elit. Pellentesque convallis laoreet laoreet.
-                                    </Typography> */}
+                            <AccordionDetails className={classes.accordian}>
                                 <Tooltip title="Open List">
-                                    <OpenInNewIcon />
+                                    <OpenInNewIcon className={classes.openIcon} />
                                 </Tooltip>
+                                <Typography className={classes.typography}>
+                                    Click to open
+                                </Typography>
+                                <Typography className={classes.typography}>
+                                    Delete your list?
+                                </Typography>
                                 <Tooltip title="Delete List">
                                     <DeleteForeverIcon className={classes.deleteIcon} />
                                 </Tooltip>
