@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom';
 import { Redirect } from "react-router";
 import { signupUser, clearIsUserLoading } from '../../actions/users'
+
+import Errors from '../Layout/Errors'
 import Copyright from '../Layout/Copyright'
 
 import Header from '../Layout/Header'
@@ -85,6 +87,7 @@ function SignUp(props) {
         return (
             <>
                 <Header />
+                <Errors />
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
                     <div className={classes.paper}>

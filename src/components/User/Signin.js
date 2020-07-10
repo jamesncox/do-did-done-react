@@ -85,10 +85,6 @@ function SignIn(props) {
         return (
             <Redirect to="/Profile" />
         )
-        // } else if (props.errors) {
-        //     return (
-        //         <Errors />
-        //     )
     } else {
         return (
             <>
