@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        marginBottom: theme.spacing(10),
         [theme.breakpoints.up('md')]: {
             marginTop: theme.spacing(4)
         },
@@ -60,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     accordian: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
     },
     openIcon: {
         cursor: "pointer",
@@ -101,7 +102,7 @@ function MyLists(props) {
         return (
             <div className={classes.root}>
                 <Typography className={classes.header}>
-                    Git-R-Do Lists
+                    Your Lists
                 </Typography>
                 {userLists.map(list => {
                     return (
