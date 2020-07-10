@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom';
 import { clearCurrentUser, signupUser } from '../../actions/users'

@@ -1,21 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { SELECTED_LIST } from '../../actionTypes';
 import NoListsYet from './NoListsYet'
 import DeleteList from './DeleteList'
 
-// import Paper from '@material-ui/core/Paper';
-// import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Tooltip from '@material-ui/core/Tooltip';
-import { SELECTED_LIST } from '../../actionTypes';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -67,10 +64,6 @@ const useStyles = makeStyles((theme) => ({
     },
     openIcon: {
         cursor: "pointer",
-        // marginRight: theme.spacing(2)
-    },
-    deleteIcon: {
-        cursor: "pointer",
     },
     typographyOne: {
         opacity: "50%",
@@ -103,10 +96,6 @@ function MyLists(props) {
         props.selectedList(panel)
     }
 
-    const handleSelectList = (list) => {
-        props.selectedList(list)
-    }
-
     const renderLists = (id) => {
         const userLists = props.lists.filter(list => list.user_id === id)
         return (
@@ -123,7 +112,6 @@ function MyLists(props) {
                                 id={`${list.id}-header`}
                             >
                                 <Typography className={classes.heading}>{list.category}</Typography>
-                                {/* <Typography className={classes.secondaryHeading}>See your Git-R-Dos</Typography> */}
                             </AccordionSummary>
                             <AccordionDetails className={classes.accordian}>
                                 <Tooltip title="Open List">
@@ -135,9 +123,7 @@ function MyLists(props) {
                                 <Typography className={classes.typographyTwo}>
                                     Delete your list?
                                 </Typography>
-                                <Tooltip title="Delete List">
-                                    <DeleteList />
-                                </Tooltip>
+                                <DeleteList />
                             </AccordionDetails>
                         </Accordion>
                     )

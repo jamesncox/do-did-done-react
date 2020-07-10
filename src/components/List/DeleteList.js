@@ -18,11 +18,6 @@ const useStyles = makeStyles((theme) => ({
     },
     icon: {
         cursor: "pointer",
-        // [theme.breakpoints.up('md')]: {
-        //     fontSize: "2.5em",
-        //     cursor: "pointer",
-        //     marginLeft: theme.spacing(1)
-        // },
     }
 }))
 
@@ -47,7 +42,7 @@ function DeleteList(props) {
 
     return (
         <div>
-            <Tooltip title="Log Out">
+            <Tooltip title="Delete List">
                 <DeleteForeverIcon onClick={handleClickOpen} className={classes.icon} />
             </Tooltip>
             <Dialog

@@ -8,8 +8,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
-import PostAddIcon from '@material-ui/icons/PostAdd';
-
 const useStyles = makeStyles({
     root: {
         maxWidth: 275,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import LogOutAlert from '../User/LogOutAlert'
@@ -37,19 +37,9 @@ export default function LabelBottomNavigation() {
     const classes = useStyles();
     const [value, setValue] = React.useState('')
 
-    const [showLogoutAlert, setShowLogoutAlert] = useState(false)
-
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
-    // const handleLogoutAlert = () => {
-    //     if (!showLogoutAlert) {
-    //         setShowLogoutAlert(true)
-    //     } else {
-    //         setShowLogoutAlert(false)
-    //     }
-    // }
 
     return (
         <>

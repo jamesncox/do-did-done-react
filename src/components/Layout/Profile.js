@@ -32,7 +32,7 @@ function Profile(props) {
             dispatch(getLists(props.user.id))
             // dispatch(getItems(props.user.id))
         }
-    }, [dispatch, props.user.id])
+    }, [dispatch, props.user.id, props.loggedIn])
 
     if (props.loggedIn === false) {
         return (
