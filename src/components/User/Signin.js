@@ -10,7 +10,7 @@ import Copyright from '../Layout/Copyright'
 // import { clearErrors } from '../../actions/errors'
 
 import Header from '../Layout/Header'
-import BottomNavBar from '../Layout/BottomNavBar'
+import NavBarLogin from '../Layout/NavBarLogin'
 import Title from '../Layout/Title'
 
 import Avatar from '@material-ui/core/Avatar';
@@ -152,7 +152,7 @@ function SignIn(props) {
                         <Copyright />
                     </Box>
                 </Container>
-                <BottomNavBar />
+                <NavBarLogin />
             </>
         )
     }
