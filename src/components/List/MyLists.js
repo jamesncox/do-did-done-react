@@ -134,10 +134,10 @@ function MyLists(props) {
     }
 
     const hasLists = props.lists.filter(list => list.user_id === props.user.id)
-    if (hasLists.length === 0) {
-        return <NoListsYet />
-    } else {
+    if (hasLists.length !== 0) {
         return renderLists(props.user.id)
+    } else {
+        return <NoListsYet />
     }
 }
 
