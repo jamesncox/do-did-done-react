@@ -14,7 +14,7 @@ export default (state = {
     errors: null,
     listId: null,
     loadingSingleList: false,
-    selectedListId: null
+    selectedListId: {}
 }, action) => {
     switch (action.type) {
         case LOADING_LISTS:
@@ -34,7 +34,6 @@ export default (state = {
             return { ...state, lists: persistedLists }
 
         case SELECTED_LIST:
-            console.log(action.payload)
             return { ...state, selectedListId: action.payload }
 
         default:

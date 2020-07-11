@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { useHistory } from "react-router-dom";
 import { SELECTED_LIST } from '../../actionTypes';
+
 import NoListsYet from './NoListsYet'
 import DeleteList from './DeleteList'
 
@@ -91,10 +93,17 @@ const useStyles = makeStyles((theme) => ({
 function MyLists(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
+    const history = useHistory();
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
         props.selectedList(panel)
+    }
+
+    const openSelectedList = (category) => {
+        props.selectedList(category)
+        let path = category
+        history.push(path)
     }
 
     const renderLists = (id) => {
@@ -116,7 +125,7 @@ function MyLists(props) {
                             </AccordionSummary>
                             <AccordionDetails className={classes.accordian}>
                                 <Tooltip title="Open List">
-                                    <OpenInNewIcon className={classes.openIcon} />
+                                    <OpenInNewIcon className={classes.openIcon} onClick={() => openSelectedList(list.category)} />
                                 </Tooltip>
                                 <Typography className={classes.typographyOne}>
                                     Click to open

@@ -15,6 +15,7 @@ import Home from './components/Layout/Home'
 import SignIn from './components/User/Signin'
 import SignUp from './components/User/Signup'
 import Profile from './components/Layout/Profile'
+import SelectedList from './components/List/SelectedList'
 
 class App extends Component {
 
@@ -40,6 +41,9 @@ class App extends Component {
             <Route exact path="/Profile">
               <Profile />
             </Route>
+            <Route exact path={`/${this.props.selectedList}`}>
+              <SelectedList />
+            </Route>
           </Switch>
         </div>
       </Router>
@@ -47,4 +51,8 @@ class App extends Component {
   }
 }
 
-export default connect(null, { getToken, setCurrentUser })(App);
+const mapStateToProps = state => ({
+  selectedList: state.lists.selectedListId
+})
+
+export default connect(mapStateToProps, { getToken, setCurrentUser })(App);

@@ -1,9 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import Header from '../Layout/Header'
+import BottomNavBar from '../Layout/BottomNavBar'
+
 function SelectedList(props) {
 
-    const list = lists.filter(list => list.id === selectedListId)
+    const list = props.lists.filter(list => list.id === props.selectedListId)
+
+    return (
+        <>
+            <Header />
+            <BottomNavBar />
+        </>
+    )
 
 }
 
