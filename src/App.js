@@ -24,7 +24,14 @@ class App extends Component {
     this.props.setCurrentUser()
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.selectedList !== this.props.selectedList) {
+  //     this.setState(prevProps.selectedList)
+  //   }
+  // }
+
   render() {
+    console.log(this.state)
     return (
       <Router>
         <div className="App">
