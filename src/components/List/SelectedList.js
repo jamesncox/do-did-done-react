@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Header from '../Layout/Header'
-import BottomNavBar from '../Layout/BottomNavBar'
+import NavBarList from '../Layout/NavBarList'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
@@ -101,7 +101,6 @@ function SelectedList(props) {
     return (
         <>
             <Header />
-
             <div className={classes.root}>
                 <Accordion key={list[0].id} className={classes.category} expanded={expanded === `${list[0].id}`} onChange={handleChange(`${list[0].id}`)} style={{ backgroundColor: `${list[0].color}` }}>
                     <AccordionSummary
@@ -127,8 +126,7 @@ function SelectedList(props) {
                     </AccordionDetails>
                 </Accordion>
             </div>
-
-            <BottomNavBar />
+            <NavBarList />
         </>
     )
 

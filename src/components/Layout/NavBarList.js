@@ -2,13 +2,12 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import LogOutAlert from '../User/LogOutAlert'
-import AddList from '../List/AddList'
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import { makeStyles } from '@material-ui/core/styles';
-
 import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,15 +23,12 @@ const useStyles = makeStyles((theme) => ({
     icons: {
         color: "white",
     },
-    personIcon: {
-        fontSize: "1.5rem"
-    },
     homeIcon: {
         fontSize: "1.5rem"
     },
 }));
 
-export default function BottomNavBar() {
+export default function NavBarList() {
     const classes = useStyles();
     const [value, setValue] = React.useState('')
 
@@ -51,9 +47,9 @@ export default function BottomNavBar() {
                 />
                 <BottomNavigationAction
                     className={classes.icons}
-                    label="Add List"
-                    value="addList"
-                    icon={<AddList />}
+                    label="Profile" value="profile"
+                    component={RouterLink} to="/Profile"
+                    icon={<PersonIcon className={classes.personIcon} />}
                 />
                 <BottomNavigationAction
                     className={classes.icons}
