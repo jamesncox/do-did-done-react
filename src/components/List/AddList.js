@@ -21,16 +21,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-
-    },
     container: {
         display: 'flex',
-        flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
     },
     formControl: {
         margin: theme.spacing(1),
-        minWidth: 120,
+        // minWidth: 120,
     },
     icon: {
         [theme.breakpoints.up('md')]: {
@@ -38,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
             cursor: "pointer",
             marginLeft: theme.spacing(1)
         },
-    }
+    },
 }))
 
 function AddList(props) {
@@ -122,10 +120,10 @@ function AddList(props) {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <Grid container component={Paper} justify="space-between">
+                <Grid className={classes.container} container component={Paper} justify="space-between">
                     <DialogTitle>Select List Category</DialogTitle>
                     <DialogContent>
-                        <form className={classes.container}>
+                        <form>
                             <FormControl className={classes.formControl}>
                                 <InputLabel id="demo-dialog-select-label">Categories</InputLabel>
                                 <Select
