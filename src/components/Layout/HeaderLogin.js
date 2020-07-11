@@ -1,11 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom';
-import { clearCurrentUser, signupUser } from '../../actions/users'
-import { getToken } from '../../actions/sessions'
-
-import LogOutAlert from '../User/LogOutAlert'
-import AddList from '../List/AddList'
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -58,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function Header(props) {
+function HeaderLogin(props) {
     const classes = useStyles();
     return (
         <>
@@ -76,25 +70,10 @@ function Header(props) {
                     >
                         Home
                     </Button>
-                    <Button
-                        className={classes.userActions}
-                        color="inherit"
-                        component={RouterLink}
-                        to="/Profile"
-                    >
-                        Profile
-                    </Button>
-                    <AddList />
-                    <LogOutAlert />
                 </Toolbar>
             </AppBar>
         </>
     )
 }
 
-const mapStateToProps = state => ({
-    loggedIn: state.users.loggedIn,
-    token: state.sessions.token,
-})
-
-export default connect(mapStateToProps, { clearCurrentUser, getToken, signupUser })(Header)
+export default HeaderLogin

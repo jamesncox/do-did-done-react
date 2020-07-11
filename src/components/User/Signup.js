@@ -97,7 +97,7 @@ function SignUp(props) {
                         </Avatar>
                         <Typography component="h1" variant="h5">
                             Sign up
-                </Typography>
+                        </Typography>
                         <form
                             className={classes.form}
                             noValidate
@@ -155,7 +155,7 @@ function SignUp(props) {
                                 <Grid item>
                                     <Link component={RouterLink} to="/SignIn" variant="body2">
                                         Already have an account? Sign in
-                            </Link>
+                                    </Link>
                                 </Grid>
                             </Grid>
                         </form>
