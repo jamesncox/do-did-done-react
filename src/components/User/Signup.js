@@ -7,7 +7,7 @@ import { signupUser, clearIsUserLoading } from '../../actions/users'
 import Errors from '../Layout/Errors'
 import Copyright from '../Layout/Copyright'
 
-import Header from '../Layout/Header'
+import HeaderLogin from '../Layout/HeaderLogin'
 import NavBarLogin from '../Layout/NavBarLogin'
 import Title from '../Layout/Title'
 
@@ -86,7 +86,7 @@ function SignUp(props) {
     } else {
         return (
             <>
-                <Header />
+                <HeaderLogin />
                 <Errors />
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
