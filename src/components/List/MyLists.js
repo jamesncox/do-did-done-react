@@ -128,10 +128,10 @@ function MyLists(props) {
                                     <OpenInNewIcon className={classes.openIcon} onClick={() => openSelectedList(list.category)} />
                                 </Tooltip>
                                 <Typography className={classes.typographyOne}>
-                                    Click to open
+                                    Manage List
                                 </Typography>
                                 <Typography className={classes.typographyTwo}>
-                                    Delete your list?
+                                    Delete list
                                 </Typography>
                                 <DeleteList />
                             </AccordionDetails>

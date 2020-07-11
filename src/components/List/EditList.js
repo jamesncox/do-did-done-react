@@ -6,15 +6,15 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContentText from '@material-ui/core/DialogContentText';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
 import Tooltip from '@material-ui/core/Tooltip';
+import EditIcon from '@material-ui/icons/Edit'
 
 const useStyles = makeStyles((theme) => ({
     alert: {
         borderRadius: "0",
-        backgroundColor: "#dd2c00"
+        backgroundColor: "#90caf9"
     },
     icon: {
         cursor: "pointer",
@@ -41,8 +41,8 @@ function DeleteList(props) {
 
     return (
         <div>
-            <Tooltip title="Delete List">
-                <DeleteForeverIcon onClick={handleClickOpen} className={classes.icon} />
+            <Tooltip title="Edit List">
+                <EditIcon onClick={handleClickOpen} className={classes.icon} />
             </Tooltip>
             <Dialog
                 open={open}
@@ -50,12 +50,12 @@ function DeleteList(props) {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <Alert className={classes.alert} variant="filled" severity="error" id="alert-dialog-title">
+                <Alert className={classes.alert} variant="filled" severity="info" id="alert-dialog-title">
                     {`${props.user.username}`}
                 </Alert>
                 <DialogActions>
                     <DialogContentText id="alert-dialog-description">
-                        Are you sure you want to delete this list and all its todos?
+                        Edit List
                     </DialogContentText>
                 </DialogActions>
                 <DialogActions>

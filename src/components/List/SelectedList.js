@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import HeaderList from '../Layout/HeaderList'
 import NavBarList from '../Layout/NavBarList'
+import EditList from './EditList'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
@@ -11,7 +12,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-import EditIcon from '@material-ui/icons/Edit';
+// import EditIcon from '@material-ui/icons/Edit';
 import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
@@ -102,7 +103,13 @@ function SelectedList(props) {
         <>
             <HeaderList />
             <div className={classes.root}>
-                <Accordion key={list[0].id} className={classes.category} expanded={expanded === `${list[0].id}`} onChange={handleChange(`${list[0].id}`)} style={{ backgroundColor: `${list[0].color}` }}>
+                <Accordion
+                    key={list[0].id}
+                    className={classes.category}
+                    expanded={expanded === `${list[0].id}`}
+                    onChange={handleChange(`${list[0].id}`)}
+                    style={{ backgroundColor: `${list[0].color}` }}
+                >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls={`${list[0].id}-content`}
@@ -115,14 +122,12 @@ function SelectedList(props) {
                             <LibraryAddIcon className={classes.openIcon} />
                         </Tooltip>
                         <Typography className={classes.typographyOne}>
-                            Add a Git-R-Do
+                            Add Git-R-Do
                         </Typography>
                         <Typography className={classes.typographyTwo}>
-                            Edit your list?
+                            Edit list
                         </Typography>
-                        <Tooltip title={`Edit ${list[0].category} List`}>
-                            <EditIcon className={classes.openIcon} />
-                        </Tooltip>
+                        <EditList />
                     </AccordionDetails>
                 </Accordion>
             </div>
