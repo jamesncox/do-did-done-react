@@ -6,7 +6,8 @@ import BottomNavBar from '../Layout/BottomNavBar'
 
 function SelectedList(props) {
 
-    const list = props.lists.filter(list => list.id === props.selectedListId)
+    const list = props.lists.filter(list => list.category === props.selectedList)
+    console.log(list)
 
     return (
         <>
@@ -19,7 +20,7 @@ function SelectedList(props) {
 
 const mapStateToProps = state => ({
     lists: state.lists.lists,
-    selectedListId: state.lists.selectedListId
+    selectedList: state.lists.selectedList
 })
 
 export default connect(mapStateToProps)(SelectedList)

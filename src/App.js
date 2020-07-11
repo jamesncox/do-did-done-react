@@ -52,7 +52,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  selectedList: state.lists.selectedListId
+  selectedList: state.lists.selectedList
 })
 
 export default connect(mapStateToProps, { getToken, setCurrentUser })(App);

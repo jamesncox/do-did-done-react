@@ -74,7 +74,7 @@ function DeleteList(props) {
 
 const mapStateToProps = (state) => ({
     user: state.users.user,
-    selectedListId: state.lists.selectedListId
+    selectedListId: state.lists.selectedList
 })
 
 export default connect(mapStateToProps, { deleteList })(DeleteList)
