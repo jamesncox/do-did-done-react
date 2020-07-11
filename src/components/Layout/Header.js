@@ -76,14 +76,6 @@ function Header(props) {
                     >
                         Home
                     </Button>
-                    {/* <Button
-                        className={classes.userActions}
-                        color="inherit"
-                        component={RouterLink}
-                        to="/Profile"
-                    >
-                        Profile
-                    </Button> */}
                     <AddList />
                     <LogOutAlert />
                 </Toolbar>

@@ -129,7 +129,6 @@ function SelectedList(props) {
             <NavBarList />
         </>
     )
-
 }
 
 const mapStateToProps = state => ({
