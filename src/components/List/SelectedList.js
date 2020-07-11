@@ -10,7 +10,8 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+import EditIcon from '@material-ui/icons/Edit';
 import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
@@ -111,15 +112,18 @@ function SelectedList(props) {
                         <Typography className={classes.heading}>{list[0].category}</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accordian}>
-                        <Tooltip title="Open List">
-                            <OpenInNewIcon className={classes.openIcon} />
+                        <Tooltip title="Add Git-R-Do">
+                            <LibraryAddIcon className={classes.openIcon} />
                         </Tooltip>
                         <Typography className={classes.typographyOne}>
-                            Click to open
-                                </Typography>
+                            Add a Git-R-Do
+                        </Typography>
                         <Typography className={classes.typographyTwo}>
-                            Delete your list?
-                                </Typography>
+                            Edit your list?
+                        </Typography>
+                        <Tooltip title={`Edit ${list[0].category} List`}>
+                            <EditIcon className={classes.openIcon} />
+                        </Tooltip>
                     </AccordionDetails>
                 </Accordion>
             </div>
