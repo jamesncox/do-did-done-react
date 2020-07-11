@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     },
     heading: {
         fontSize: theme.typography.pxToRem(20),
-        flexBasis: '33.33%',
+        flexBasis: '35.33%',
         flexShrink: 0,
     },
     secondaryHeading: {
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
         color: "white",
         margin: theme.spacing(1),
         [theme.breakpoints.up('xs')]: {
-            width: "75%"
+            width: "80%"
         },
         [theme.breakpoints.up('sm')]: {
             width: "75%"

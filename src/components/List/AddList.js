@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
     formControl: {
         margin: theme.spacing(1),
-        // minWidth: 120,
+        minWidth: 130,
     },
     icon: {
         [theme.breakpoints.up('md')]: {
@@ -82,7 +82,7 @@ function AddList(props) {
             case "Financial":
                 setColor("#00c853")
                 break;
-            case "Longterm":
+            case "Long-term":
                 setColor("#ffb300")
                 break;
             case "Misc":
@@ -140,7 +140,7 @@ function AddList(props) {
                                     <MenuItem value={"Dreading"}>Dreading</MenuItem>
                                     <MenuItem value={"Wellness"}>Wellness</MenuItem>
                                     <MenuItem value={"Financial"}>Financial</MenuItem>
-                                    <MenuItem value={"Longterm"}>Long-term</MenuItem>
+                                    <MenuItem value={"Long-term"}>Long-term</MenuItem>
                                     <MenuItem value={"Misc"}>Misc.</MenuItem>
                                 </Select>
                             </FormControl>

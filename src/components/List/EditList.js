@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
     formControl: {
         margin: theme.spacing(1),
+        minWidth: 130,
     },
     alert: {
         borderRadius: "0",
@@ -105,23 +106,23 @@ function DeleteList(props) {
                     <DialogContent>
                         <form>
                             <FormControl className={classes.formControl}>
-                                <InputLabel id="demo-dialog-select-label">Colors</InputLabel>
+                                <InputLabel id="demo-dialog-select-label">Color</InputLabel>
                                 <Select
                                     labelId="demo-dialog-select-label"
                                     id="demo-dialog-select"
-                                    value={category}
+                                    value={color}
                                     onChange={handleColor}
                                     input={<Input />}
                                 >
-                                    <MenuItem value={"Work"}>Work</MenuItem>
-                                    <MenuItem value={"Family"}>Family</MenuItem>
-                                    <MenuItem value={"Chores"}>Chores</MenuItem>
-                                    <MenuItem value={"Fun"}>Fun</MenuItem>
-                                    <MenuItem value={"Dreading"}>Dreading</MenuItem>
-                                    <MenuItem value={"Wellness"}>Wellness</MenuItem>
-                                    <MenuItem value={"Financial"}>Financial</MenuItem>
-                                    <MenuItem value={"Longterm"}>Long-term</MenuItem>
-                                    <MenuItem value={"Misc"}>Misc.</MenuItem>
+                                    <MenuItem style={{ backgroundColor: "red", color: "white" }} value={"red"}>Red</MenuItem>
+                                    <MenuItem style={{ backgroundColor: "orange", color: "white" }} value={"orange"}>Orange</MenuItem>
+                                    <MenuItem style={{ backgroundColor: "yellow", color: "white" }} value={"yellow"}>Yellow</MenuItem>
+                                    <MenuItem style={{ backgroundColor: "green", color: "white" }} value={"green"}>Green</MenuItem>
+                                    <MenuItem style={{ backgroundColor: "blue", color: "white" }} value={"blue"}>Blue</MenuItem>
+                                    <MenuItem style={{ backgroundColor: "indigo", color: "white" }} value={"indigo"}>Indigo</MenuItem>
+                                    <MenuItem style={{ backgroundColor: "purple", color: "white" }} value={"purple"}>Purple</MenuItem>
+                                    <MenuItem style={{ backgroundColor: "black", color: "white" }} value={"black"}>Black</MenuItem>
+                                    <MenuItem style={{ backgroundColor: "pink", color: "white" }} value={"pink"}>Pink</MenuItem>
                                 </Select>
                             </FormControl>
                         </form>
