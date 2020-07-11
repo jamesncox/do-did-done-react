@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Header from '../Layout/Header'
+import HeaderList from '../Layout/HeaderList'
 import NavBarList from '../Layout/NavBarList'
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.typography.pxToRem(20),
         color: theme.palette.text.secondary,
     },
-    header: {
+    List: {
         color: "rgba(27, 27, 27, .5)",
         textAlign: "center",
         fontFamily: "'Nanum Pen Script', cursive",
@@ -100,7 +100,7 @@ function SelectedList(props) {
 
     return (
         <>
-            <Header />
+            <HeaderList />
             <div className={classes.root}>
                 <Accordion key={list[0].id} className={classes.category} expanded={expanded === `${list[0].id}`} onChange={handleChange(`${list[0].id}`)} style={{ backgroundColor: `${list[0].color}` }}>
                     <AccordionSummary

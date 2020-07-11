@@ -5,7 +5,6 @@ import { clearCurrentUser, signupUser } from '../../actions/users'
 import { getToken } from '../../actions/sessions'
 
 import LogOutAlert from '../User/LogOutAlert'
-import AddList from '../List/AddList'
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -76,15 +75,14 @@ function Header(props) {
                     >
                         Home
                     </Button>
-                    {/* <Button
+                    <Button
                         className={classes.userActions}
                         color="inherit"
                         component={RouterLink}
                         to="/Profile"
                     >
                         Profile
-                    </Button> */}
-                    <AddList />
+                    </Button>
                     <LogOutAlert />
                 </Toolbar>
             </AppBar>
