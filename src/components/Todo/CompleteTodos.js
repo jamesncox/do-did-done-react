@@ -4,8 +4,6 @@ import { changeTodoStatus } from '../../actions/todos'
 
 import HeaderList from '../Layout/HeaderList'
 import NavBarList from '../Layout/NavBarList'
-import NewTodo from '../Todo/NewTodo'
-import CompleteTodos from '../Todo/CompleteTodos'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
@@ -64,19 +62,19 @@ const useStyles = makeStyles((theme) => ({
     },
     divider: {
         height: "2px",
-        // backgroundColor: {todoPriorityColor()}
     }
 }))
 
-function SelectedList(props) {
+function CompleteTodos(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = useState(false);
+    const [checked] = useState(true);
 
     const handleCheckedComplete = (todo) => {
         const todoObj = {
             text: todo.text,
             priority: todo.priority,
-            complete: "true",
+            complete: "false",
             listId: todo.list_id,
             todoId: todo.id
         }
@@ -90,7 +88,7 @@ function SelectedList(props) {
 
     const list = props.selectedList
     const listTodos = props.todos.filter(todo => todo.list_id === list.id)
-    const notCompleteTodos = listTodos.filter(todo => todo.complete === "false")
+    const completedTodos = listTodos.filter(todo => todo.complete === "true")
 
     return (
         <>
@@ -101,21 +99,21 @@ function SelectedList(props) {
                     className={classes.category}
                     expanded={expanded === `${list.id}`}
                     onChange={handleChange(`${list.id}`)}
-                    style={{ backgroundColor: `${list.color}` }}
+                    style={{ backgroundColor: "#bdbdbd" }}
                 >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls={`${list.id}-content`}
                         id={`${list.id}-header`}
                     >
-                        <Typography className={classes.heading}>{list.category}</Typography>
+                        <Typography className={classes.heading}>Complete</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accordian}>
-                        <NewTodo />
-                        {notCompleteTodos.map((todo) => (
+                        {completedTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
                                 <ListItem>
                                     <Checkbox
+                                        checked={checked}
                                         onChange={() => handleCheckedComplete(todo)}
                                         inputProps={{ 'aria-label': 'primary checkbox' }}
                                     />
@@ -127,7 +125,6 @@ function SelectedList(props) {
                     </AccordionDetails>
                 </Accordion>
             </TableContainer>
-            <CompleteTodos />
             <NavBarList />
         </>
     )
@@ -139,4 +136,4 @@ const mapStateToProps = state => ({
     todos: state.todos.todos
 })
 
-export default connect(mapStateToProps, { changeTodoStatus })(SelectedList)
+export default connect(mapStateToProps, { changeTodoStatus })(CompleteTodos)
