@@ -53,7 +53,7 @@ export const createTodo = (todo) => {
 
         const todoObj = await res.json()
 
-        if (listObj.errors) {
+        if (todoObj.errors) {
             dispatch({ type: SET_ERRORS, payload: todoObj.errors })
         } else {
             dispatch({ type: CREATE_TODO, payload: todoObj })

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
-// import { deleteList } from '../../actions/lists'
+import { createTodo } from '../../actions/todos'
 
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper';
@@ -51,6 +51,8 @@ function NewTodo(props) {
     const [text, setText] = useState('')
     const [priority, setPriority] = useState('')
 
+    const list = props.lists.filter(list => list.category === props.selectedList)
+
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -74,7 +76,7 @@ function NewTodo(props) {
             text: text,
             priority: priority,
             complete: false,
-            listId: props.selectedListId
+            listId: list.id
         }
 
         props.createTodo(todo)
@@ -144,8 +146,8 @@ function NewTodo(props) {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.users.user,
+    lists: state.lists.lists,
     selectedListId: state.lists.selectedList
 })
 
-export default connect(mapStateToProps)(NewTodo)
+export default connect(mapStateToProps, { createTodo })(NewTodo)
