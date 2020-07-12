@@ -3,7 +3,8 @@ import {
     LOADING_TODOS,
     CREATE_TODO,
     SET_ERRORS,
-    LOADING_SINGLE_TODO
+    LOADING_SINGLE_TODO,
+    UPDATE_TODO
 } from '../actionTypes'
 
 const setTodos = todos => {
@@ -57,6 +58,39 @@ export const createTodo = (todo) => {
             dispatch({ type: SET_ERRORS, payload: todoObj.errors })
         } else {
             dispatch({ type: CREATE_TODO, payload: todoObj })
+        }
+    }
+}
+
+export const changeTodoStatus = (todo) => {
+    console.log(todo)
+    return async (dispatch) => {
+
+        dispatch({ type: LOADING_TODOS })
+
+        const formData = {
+            text: todo.text,
+            priority: todo.priority,
+            complete: todo.complete,
+            list_id: todo.listId
+        }
+
+        const res = await fetch(`http://localhost:3000/api/v1/todos/${todo.todoId}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(formData),
+            credentials: 'include'
+        })
+
+        const todoObj = await res.json()
+
+        if (todoObj.errors) {
+            dispatch({ type: SET_ERRORS, payload: todoObj.errors })
+        } else {
+            dispatch({ type: UPDATE_TODO, payload: todoObj })
         }
     }
 }

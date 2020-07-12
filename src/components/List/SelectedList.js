@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { changeTodoStatus } from '../../actions/todos'
 
 import HeaderList from '../Layout/HeaderList'
 import NavBarList from '../Layout/NavBarList'
@@ -72,8 +73,17 @@ function SelectedList(props) {
 
     // const [checked, setChecked] = React.useState(false);
 
-    const handleCheckedComplete = (event) => {
+    const handleCheckedComplete = (todo) => {
         // setChecked(event.target.checked)
+        const todoObj = {
+            text: todo.text,
+            priority: todo.priority,
+            complete: "true",
+            listId: todo.list_id,
+            todoId: todo.id
+        }
+
+        props.changeTodoStatus(todoObj)
     }
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -108,7 +118,7 @@ function SelectedList(props) {
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
                                 <ListItem>
                                     <Checkbox
-                                        onChange={handleCheckedComplete}
+                                        onChange={() => handleCheckedComplete(todo)}
                                         inputProps={{ 'aria-label': 'primary checkbox' }}
                                     />
                                     <ListItemText primary={todo.text} />
@@ -130,4 +140,4 @@ const mapStateToProps = state => ({
     todos: state.todos.todos
 })
 
-export default connect(mapStateToProps)(SelectedList)
+export default connect(mapStateToProps, { changeTodoStatus })(SelectedList)
