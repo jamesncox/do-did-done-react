@@ -2,7 +2,8 @@ import {
     SET_TODOS,
     LOADING_TODOS,
     CREATE_TODO,
-    LOADING_SINGLE_TODO
+    LOADING_SINGLE_TODO,
+    UPDATE_TODO
 } from '../actionTypes'
 
 export default (state = {
@@ -22,6 +23,20 @@ export default (state = {
 
         case CREATE_TODO:
             return { ...state, todos: [...state.todos, action.payload], loadingSingleTodo: false }
+
+        case UPDATE_TODO:
+            const updatedTodos = state.todos.map((todo, index) => {
+                if (todo.id === action.payload.id) {
+                    return {
+                        ...todo,
+                        text: action.payload.text,
+                        priority: action.payload.priority,
+                        complete: action.payload.complete
+                    }
+                }
+                return todo
+            })
+            return { ...state, todos: updatedTodos, loading: false }
 
         default:
             return state
