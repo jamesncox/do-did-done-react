@@ -25,15 +25,19 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        [theme.breakpoints.up('md')]: {
+            minWidth: 500
+        },
+    },
+    text: {
+        width: "100%",
+        [theme.breakpoints.up('md')]: {
+            width: 400
+        },
     },
     formControl: {
         margin: theme.spacing(1),
         minWidth: 130,
-    },
-    alert: {
-        borderRadius: "0",
-        backgroundColor: "#90caf9",
-        display: "flex"
     },
     icon: {
         cursor: "pointer",
@@ -65,9 +69,7 @@ function NewTodo(props) {
         setPriority(e.target.value)
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
+    const handleSubmit = () => {
         const todo = {
             text: text,
             priority: priority,
@@ -96,11 +98,14 @@ function NewTodo(props) {
                 <Grid className={classes.container} container component={Paper} justify="space-between">
                     <DialogTitle>Add Git-R-Do</DialogTitle>
                     <DialogContent>
-                        <form className={classes.root} noValidate autoComplete="off">
+                        <form noValidate autoComplete="off">
                             <TextField
                                 id="standard-basic"
                                 label="Git-R-DO"
+                                multiline
+                                variant="outlined"
                                 onChange={handleText}
+                                className={classes.text}
                             />
                         </form>
                     </DialogContent>
@@ -125,12 +130,12 @@ function NewTodo(props) {
                     <DialogActions>
                     </DialogActions>
                     <DialogActions>
-                        <Button onClick={() => handleSubmit(props.selectedListId)} color="primary">
+                        <Button onClick={handleSubmit} color="primary">
                             Add
-                    </Button>
+                        </Button>
                         <Button onClick={handleClose} color="primary" autoFocus>
                             Cancel
-                    </Button>
+                        </Button>
                     </DialogActions>
                 </Grid>
             </Dialog>
