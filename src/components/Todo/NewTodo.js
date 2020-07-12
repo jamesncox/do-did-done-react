@@ -78,8 +78,6 @@ function NewTodo(props) {
             listId: props.selectedList.id
         }
 
-        // console.log(todo)
-
         props.createTodo(todo)
         setText("")
         setPriority("")

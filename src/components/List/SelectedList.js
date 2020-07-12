@@ -11,8 +11,6 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-// import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -61,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
     accordian: {
         display: "flex",
         flexDirection: "column",
-        // justifyContent: "flex-end",
     },
     openIcon: {
         cursor: "pointer",
@@ -82,26 +79,23 @@ function SelectedList(props) {
         setExpanded(isExpanded ? panel : false);
     }
 
-    const list = props.lists.filter(list => list.id === props.selectedList.id)[0]
-    console.log(list)
-
     return (
         <>
             <HeaderList />
             <div className={classes.root}>
                 <Accordion
-                    key={list.id}
+                    key={props.selectedList.id}
                     className={classes.category}
-                    expanded={expanded === `${list.id}`}
-                    onChange={handleChange(`${list.id}`)}
-                    style={{ backgroundColor: `${list.color}` }}
+                    expanded={expanded === `${props.selectedList.id}`}
+                    onChange={handleChange(`${props.selectedList.id}`)}
+                    style={{ backgroundColor: `${props.selectedList.color}` }}
                 >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
-                        aria-controls={`${list.id}-content`}
-                        id={`${list.id}-header`}
+                        aria-controls={`${props.selectedList.id}-content`}
+                        id={`${props.selectedList.id}-header`}
                     >
-                        <Typography className={classes.heading}>{list.category}</Typography>
+                        <Typography className={classes.heading}>{props.selectedList.category}</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accordian}>
                         <NewTodo />
