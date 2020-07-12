@@ -82,25 +82,26 @@ function SelectedList(props) {
         setExpanded(isExpanded ? panel : false);
     }
 
-    const list = props.lists.filter(list => list.category === props.selectedList)
+    const list = props.lists.filter(list => list.id === props.selectedList.id)[0]
+    console.log(list)
 
     return (
         <>
             <HeaderList />
             <div className={classes.root}>
                 <Accordion
-                    key={list[0].id}
+                    key={list.id}
                     className={classes.category}
-                    expanded={expanded === `${list[0].id}`}
-                    onChange={handleChange(`${list[0].id}`)}
-                    style={{ backgroundColor: `${list[0].color}` }}
+                    expanded={expanded === `${list.id}`}
+                    onChange={handleChange(`${list.id}`)}
+                    style={{ backgroundColor: `${list.color}` }}
                 >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
-                        aria-controls={`${list[0].id}-content`}
-                        id={`${list[0].id}-header`}
+                        aria-controls={`${list.id}-content`}
+                        id={`${list.id}-header`}
                     >
-                        <Typography className={classes.heading}>{list[0].category}</Typography>
+                        <Typography className={classes.heading}>{list.category}</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accordian}>
                         <NewTodo />

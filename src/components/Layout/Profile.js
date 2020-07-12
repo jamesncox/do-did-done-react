@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { Redirect } from "react-router";
 import { getLists } from '../../actions/lists'
+import { getTodos } from '../../actions/todos'
 
 import Header from './Header'
 import BottomNavBar from './BottomNavBar'
@@ -30,7 +31,7 @@ function Profile(props) {
     useEffect(() => {
         if (props.loggedIn) {
             dispatch(getLists(props.user.id))
-            // dispatch(getItems(props.user.id))
+            dispatch(getTodos(props.user.id))
         }
     }, [dispatch, props.user.id, props.loggedIn])
 
@@ -57,4 +58,4 @@ const mapStateToProps = (state) => ({
     loggedIn: state.users.loggedIn
 })
 
-export default connect(mapStateToProps, { getLists })(Profile)
+export default connect(mapStateToProps, { getLists, getTodos })(Profile)

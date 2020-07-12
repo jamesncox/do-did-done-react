@@ -15,6 +15,7 @@ export default (state = {
             return { ...state, todos: [...state.todos], loadingTodos: true }
 
         case SET_TODOS:
+            console.log(action.payload)
             return { ...state, todos: action.payload, loadingTodos: false }
 
         case LOADING_SINGLE_TODO:

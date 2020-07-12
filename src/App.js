@@ -47,7 +47,7 @@ class App extends Component {
             <Route exact path="/Profile">
               <Profile />
             </Route>
-            <Route exact path={`/${this.props.selectedList}`}>
+            <Route exact path={`/${this.props.selectedListCategory}`}>
               <SelectedList />
             </Route>
           </Switch>
@@ -58,7 +58,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  selectedList: state.lists.selectedList
+  selectedListCategory: state.lists.selectedListCategory
 })
 
 export default connect(mapStateToProps, { getToken, setCurrentUser })(App);

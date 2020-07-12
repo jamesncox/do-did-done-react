@@ -4,14 +4,16 @@ import {
     CREATE_LIST,
     DELETE_LIST,
     LOADING_SINGLE_LIST,
-    SELECTED_LIST
+    SELECTED_LIST,
+    SELECTED_LIST_CATEGORY
 } from '../actionTypes'
 
 export default (state = {
     lists: [],
     loadingLists: false,
     loadingSingleList: false,
-    selectedList: {}
+    selectedList: {},
+    selectedListCategory: {}
 }, action) => {
     switch (action.type) {
         case LOADING_LISTS:
@@ -31,7 +33,11 @@ export default (state = {
             return { ...state, lists: persistedLists }
 
         case SELECTED_LIST:
-            return { ...state, selectedList: action.payload }
+            const listObj = state.lists.filter(list => list.id === parseInt(action.payload))[0]
+            return { ...state, selectedList: listObj }
+
+        case SELECTED_LIST_CATEGORY:
+            return { ...state, selectedListCategory: action.payload }
 
         default:
             return state

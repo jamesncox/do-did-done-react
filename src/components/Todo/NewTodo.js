@@ -51,8 +51,6 @@ function NewTodo(props) {
     const [text, setText] = useState('')
     const [priority, setPriority] = useState('')
 
-    const list = props.lists.filter(list => list.category === props.selectedList)
-
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -72,12 +70,15 @@ function NewTodo(props) {
     }
 
     const handleSubmit = () => {
+
         const todo = {
             text: text,
             priority: priority,
-            complete: false,
-            listId: list.id
+            complete: "false",
+            listId: props.selectedList.id
         }
+
+        // console.log(todo)
 
         props.createTodo(todo)
         setText("")
@@ -147,7 +148,7 @@ function NewTodo(props) {
 
 const mapStateToProps = (state) => ({
     lists: state.lists.lists,
-    selectedListId: state.lists.selectedList
+    selectedList: state.lists.selectedList
 })
 
 export default connect(mapStateToProps, { createTodo })(NewTodo)

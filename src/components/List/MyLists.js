@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from "react-router-dom";
-import { SELECTED_LIST } from '../../actionTypes';
+import { SELECTED_LIST, SELECTED_LIST_CATEGORY } from '../../actionTypes';
 
 import NoListsYet from './NoListsYet'
 import DeleteList from './DeleteList'
@@ -101,7 +101,7 @@ function MyLists(props) {
     }
 
     const openSelectedList = (category) => {
-        props.selectedList(category)
+        props.selectedListCategory(category)
         let path = category
         history.push(path)
     }
@@ -156,7 +156,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    selectedList: (list) => dispatch({ type: SELECTED_LIST, payload: list })
+    selectedList: (list) => dispatch({ type: SELECTED_LIST, payload: list }),
+    selectedListCategory: (category) => dispatch({ type: SELECTED_LIST_CATEGORY, payload: category })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyLists)
