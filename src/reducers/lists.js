@@ -10,8 +10,6 @@ import {
 export default (state = {
     lists: [],
     loadingLists: false,
-    errors: null,
-    listId: null,
     loadingSingleList: false,
     selectedList: {}
 }, action) => {
@@ -19,11 +17,11 @@ export default (state = {
         case LOADING_LISTS:
             return { ...state, lists: [...state.lists], loadingLists: true }
 
-        case LOADING_SINGLE_LIST:
-            return { ...state, lists: [...state.lists], loadingSingleList: true }
-
         case SET_LISTS:
             return { ...state, lists: action.payload, loadingLists: false }
+
+        case LOADING_SINGLE_LIST:
+            return { ...state, lists: [...state.lists], loadingSingleList: true }
 
         case CREATE_LIST:
             return { ...state, lists: [...state.lists, action.payload], loadingSingleList: false }
