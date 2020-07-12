@@ -104,9 +104,6 @@ function SelectedList(props) {
                     </AccordionSummary>
                     <AccordionDetails className={classes.accordian}>
                         <NewTodo />
-                        {/* <Tooltip title="Add Git-R-Do">
-                            <LibraryAddIcon className={classes.openIcon} />
-                        </Tooltip> */}
                     </AccordionDetails>
                 </Accordion>
             </div>

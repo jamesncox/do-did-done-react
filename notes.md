@@ -1,8 +1,8 @@
 # TO DOs
 
-[]  Create conditionals to show navigation options for logged in true/false
-    [] No Log Out icon when no one is logged in
-    [] No profile button when no one is logged in
+[x]  Create conditionals to show navigation options for logged in true/false
+    [x] No Log Out icon when no one is logged in
+    [x] No profile button when no one is logged in
     [] Add an info icon with info about the app, me, etc.
     [] What other icons can I think of for navigation?
     
