@@ -11,13 +11,12 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,12 +36,8 @@ const useStyles = makeStyles((theme) => ({
         flexBasis: '33.33%',
         flexShrink: 0,
     },
-    secondaryHeading: {
-        fontSize: theme.typography.pxToRem(20),
-        color: theme.palette.text.secondary,
-    },
     todoTable: {
-        width: "100%"
+        color: "black"
     },
     category: {
         color: "white",
@@ -65,17 +60,21 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         backgroundColor: "white",
     },
-    typographyOne: {
-        opacity: "50%",
-        [theme.breakpoints.down('xs')]: {
-            fontSize: ".8rem",
-        },
-    },
+    divider: {
+        height: "2px",
+        // backgroundColor: {todoPriorityColor()}
+    }
 }))
 
 function SelectedList(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
+
+    const [checked, setChecked] = React.useState(false);
+
+    const handleCheckedComplete = (event) => {
+        setChecked(event.target.checked)
+    }
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -104,13 +103,20 @@ function SelectedList(props) {
                     </AccordionSummary>
                     <AccordionDetails className={classes.accordian}>
                         <NewTodo />
-                        <TableBody>
-                            {listTodos.map((todo) => (
-                                <TableRow hover={true} key={todo.id}>
-                                    <TableCell>{todo.text}</TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
+                        {listTodos.map((todo) => (
+                            <List component="nav" aria-label="mailbox folders" className={classes.todoTable}>
+                                <ListItem>
+                                    <Checkbox
+                                        onChange={handleCheckedComplete}
+                                        key={todo.id}
+                                        inputProps={{ 'aria-label': 'primary checkbox' }}
+                                    />
+                                    {/* <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} /> */}
+                                    <ListItemText primary={todo.text} />
+                                </ListItem>
+                                <Divider className={classes.divider} />
+                            </List>
+                        ))}
                     </AccordionDetails>
                 </Accordion>
             </TableContainer>
