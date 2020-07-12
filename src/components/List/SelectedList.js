@@ -70,10 +70,10 @@ function SelectedList(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
-    const [checked, setChecked] = React.useState(false);
+    // const [checked, setChecked] = React.useState(false);
 
     const handleCheckedComplete = (event) => {
-        setChecked(event.target.checked)
+        // setChecked(event.target.checked)
     }
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -82,6 +82,7 @@ function SelectedList(props) {
 
     const list = props.selectedList
     const listTodos = props.todos.filter(todo => todo.list_id === list.id)
+    const notCompleteTodos = listTodos.filter(todo => todo.complete === "false")
 
     return (
         <>
@@ -103,15 +104,13 @@ function SelectedList(props) {
                     </AccordionSummary>
                     <AccordionDetails className={classes.accordian}>
                         <NewTodo />
-                        {listTodos.map((todo) => (
-                            <List component="nav" aria-label="mailbox folders" className={classes.todoTable}>
+                        {notCompleteTodos.map((todo) => (
+                            <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
                                 <ListItem>
                                     <Checkbox
                                         onChange={handleCheckedComplete}
-                                        key={todo.id}
                                         inputProps={{ 'aria-label': 'primary checkbox' }}
                                     />
-                                    {/* <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} /> */}
                                     <ListItemText primary={todo.text} />
                                 </ListItem>
                                 <Divider className={classes.divider} />
