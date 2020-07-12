@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import HeaderList from '../Layout/HeaderList'
 import NavBarList from '../Layout/NavBarList'
-import EditList from './EditList'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
@@ -12,7 +11,6 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-// import EditIcon from '@material-ui/icons/Edit';
 import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
@@ -61,8 +59,8 @@ const useStyles = makeStyles((theme) => ({
     },
     accordian: {
         display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flexDirection: "column",
+        // justifyContent: "flex-end",
     },
     openIcon: {
         cursor: "pointer",
@@ -71,22 +69,8 @@ const useStyles = makeStyles((theme) => ({
         opacity: "50%",
         [theme.breakpoints.down('xs')]: {
             fontSize: ".8rem",
-            marginRight: "0",
-        },
-        [theme.breakpoints.up('sm')]: {
-            marginRight: theme.spacing(5),
         },
     },
-    typographyTwo: {
-        opacity: "50%",
-        [theme.breakpoints.down('xs')]: {
-            fontSize: ".8rem",
-            marginLeft: "0",
-        },
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(5),
-        },
-    }
 }))
 
 function SelectedList(props) {
@@ -121,13 +105,6 @@ function SelectedList(props) {
                         <Tooltip title="Add Git-R-Do">
                             <LibraryAddIcon className={classes.openIcon} />
                         </Tooltip>
-                        <Typography className={classes.typographyOne}>
-                            Add Git-R-Do
-                        </Typography>
-                        <Typography className={classes.typographyTwo}>
-                            Edit list
-                        </Typography>
-                        <EditList />
                     </AccordionDetails>
                 </Accordion>
             </div>
