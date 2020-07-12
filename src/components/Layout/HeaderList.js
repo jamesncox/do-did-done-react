@@ -81,7 +81,7 @@ function Header(props) {
                         component={RouterLink}
                         to="/Profile"
                     >
-                        Profile
+                        My Lists
                     </Button>
                     <LogOutAlert />
                 </Toolbar>

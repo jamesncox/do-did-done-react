@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import HeaderList from '../Layout/HeaderList'
 import NavBarList from '../Layout/NavBarList'
+import NewTodo from '../Todo/NewTodo'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
@@ -10,8 +11,8 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-import Tooltip from '@material-ui/core/Tooltip';
+// import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+// import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -102,9 +103,10 @@ function SelectedList(props) {
                         <Typography className={classes.heading}>{list[0].category}</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accordian}>
-                        <Tooltip title="Add Git-R-Do">
+                        <NewTodo />
+                        {/* <Tooltip title="Add Git-R-Do">
                             <LibraryAddIcon className={classes.openIcon} />
-                        </Tooltip>
+                        </Tooltip> */}
                     </AccordionDetails>
                 </Accordion>
             </div>

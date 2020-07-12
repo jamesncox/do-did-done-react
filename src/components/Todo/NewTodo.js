@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
-import { deleteList } from '../../actions/lists'
+// import { deleteList } from '../../actions/lists'
 
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper';
@@ -11,7 +11,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
-import EditIcon from '@material-ui/icons/Edit'
+import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -40,12 +40,12 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-function DeleteList(props) {
+function NewTodo(props) {
     const classes = useStyles();
 
     const [open, setOpen] = React.useState(false);
-    const [category, setCategory] = useState('')
-    const [color, setColor] = useState('')
+    const [text, setText] = useState('')
+    const [priority, setPriority] = useState('')
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -53,30 +53,31 @@ function DeleteList(props) {
 
     const handleClose = () => {
         setOpen(false);
-        setCategory('')
-        setColor('')
+        setText('')
+        setPriority('')
     }
 
-    const handleCategory = (e) => {
-        setCategory(e.target.value)
+    const handleText = (e) => {
+        setText(e.target.value)
     }
 
-    const handleColor = (e) => {
-        setColor(e.target.value)
+    const handlePriority = (e) => {
+        setPriority(e.target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const list = {
-            category: category,
-            color: color,
-            userId: props.user.id
+        const todo = {
+            text: text,
+            priority: priority,
+            complete: false,
+            listId: props.selectedListId
         }
 
-        props.editList(list)
-        setCategory("")
-        setColor("")
+        props.createTodo(todo)
+        setText("")
+        setPriority("")
         setOpen(false);
     }
 
@@ -84,7 +85,7 @@ function DeleteList(props) {
     return (
         <div>
             <Tooltip title="Edit List">
-                <EditIcon onClick={handleClickOpen} className={classes.icon} />
+                <LibraryAddIcon onClick={handleClickOpen} className={classes.icon} />
             </Tooltip>
             <Dialog
                 open={open}
@@ -93,36 +94,30 @@ function DeleteList(props) {
                 aria-describedby="alert-dialog-description"
             >
                 <Grid className={classes.container} container component={Paper} justify="space-between">
-                    <DialogTitle>Edit List</DialogTitle>
+                    <DialogTitle>Add Git-R-Do</DialogTitle>
                     <DialogContent>
                         <form className={classes.root} noValidate autoComplete="off">
                             <TextField
                                 id="standard-basic"
-                                label="Edit Category Name"
-                                onChange={handleCategory}
+                                label="Git-R-DO"
+                                onChange={handleText}
                             />
                         </form>
                     </DialogContent>
                     <DialogContent>
                         <form>
                             <FormControl className={classes.formControl}>
-                                <InputLabel id="demo-dialog-select-label">Color</InputLabel>
+                                <InputLabel id="demo-dialog-select-label">Priority Level</InputLabel>
                                 <Select
                                     labelId="demo-dialog-select-label"
                                     id="demo-dialog-select"
-                                    value={color}
-                                    onChange={handleColor}
+                                    value={priority}
+                                    onChange={handlePriority}
                                     input={<Input />}
                                 >
-                                    <MenuItem style={{ backgroundColor: "red", color: "white" }} value={"red"}>Red</MenuItem>
-                                    <MenuItem style={{ backgroundColor: "orange", color: "white" }} value={"orange"}>Orange</MenuItem>
-                                    <MenuItem style={{ backgroundColor: "yellow", color: "white" }} value={"yellow"}>Yellow</MenuItem>
-                                    <MenuItem style={{ backgroundColor: "green", color: "white" }} value={"green"}>Green</MenuItem>
-                                    <MenuItem style={{ backgroundColor: "blue", color: "white" }} value={"blue"}>Blue</MenuItem>
-                                    <MenuItem style={{ backgroundColor: "indigo", color: "white" }} value={"indigo"}>Indigo</MenuItem>
-                                    <MenuItem style={{ backgroundColor: "purple", color: "white" }} value={"purple"}>Purple</MenuItem>
-                                    <MenuItem style={{ backgroundColor: "black", color: "white" }} value={"black"}>Black</MenuItem>
-                                    <MenuItem style={{ backgroundColor: "pink", color: "white" }} value={"pink"}>Pink</MenuItem>
+                                    <MenuItem value={"low"}>Low</MenuItem>
+                                    <MenuItem value={"medium"}>Medium</MenuItem>
+                                    <MenuItem value={"high"}>High</MenuItem>
                                 </Select>
                             </FormControl>
                         </form>
@@ -131,7 +126,7 @@ function DeleteList(props) {
                     </DialogActions>
                     <DialogActions>
                         <Button onClick={() => handleSubmit(props.selectedListId)} color="primary">
-                            Edit
+                            Add
                     </Button>
                         <Button onClick={handleClose} color="primary" autoFocus>
                             Cancel
@@ -148,4 +143,4 @@ const mapStateToProps = (state) => ({
     selectedListId: state.lists.selectedList
 })
 
-export default connect(mapStateToProps, { deleteList })(DeleteList)
+export default connect(mapStateToProps)(NewTodo)
