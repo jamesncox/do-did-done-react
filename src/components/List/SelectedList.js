@@ -12,6 +12,13 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         width: "98%",
@@ -34,11 +41,8 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.typography.pxToRem(20),
         color: theme.palette.text.secondary,
     },
-    List: {
-        color: "rgba(27, 27, 27, .5)",
-        textAlign: "center",
-        fontFamily: "'Nanum Pen Script', cursive",
-        fontSize: "1.8rem",
+    todoTable: {
+        width: "100%"
     },
     category: {
         color: "white",
@@ -77,29 +81,39 @@ function SelectedList(props) {
         setExpanded(isExpanded ? panel : false);
     }
 
+    const list = props.selectedList
+    const listTodos = props.todos.filter(todo => todo.list_id === list.id)
+
     return (
         <>
             <HeaderList />
-            <div className={classes.root}>
+            <TableContainer className={classes.root}>
                 <Accordion
-                    key={props.selectedList.id}
+                    key={list.id}
                     className={classes.category}
-                    expanded={expanded === `${props.selectedList.id}`}
-                    onChange={handleChange(`${props.selectedList.id}`)}
-                    style={{ backgroundColor: `${props.selectedList.color}` }}
+                    expanded={expanded === `${list.id}`}
+                    onChange={handleChange(`${list.id}`)}
+                    style={{ backgroundColor: `${list.color}` }}
                 >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
-                        aria-controls={`${props.selectedList.id}-content`}
-                        id={`${props.selectedList.id}-header`}
+                        aria-controls={`${list.id}-content`}
+                        id={`${list.id}-header`}
                     >
-                        <Typography className={classes.heading}>{props.selectedList.category}</Typography>
+                        <Typography className={classes.heading}>{list.category}</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accordian}>
                         <NewTodo />
+                        <TableBody>
+                            {listTodos.map((todo) => (
+                                <TableRow hover={true} key={todo.id}>
+                                    <TableCell>{todo.text}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
                     </AccordionDetails>
                 </Accordion>
-            </div>
+            </TableContainer>
             <NavBarList />
         </>
     )
@@ -107,7 +121,8 @@ function SelectedList(props) {
 
 const mapStateToProps = state => ({
     lists: state.lists.lists,
-    selectedList: state.lists.selectedList
+    selectedList: state.lists.selectedList,
+    todos: state.todos.todos
 })
 
 export default connect(mapStateToProps)(SelectedList)

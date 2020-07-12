@@ -15,14 +15,13 @@ export default (state = {
             return { ...state, todos: [...state.todos], loadingTodos: true }
 
         case SET_TODOS:
-            console.log(action.payload)
             return { ...state, todos: action.payload, loadingTodos: false }
 
         case LOADING_SINGLE_TODO:
             return { ...state, todos: [...state.todos], loadingSingleTodo: true }
 
         case CREATE_TODO:
-            return { ...state, lists: [...state.todos, action.payload], loadingSingleTodo: false }
+            return { ...state, todos: [...state.todos, action.payload], loadingSingleTodo: false }
 
         default:
             return state
