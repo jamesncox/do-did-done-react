@@ -59,9 +59,7 @@ const useStyles = makeStyles((theme) => ({
     accordian: {
         display: "flex",
         flexDirection: "column",
-    },
-    openIcon: {
-        cursor: "pointer",
+        backgroundColor: "white",
     },
     typographyOne: {
         opacity: "50%",

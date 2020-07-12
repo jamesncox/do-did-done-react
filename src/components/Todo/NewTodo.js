@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
     icon: {
         cursor: "pointer",
+        color: "rgba(27, 27, 27, .5)"
     }
 }))
 
