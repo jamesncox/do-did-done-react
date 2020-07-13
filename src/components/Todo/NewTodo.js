@@ -41,7 +41,10 @@ const useStyles = makeStyles((theme) => ({
     },
     icon: {
         cursor: "pointer",
-        color: "rgba(27, 27, 27, .5)"
+        color: "rgba(27, 27, 27, .5)",
+        // marginLeft: theme.spacing(3),
+        float: "right"
+
     }
 }))
 
@@ -88,7 +91,7 @@ function NewTodo(props) {
 
     return (
         <div>
-            <Tooltip title="Edit List">
+            <Tooltip title="Add Todo">
                 <LibraryAddIcon onClick={handleClickOpen} className={classes.icon} />
             </Tooltip>
             <Dialog

@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
         color: "white",
         margin: theme.spacing(1),
         [theme.breakpoints.up('xs')]: {
-            width: "75%"
+            width: "90%"
         },
         [theme.breakpoints.up('sm')]: {
             width: "75%"
@@ -99,9 +99,10 @@ function SelectedList(props) {
                 <Accordion
                     key={list.id}
                     className={classes.category}
-                    expanded={expanded === `${list.id}`}
+                    // expanded={expanded === `${list.id}`}
                     onChange={handleChange(`${list.id}`)}
                     style={{ backgroundColor: `${list.color}` }}
+                    defaultExpanded={true}
                 >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
