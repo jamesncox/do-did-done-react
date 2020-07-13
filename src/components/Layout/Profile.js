@@ -56,6 +56,7 @@ function Profile(props) {
 const mapStateToProps = (state) => ({
     user: state.users.user,
     loggedIn: state.users.loggedIn,
+    loadingLists: state.lists.loadingLists,
 })
 
 export default connect(mapStateToProps, { getLists, getTodos })(Profile)

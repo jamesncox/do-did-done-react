@@ -4,7 +4,7 @@ import {
     CREATE_LIST,
     DELETE_LIST,
     LOADING_SINGLE_LIST,
-    SET_ERRORS
+    SET_ERRORS,
 } from '../actionTypes'
 
 const setLists = lists => {

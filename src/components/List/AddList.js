@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { createList } from '../../actions/lists'
+
+import BackdropLoader from '../Layout/BackdropLoader'
 import Errors from '../Layout/Errors'
 
 import Grid from '@material-ui/core/Grid'
@@ -111,6 +113,7 @@ function AddList(props) {
     return (
         <div>
             <Errors />
+            {props.loadingSingleList === true ? <BackdropLoader /> : null}
             <Tooltip title="Add List">
                 <PostAddIcon className={classes.icon} onClick={handleClickOpen} />
             </Tooltip>
@@ -161,7 +164,8 @@ function AddList(props) {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.users.user
+    user: state.users.user,
+    loadingSingleList: state.lists.loadingSingleList
 })
 
 export default connect(mapStateToProps, { createList })(AddList)

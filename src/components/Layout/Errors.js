@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import {
     CLEAR_ERRORS,
+    CLEAR_LOADING_SINGLE_LIST,
 } from '../../actionTypes'
 
 import Button from '@material-ui/core/Button';
@@ -31,6 +32,7 @@ function Errors(props) {
     const handleClose = () => {
         setOpen(true);
         props.clearErrors()
+        props.clearLoadingSingleList()
     }
 
     if (props.errors) {
@@ -75,6 +77,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     clearErrors: () => dispatch({ type: CLEAR_ERRORS }),
+    clearLoadingSingleList: () => dispatch({ type: CLEAR_LOADING_SINGLE_LIST })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Errors)

@@ -5,7 +5,8 @@ import {
     DELETE_LIST,
     LOADING_SINGLE_LIST,
     SELECTED_LIST,
-    SELECTED_LIST_CATEGORY
+    SELECTED_LIST_CATEGORY,
+    CLEAR_LOADING_SINGLE_LIST
 } from '../actionTypes'
 
 export default (state = {
@@ -38,6 +39,9 @@ export default (state = {
 
         case SELECTED_LIST_CATEGORY:
             return { ...state, selectedListCategory: action.payload }
+
+        case CLEAR_LOADING_SINGLE_LIST:
+            return { ...state, loadingSingleList: false }
 
         default:
             return state

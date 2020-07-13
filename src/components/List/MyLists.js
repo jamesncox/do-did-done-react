@@ -147,15 +147,15 @@ function MyLists(props) {
     if (hasLists.length !== 0) {
         return (
             <>
-                {props.loadingLists === true ? <BackdropLoader /> : null}
-                {renderLists(props.user.id)}
+                {props.loadingLists === true || props.loadingSingleList === true ? <BackdropLoader /> : null}
+                {props.loadingLists === false ? renderLists(props.user.id) : null}
             </>
         )
     } else {
         return (
             <>
                 {props.loadingLists === true ? <BackdropLoader /> : null}
-                <NoListsYet />
+                {props.loadingLists === false ? <NoListsYet /> : null}
             </>
         )
     }
@@ -164,7 +164,8 @@ function MyLists(props) {
 const mapStateToProps = (state) => ({
     user: state.users.user,
     lists: state.lists.lists,
-    loadingLists: state.lists.loadingLists
+    loadingLists: state.lists.loadingLists,
+    loadingSingleList: state.lists.loadingSingleList
 })
 
 const mapDispatchToProps = (dispatch) => ({
