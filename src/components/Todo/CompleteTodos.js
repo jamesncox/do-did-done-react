@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { changeTodoStatus } from '../../actions/todos'
+import { changeTodoStatus, deleteTodo } from '../../actions/todos'
 
 import HeaderList from '../Layout/HeaderList'
 import NavBarList from '../Layout/NavBarList'
@@ -91,6 +91,10 @@ function CompleteTodos(props) {
         setExpanded(isExpanded ? panel : false);
     }
 
+    const handleDeleteTodo = (id) => {
+        props.deleteTodo(id)
+    }
+
     const list = props.selectedList
     const listTodos = props.todos.filter(todo => todo.list_id === list.id)
     const completedTodos = listTodos.filter(todo => todo.complete === "true")
@@ -127,6 +131,7 @@ function CompleteTodos(props) {
                                     <Checkbox
                                         checkedIcon={<DeleteForeverIcon />}
                                         icon={<DeleteOutlineIcon />}
+                                        onChange={() => handleDeleteTodo(todo.id)}
                                         inputProps={{ 'aria-label': 'indeterminate checkbox' }}
                                     />
                                 </ListItem>
@@ -147,4 +152,4 @@ const mapStateToProps = state => ({
     todos: state.todos.todos
 })
 
-export default connect(mapStateToProps, { changeTodoStatus })(CompleteTodos)
+export default connect(mapStateToProps, { changeTodoStatus, deleteTodo })(CompleteTodos)
