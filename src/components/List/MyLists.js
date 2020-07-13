@@ -145,19 +145,9 @@ function MyLists(props) {
 
     const hasLists = props.lists.filter(list => list.user_id === props.user.id)
     if (hasLists.length !== 0) {
-        return (
-            <>
-                {props.loadingLists === true || props.loadingSingleList === true ? <BackdropLoader /> : null}
-                {props.loadingLists === false ? renderLists(props.user.id) : null}
-            </>
-        )
+        return renderLists(props.user.id)
     } else {
-        return (
-            <>
-                {props.loadingLists === true ? <BackdropLoader /> : null}
-                {props.loadingLists === false ? <NoListsYet /> : null}
-            </>
-        )
+        return <NoListsYet />
     }
 }
 
