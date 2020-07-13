@@ -136,15 +136,15 @@ function AddList(props) {
                                     onChange={handleChange}
                                     input={<Input />}
                                 >
-                                    <MenuItem value={"Work"}>Work</MenuItem>
-                                    <MenuItem value={"Family"}>Family</MenuItem>
                                     <MenuItem value={"Chores"}>Chores</MenuItem>
-                                    <MenuItem value={"Fun"}>Fun</MenuItem>
                                     <MenuItem value={"Dreading"}>Dreading</MenuItem>
-                                    <MenuItem value={"Wellness"}>Wellness</MenuItem>
+                                    <MenuItem value={"Family"}>Family</MenuItem>
                                     <MenuItem value={"Financial"}>Financial</MenuItem>
+                                    <MenuItem value={"Fun"}>Fun</MenuItem>
                                     <MenuItem value={"Long-term"}>Long-term</MenuItem>
                                     <MenuItem value={"Misc"}>Misc.</MenuItem>
+                                    <MenuItem value={"Wellness"}>Wellness</MenuItem>
+                                    <MenuItem value={"Work"}>Work</MenuItem>
                                 </Select>
                             </FormControl>
                         </form>
