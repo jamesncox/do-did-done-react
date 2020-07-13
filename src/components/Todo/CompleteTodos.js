@@ -119,12 +119,14 @@ function CompleteTodos(props) {
                         {completedTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
                                 <ListItem>
-                                    <Checkbox
-                                        checked={checked}
-                                        // color="primary"
-                                        onChange={() => handleCheckedComplete(todo)}
-                                        inputProps={{ 'aria-label': 'primary checkbox' }}
-                                    />
+                                    <Tooltip title="Incomplete">
+                                        <Checkbox
+                                            checked={checked}
+                                            // color="primary"
+                                            onChange={() => handleCheckedComplete(todo)}
+                                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                                        />
+                                    </Tooltip>
                                     <ListItemText primary={todo.text} />
                                     <Tooltip title="Delete Todo">
                                         <Checkbox

@@ -124,7 +124,7 @@ function AddList(props) {
                 aria-describedby="alert-dialog-description"
             >
                 <Grid className={classes.container} container component={Paper} justify="space-between">
-                    <DialogTitle>Select List Category</DialogTitle>
+                    <DialogTitle>Select Category</DialogTitle>
                     <DialogContent>
                         <form>
                             <FormControl className={classes.formControl}>

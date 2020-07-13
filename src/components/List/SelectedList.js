@@ -20,6 +20,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import TableContainer from '@material-ui/core/TableContainer';
 import Checkbox from '@material-ui/core/Checkbox';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -130,10 +131,12 @@ function SelectedList(props) {
                         {priorityHighTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
                                 <ListItem style={{ backgroundColor: "rgba(207, 0, 0, 0.05)" }}>
-                                    <Checkbox
-                                        onChange={() => handleCheckedComplete(todo)}
-                                        inputProps={{ 'aria-label': 'primary checkbox' }}
-                                    />
+                                    <Tooltip title="Mark Complete">
+                                        <Checkbox
+                                            onChange={() => handleCheckedComplete(todo)}
+                                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                                        />
+                                    </Tooltip>
                                     <ListItemText primary={todo.text} />
                                 </ListItem>
                                 <Divider className={classes.divider} />
@@ -145,10 +148,12 @@ function SelectedList(props) {
                         {priorityMediumTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
                                 <ListItem style={{ backgroundColor: "rgba(175, 99, 0, 0.05)" }}>
-                                    <Checkbox
-                                        onChange={() => handleCheckedComplete(todo)}
-                                        inputProps={{ 'aria-label': 'primary checkbox' }}
-                                    />
+                                    <Tooltip title="Mark Complete">
+                                        <Checkbox
+                                            onChange={() => handleCheckedComplete(todo)}
+                                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                                        />
+                                    </Tooltip>
                                     <ListItemText primary={todo.text} />
                                 </ListItem>
                                 <Divider className={classes.divider} />
@@ -160,10 +165,12 @@ function SelectedList(props) {
                         {priorityLowTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
                                 <ListItem style={{ backgroundColor: "rgba(0, 175, 29, 0.05)" }}>
-                                    <Checkbox
-                                        onChange={() => handleCheckedComplete(todo)}
-                                        inputProps={{ 'aria-label': 'primary checkbox' }}
-                                    />
+                                    <Tooltip title="Mark Complete">
+                                        <Checkbox
+                                            onChange={() => handleCheckedComplete(todo)}
+                                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                                        />
+                                    </Tooltip>
                                     <ListItemText primary={todo.text} />
                                 </ListItem>
                                 <Divider className={classes.divider} />

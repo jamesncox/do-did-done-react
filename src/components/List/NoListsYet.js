@@ -37,7 +37,7 @@ function NoListsYet(props) {
         <Card className={classes.root}>
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    Create your first Do Did Done category!
+                    Select your first Do Did Done category
                 </Typography>
             </CardContent>
             <Divider className={classes.divider} orientation="vertical" flexItem />
