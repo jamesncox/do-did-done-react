@@ -61,10 +61,13 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         backgroundColor: "white",
+        borderBottom: "solid 2px rgba(167, 167, 167, 0.15)",
+        // borderBottomLeftRadius: "3px",
+        // borderBottomRightRadius: "3px"
     },
     divider: {
         height: "2px",
-        backgroundColor: "rgba(167, 167, 167, 0.15) "
+        backgroundColor: "rgba(167, 167, 167, 0.15)"
     },
     priority: {
         // marginLeft: theme.spacing(1),
