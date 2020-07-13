@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { deleteList } from '../../actions/lists'
 
+import BackdropLoader from '../Layout/BackdropLoader'
+
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -41,6 +43,7 @@ function DeleteList(props) {
 
     return (
         <div>
+            {props.loadingLists === true ? <BackdropLoader /> : null}
             <Tooltip title="Delete List">
                 <DeleteForeverIcon onClick={handleClickOpen} className={classes.icon} />
             </Tooltip>
@@ -73,7 +76,8 @@ function DeleteList(props) {
 
 const mapStateToProps = (state) => ({
     user: state.users.user,
-    selectedList: state.lists.selectedList
+    selectedList: state.lists.selectedList,
+    loadingLists: state.lists.loadingLists
 })
 
 export default connect(mapStateToProps, { deleteList })(DeleteList)

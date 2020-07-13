@@ -147,7 +147,7 @@ function MyLists(props) {
     if (hasLists.length !== 0) {
         return renderLists(props.user.id)
     } else {
-        return <NoListsYet />
+        return props.loadingLists ? <NoListsYet /> : null
     }
 }
 

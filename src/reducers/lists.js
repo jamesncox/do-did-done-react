@@ -31,7 +31,7 @@ export default (state = {
 
         case DELETE_LIST:
             const persistedLists = state.lists.filter(list => list.id !== action.payload.id)
-            return { ...state, lists: persistedLists }
+            return { ...state, lists: persistedLists, loadingLists: false }
 
         case SELECTED_LIST:
             const listObj = state.lists.filter(list => list.id === parseInt(action.payload))[0]

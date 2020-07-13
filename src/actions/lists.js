@@ -63,6 +63,8 @@ export const createList = (list) => {
 
 export function deleteList(id) {
     return (dispatch) => {
+        dispatch({ type: LOADING_LISTS })
+
         fetch(`http://localhost:3000/api/v1/lists/${id}`, {
             method: "DELETE"
         })
