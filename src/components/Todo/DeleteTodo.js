@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
-import { deleteList } from '../../actions/lists'
+import { deleteTodo } from '../../actions/todos'
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-function DeleteList(props) {
+function DeleteTodo(props) {
     const classes = useStyles();
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -34,8 +34,8 @@ function DeleteList(props) {
         setOpen(false);
     }
 
-    const handleDeleteList = (id) => {
-        props.deleteList(id)
+    const handleDeleteTodo = (id) => {
+        props.deleteTodo(id)
         setOpen(false)
     }
 
@@ -59,7 +59,7 @@ function DeleteList(props) {
                     </DialogContentText>
                 </DialogActions>
                 <DialogActions>
-                    <Button onClick={() => handleDeleteList(props.selectedList.id)} color="primary">
+                    <Button onClick={() => handleDeleteTodo(props.selectedListId)} color="primary">
                         Yes
                     </Button>
                     <Button onClick={handleClose} color="primary" autoFocus>
@@ -73,7 +73,7 @@ function DeleteList(props) {
 
 const mapStateToProps = (state) => ({
     user: state.users.user,
-    selectedList: state.lists.selectedList
+    selectedTodoId: state.todos.selectedTodoId
 })
 
-export default connect(mapStateToProps, { deleteList })(DeleteList)
+export default connect(mapStateToProps, { deleteTodo })(DeleteTodo)
