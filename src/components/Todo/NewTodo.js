@@ -101,12 +101,12 @@ function NewTodo(props) {
                 aria-describedby="alert-dialog-description"
             >
                 <Grid className={classes.container} container component={Paper} justify="space-between">
-                    <DialogTitle>Add Git-R-Do</DialogTitle>
+                    <DialogTitle>{`Add ${props.selectedList.category} task`}</DialogTitle>
                     <DialogContent>
                         <form noValidate autoComplete="off">
                             <TextField
                                 id="standard-basic"
-                                label="Git-R-DO"
+                                label="What do you need to do?"
                                 multiline
                                 variant="outlined"
                                 onChange={handleText}
