@@ -18,6 +18,9 @@ import Divider from '@material-ui/core/Divider';
 import TableContainer from '@material-ui/core/TableContainer';
 import Checkbox from '@material-ui/core/Checkbox';
 
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         width: "98%",
@@ -114,10 +117,16 @@ function CompleteTodos(props) {
                                 <ListItem>
                                     <Checkbox
                                         checked={checked}
+                                        // color="primary"
                                         onChange={() => handleCheckedComplete(todo)}
                                         inputProps={{ 'aria-label': 'primary checkbox' }}
                                     />
                                     <ListItemText primary={todo.text} />
+                                    <Checkbox
+                                        checkedIcon={<DeleteForeverIcon />}
+                                        icon={<DeleteOutlineIcon />}
+                                        inputProps={{ 'aria-label': 'indeterminate checkbox' }}
+                                    />
                                 </ListItem>
                                 <Divider className={classes.divider} />
                             </List>
