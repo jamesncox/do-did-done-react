@@ -21,7 +21,15 @@ export default (state = {
             return { ...state, lists: [...state.lists], loadingLists: true }
 
         case SET_LISTS:
-            return { ...state, lists: action.payload, loadingLists: false }
+            const sortedLists = action.payload.sort((function (a, b) {
+                let itemA = a.category.toLowerCase(), itemB = b.category.toLowerCase()
+                if (itemA < itemB)
+                    return -1
+                if (itemA > itemB)
+                    return 1
+                return 0
+            }))
+            return { ...state, lists: sortedLists, loadingLists: false }
 
         case LOADING_SINGLE_LIST:
             return { ...state, lists: [...state.lists], loadingSingleList: true }
