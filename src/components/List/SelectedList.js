@@ -61,9 +61,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         backgroundColor: "white",
-        borderBottom: "solid 2px rgba(167, 167, 167, 0.15)",
-        // borderBottomLeftRadius: "3px",
-        // borderBottomRightRadius: "3px"
+        borderBottom: "solid 2px rgba(167, 167, 167, 0.3)",
     },
     divider: {
         height: "2px",

@@ -17,6 +17,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import TableContainer from '@material-ui/core/TableContainer';
 import Checkbox from '@material-ui/core/Checkbox';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
@@ -62,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         backgroundColor: "white",
-        borderBottom: "solid 2px rgba(167, 167, 167, 0.15)"
+        borderBottom: "solid 2px rgba(167, 167, 167, 0.3)"
     },
     divider: {
         height: "2px",
@@ -128,12 +129,14 @@ function CompleteTodos(props) {
                                         inputProps={{ 'aria-label': 'primary checkbox' }}
                                     />
                                     <ListItemText primary={todo.text} />
-                                    <Checkbox
-                                        checkedIcon={<DeleteForeverIcon />}
-                                        icon={<DeleteOutlineIcon />}
-                                        onChange={() => handleDeleteTodo(todo.id)}
-                                        inputProps={{ 'aria-label': 'indeterminate checkbox' }}
-                                    />
+                                    <Tooltip title="Delete Todo">
+                                        <Checkbox
+                                            checkedIcon={<DeleteForeverIcon />}
+                                            icon={<DeleteOutlineIcon />}
+                                            onChange={() => handleDeleteTodo(todo.id)}
+                                            inputProps={{ 'aria-label': 'indeterminate checkbox' }}
+                                        />
+                                    </Tooltip>
                                 </ListItem>
                                 <Divider className={classes.divider} />
                             </List>
