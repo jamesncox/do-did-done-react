@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
-import { Redirect } from "react-router";
 import { getLists } from '../../actions/lists'
 import { getTodos } from '../../actions/todos'
 
@@ -35,22 +34,16 @@ function Profile(props) {
         }
     }, [dispatch, props.user.id, props.loggedIn])
 
-    if (props.loggedIn === false) {
-        return (
-            <Redirect to="/" />
-        )
-    } else {
-        return (
-            <div>
-                <Header />
-                <Typography className={classes.header}>
-                    Welcome, {props.user.username}
-                </Typography>
-                <MyLists />
-                <BottomNavBar />
-            </div>
-        )
-    }
+    return (
+        <div>
+            <Header />
+            <Typography className={classes.header}>
+                Welcome, {props.user.username}
+            </Typography>
+            <MyLists />
+            <BottomNavBar />
+        </div>
+    )
 }
 
 const mapStateToProps = (state) => ({

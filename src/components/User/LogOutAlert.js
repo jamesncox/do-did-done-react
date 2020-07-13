@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { useHistory } from "react-router-dom";
 import { clearCurrentUser } from '../../actions/users'
 import { getToken } from '../../actions/sessions'
 
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 function LogOutAlert(props) {
     const classes = useStyles();
+    const history = useHistory();
 
     const [open, setOpen] = React.useState(false);
 
@@ -42,6 +44,7 @@ function LogOutAlert(props) {
     const handleLogout = () => {
         props.clearCurrentUser()
         props.getToken()
+        history.push("/")
     }
 
 
