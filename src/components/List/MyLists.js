@@ -5,6 +5,7 @@ import { SELECTED_LIST, SELECTED_LIST_CATEGORY } from '../../actionTypes';
 
 import NoListsYet from './NoListsYet'
 import DeleteList from './DeleteList'
+import BackdropLoader from '../Layout/BackdropLoader'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
@@ -144,15 +145,26 @@ function MyLists(props) {
 
     const hasLists = props.lists.filter(list => list.user_id === props.user.id)
     if (hasLists.length !== 0) {
-        return renderLists(props.user.id)
+        return (
+            <>
+                {props.loadingLists === true ? <BackdropLoader /> : null}
+                {renderLists(props.user.id)}
+            </>
+        )
     } else {
-        return <NoListsYet />
+        return (
+            <>
+                {props.loadingLists === true ? <BackdropLoader /> : null}
+                <NoListsYet />
+            </>
+        )
     }
 }
 
 const mapStateToProps = (state) => ({
     user: state.users.user,
-    lists: state.lists.lists
+    lists: state.lists.lists,
+    loadingLists: state.lists.loadingLists
 })
 
 const mapDispatchToProps = (dispatch) => ({
