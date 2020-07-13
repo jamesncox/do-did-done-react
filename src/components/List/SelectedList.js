@@ -100,6 +100,7 @@ function SelectedList(props) {
     const priorityHighTodos = notCompleteTodos.filter(todo => todo.priority === "high")
     const priorityMediumTodos = notCompleteTodos.filter(todo => todo.priority === "medium")
     const priorityLowTodos = notCompleteTodos.filter(todo => todo.priority === "low")
+    const completedTodos = listTodos.filter(todo => todo.complete === "true")
 
     return (
         <>
@@ -171,7 +172,7 @@ function SelectedList(props) {
                     </AccordionDetails>
                 </Accordion>
             </TableContainer>
-            <CompleteTodos />
+            {!completedTodos[0] === false ? <CompleteTodos /> : null}
             <NavBarList />
         </>
     )
