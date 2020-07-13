@@ -42,7 +42,7 @@ export default (state = {
 
         case DELETE_TODO:
             const persistedTodos = state.todos.filter(todo => todo.id !== action.payload.id)
-            return { ...state, todos: persistedTodos }
+            return { ...state, todos: persistedTodos, loadingTodos: false }
 
         case CLEAR_LOADING_SINGLE_TODO:
             return { ...state, loadingSingleTodo: false }

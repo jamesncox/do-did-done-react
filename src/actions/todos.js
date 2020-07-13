@@ -97,6 +97,9 @@ export const changeTodoStatus = (todo) => {
 
 export function deleteTodo(id) {
     return (dispatch) => {
+
+        dispatch({ type: LOADING_TODOS })
+
         fetch(`http://localhost:3000/api/v1/todos/${id}`, {
             method: "DELETE"
         })

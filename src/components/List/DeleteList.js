@@ -44,6 +44,7 @@ function DeleteList(props) {
     return (
         <div>
             {props.loadingLists === true ? <BackdropLoader /> : null}
+
             <Tooltip title="Delete List">
                 <DeleteForeverIcon onClick={handleClickOpen} className={classes.icon} />
             </Tooltip>
@@ -77,7 +78,7 @@ function DeleteList(props) {
 const mapStateToProps = (state) => ({
     user: state.users.user,
     selectedList: state.lists.selectedList,
-    loadingLists: state.lists.loadingLists
+    loadingLists: state.lists.loadingLists,
 })
 
 export default connect(mapStateToProps, { deleteList })(DeleteList)
