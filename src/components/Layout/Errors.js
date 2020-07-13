@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {
     CLEAR_ERRORS,
     CLEAR_LOADING_SINGLE_LIST,
+    CLEAR_IS_USER_LOADING
 } from '../../actionTypes'
 
 import Button from '@material-ui/core/Button';
@@ -33,6 +34,7 @@ function Errors(props) {
         setOpen(true);
         props.clearErrors()
         props.clearLoadingSingleList()
+        props.clearIsUserLoading()
     }
 
     if (props.errors) {
@@ -46,7 +48,7 @@ function Errors(props) {
                 >
                     <Alert className={classes.alert} variant="filled" severity="error" id="alert-dialog-title">
                         Error
-                </Alert>
+                    </Alert>
                     <DialogActions>
                         <List className={classes.error}>
                             {props.errors.map((error, index) => {
@@ -61,7 +63,7 @@ function Errors(props) {
                     <DialogActions>
                         <Button onClick={handleClose} color="primary" autoFocus>
                             Try Again
-                    </Button>
+                        </Button>
                     </DialogActions>
                 </Dialog>
             </div>
@@ -77,7 +79,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     clearErrors: () => dispatch({ type: CLEAR_ERRORS }),
-    clearLoadingSingleList: () => dispatch({ type: CLEAR_LOADING_SINGLE_LIST })
+    clearLoadingSingleList: () => dispatch({ type: CLEAR_LOADING_SINGLE_LIST }),
+    clearIsUserLoading: () => dispatch({ type: CLEAR_IS_USER_LOADING })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Errors)

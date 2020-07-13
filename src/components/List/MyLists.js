@@ -5,7 +5,6 @@ import { SELECTED_LIST, SELECTED_LIST_CATEGORY } from '../../actionTypes';
 
 import NoListsYet from './NoListsYet'
 import DeleteList from './DeleteList'
-import BackdropLoader from '../Layout/BackdropLoader'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
@@ -155,7 +154,8 @@ const mapStateToProps = (state) => ({
     user: state.users.user,
     lists: state.lists.lists,
     loadingLists: state.lists.loadingLists,
-    loadingSingleList: state.lists.loadingSingleList
+    loadingSingleList: state.lists.loadingSingleList,
+    loadingUser: state.users.loadingUser
 })
 
 const mapDispatchToProps = (dispatch) => ({
