@@ -125,9 +125,9 @@ function NewTodo(props) {
                                     onChange={handlePriority}
                                     input={<Input />}
                                 >
-                                    <MenuItem value={"low"}>Low</MenuItem>
-                                    <MenuItem value={"medium"}>Medium</MenuItem>
                                     <MenuItem value={"high"}>High</MenuItem>
+                                    <MenuItem value={"medium"}>Medium</MenuItem>
+                                    <MenuItem value={"low"}>Low</MenuItem>
                                 </Select>
                             </FormControl>
                         </form>

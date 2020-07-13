@@ -91,6 +91,9 @@ function SelectedList(props) {
     const list = props.selectedList
     const listTodos = props.todos.filter(todo => todo.list_id === list.id)
     const notCompleteTodos = listTodos.filter(todo => todo.complete === "false")
+    const priorityHighTodos = notCompleteTodos.filter(todo => todo.priority === "high")
+    const priorityMediumTodos = notCompleteTodos.filter(todo => todo.priority === "medium")
+    const priorityLowTodos = notCompleteTodos.filter(todo => todo.priority === "low")
 
     return (
         <>
@@ -113,7 +116,40 @@ function SelectedList(props) {
                     </AccordionSummary>
                     <AccordionDetails className={classes.accordian}>
                         <NewTodo />
-                        {notCompleteTodos.map((todo) => (
+                        {!priorityHighTodos[0] === false ? <Typography style={{ color: "red" }}>
+                            High
+                        </Typography> : null}
+                        {priorityHighTodos.map((todo) => (
+                            <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
+                                <ListItem>
+                                    <Checkbox
+                                        onChange={() => handleCheckedComplete(todo)}
+                                        inputProps={{ 'aria-label': 'primary checkbox' }}
+                                    />
+                                    <ListItemText primary={todo.text} />
+                                </ListItem>
+                                <Divider className={classes.divider} />
+                            </List>
+                        ))}
+                        {!priorityMediumTodos[0] === false ? <Typography style={{ color: "orange" }}>
+                            Medium
+                        </Typography> : null}
+                        {priorityMediumTodos.map((todo) => (
+                            <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
+                                <ListItem>
+                                    <Checkbox
+                                        onChange={() => handleCheckedComplete(todo)}
+                                        inputProps={{ 'aria-label': 'primary checkbox' }}
+                                    />
+                                    <ListItemText primary={todo.text} />
+                                </ListItem>
+                                <Divider className={classes.divider} />
+                            </List>
+                        ))}
+                        {!priorityLowTodos[0] === false ? <Typography style={{ color: "green" }}>
+                            Low
+                        </Typography> : null}
+                        {priorityLowTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
                                 <ListItem>
                                     <Checkbox
