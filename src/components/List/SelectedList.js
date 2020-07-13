@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         marginBottom: theme.spacing(10),
         [theme.breakpoints.up('md')]: {
-            marginTop: theme.spacing(10)
+            marginTop: theme.spacing(12)
         },
     },
     heading: {

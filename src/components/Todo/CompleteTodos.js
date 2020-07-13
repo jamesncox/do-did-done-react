@@ -25,15 +25,12 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 const useStyles = makeStyles((theme) => ({
     root: {
         width: "98%",
-        marginTop: theme.spacing(2),
+        marginTop: "-4rem",
         margin: "auto",
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         marginBottom: theme.spacing(10),
-        [theme.breakpoints.up('md')]: {
-            marginTop: theme.spacing(10)
-        },
     },
     heading: {
         fontSize: theme.typography.pxToRem(20),

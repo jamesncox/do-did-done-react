@@ -60,7 +60,7 @@ function HeaderLogin(props) {
             <AppBar >
                 <Toolbar className={classes.root} >
                     <Typography variant="h6" className={classes.loggedInTitle}>
-                        GIT-R-DONE
+                        DO DID DONE
                     </Typography>
                     <Button
                         className={classes.userActions}

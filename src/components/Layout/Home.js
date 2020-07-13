@@ -119,7 +119,7 @@ function Home(props) {
                     <Paper className={classes.whiteBox}>
                         <div className={classes.whiteBoxBorder}>
                             <h1 className={classes.title}>
-                                Git-R-Done
+                                DO DID DONE
                             </h1>
                             <Button
                                 className={classes.signInButton}
@@ -152,7 +152,7 @@ function Home(props) {
                         <div className={classes.whiteBoxBorder}>
                             {props.loadingUser === true ? <BackdropLoader /> : null}
                             <h1 className={classes.title}>
-                                Git-R-Done
+                                DO DID DONE
                             </h1>
                             <div className={classes.alignCenter}>
                                 <Button
