@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { createTodo } from '../../actions/todos'
 
+import BackdropLoader from '../Layout/BackdropLoader'
+import Errors from '../Layout/Errors'
+
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -91,6 +94,8 @@ function NewTodo(props) {
 
     return (
         <div>
+            <Errors />
+            {props.loadingSingleTodo === true ? <BackdropLoader /> : null}
             <Tooltip title="Add Todo">
                 <LibraryAddIcon onClick={handleClickOpen} className={classes.icon} />
             </Tooltip>
@@ -150,7 +155,8 @@ function NewTodo(props) {
 
 const mapStateToProps = (state) => ({
     lists: state.lists.lists,
-    selectedList: state.lists.selectedList
+    selectedList: state.lists.selectedList,
+    loadingSingleTodo: state.todos.loadingSingleTodo
 })
 
 export default connect(mapStateToProps, { createTodo })(NewTodo)

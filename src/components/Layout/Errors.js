@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import {
     CLEAR_ERRORS,
     CLEAR_LOADING_SINGLE_LIST,
-    CLEAR_IS_USER_LOADING
+    CLEAR_IS_USER_LOADING,
+    CLEAR_LOADING_SINGLE_TODO
 } from '../../actionTypes'
 
 import Button from '@material-ui/core/Button';
@@ -35,6 +36,7 @@ function Errors(props) {
         props.clearErrors()
         props.clearLoadingSingleList()
         props.clearIsUserLoading()
+        props.clearLoadingSingleTodo()
     }
 
     if (props.errors) {
@@ -80,7 +82,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     clearErrors: () => dispatch({ type: CLEAR_ERRORS }),
     clearLoadingSingleList: () => dispatch({ type: CLEAR_LOADING_SINGLE_LIST }),
-    clearIsUserLoading: () => dispatch({ type: CLEAR_IS_USER_LOADING })
+    clearIsUserLoading: () => dispatch({ type: CLEAR_IS_USER_LOADING }),
+    clearLoadingSingleTodo: () => dispatch({ type: CLEAR_LOADING_SINGLE_TODO })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Errors)
