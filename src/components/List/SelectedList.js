@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     },
     divider: {
         height: "2px",
-        // backgroundColor: {todoPriorityColor()}
+        backgroundColor: "rgba(167, 167, 167, 0.15) "
     },
     priority: {
         // marginLeft: theme.spacing(1),
@@ -125,7 +125,7 @@ function SelectedList(props) {
                         </Typography> : null}
                         {priorityHighTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
-                                <ListItem style={{ backgroundColor: "rgba(207, 0, 0, 0.1)" }}>
+                                <ListItem style={{ backgroundColor: "rgba(207, 0, 0, 0.05)" }}>
                                     <Checkbox
                                         onChange={() => handleCheckedComplete(todo)}
                                         inputProps={{ 'aria-label': 'primary checkbox' }}
@@ -140,7 +140,7 @@ function SelectedList(props) {
                         </Typography> : null}
                         {priorityMediumTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
-                                <ListItem style={{ backgroundColor: "rgba(175, 99, 0, 0.1)" }}>
+                                <ListItem style={{ backgroundColor: "rgba(175, 99, 0, 0.05)" }}>
                                     <Checkbox
                                         onChange={() => handleCheckedComplete(todo)}
                                         inputProps={{ 'aria-label': 'primary checkbox' }}
@@ -155,7 +155,7 @@ function SelectedList(props) {
                         </Typography> : null}
                         {priorityLowTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
-                                <ListItem style={{ backgroundColor: "rgba(0, 175, 29, 0.1)" }}>
+                                <ListItem style={{ backgroundColor: "rgba(0, 175, 29, 0.05)" }}>
                                     <Checkbox
                                         onChange={() => handleCheckedComplete(todo)}
                                         inputProps={{ 'aria-label': 'primary checkbox' }}

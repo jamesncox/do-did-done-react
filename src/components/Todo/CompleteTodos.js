@@ -97,7 +97,6 @@ function CompleteTodos(props) {
                 <Accordion
                     key={list.id}
                     className={classes.category}
-                    // expanded={expanded === `${list.id}`}
                     onChange={handleChange(`${list.id}`)}
                     style={{ backgroundColor: "#bdbdbd" }}
                     defaultExpanded={true}
