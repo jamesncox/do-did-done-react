@@ -3,7 +3,8 @@ import {
     LOADING_TODOS,
     CREATE_TODO,
     LOADING_SINGLE_TODO,
-    UPDATE_TODO
+    UPDATE_TODO,
+    DELETE_TODO
 } from '../actionTypes'
 
 export default (state = {
@@ -39,6 +40,9 @@ export default (state = {
             })
             return { ...state, todos: updatedTodos, loading: false }
 
+        case DELETE_TODO:
+            const persistedTodos = state.todos.filter(todo => todo.id !== action.payload.id)
+            return { ...state, todos: persistedTodos }
         default:
             return state
     }

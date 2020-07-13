@@ -4,7 +4,8 @@ import {
     CREATE_TODO,
     SET_ERRORS,
     LOADING_SINGLE_TODO,
-    UPDATE_TODO
+    UPDATE_TODO,
+    DELETE_TODO
 } from '../actionTypes'
 
 const setTodos = todos => {
@@ -91,5 +92,15 @@ export const changeTodoStatus = (todo) => {
         } else {
             dispatch({ type: UPDATE_TODO, payload: todoObj })
         }
+    }
+}
+
+export function deleteTodo(id) {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/v1/todos/${id}`, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(todo => dispatch({ type: DELETE_TODO, payload: todo }))
     }
 }
