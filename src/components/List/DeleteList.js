@@ -51,11 +51,11 @@ function DeleteList(props) {
                 aria-describedby="alert-dialog-description"
             >
                 <Alert className={classes.alert} variant="filled" severity="error" id="alert-dialog-title">
-                    {`${props.user.username}`}
+                    {`Delete ${props.selectedList.category}?`}
                 </Alert>
                 <DialogActions>
                     <DialogContentText id="alert-dialog-description">
-                        Are you sure you want to delete this list and all its todos?
+                        {`Are you sure you want to delete ${props.selectedList.category} and all its todos`}
                     </DialogContentText>
                 </DialogActions>
                 <DialogActions>
