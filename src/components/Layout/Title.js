@@ -17,7 +17,7 @@ export default function Title(props) {
 
     return (
         <Typography className={classes.title}>
-            Git-R-Done
+            Do Did Done
         </Typography>
     )
 

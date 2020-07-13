@@ -9,7 +9,7 @@ export default function Copyright() {
         <Typography variant="body2" color="textSecondary" align="center" style={{ marginBottom: "2em", marginTop: "2em" }}>
             {'Copyright © '}
             <Link color="inherit" component={RouterLink} to="/">
-                Git-R-Done
+                Do Did Done
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
