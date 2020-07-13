@@ -4,7 +4,6 @@ import { changeTodoStatus, deleteTodo } from '../../actions/todos'
 
 import HeaderList from '../Layout/HeaderList'
 import NavBarList from '../Layout/NavBarList'
-import BackdropLoader from '../Layout/BackdropLoader'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
@@ -103,7 +102,6 @@ function CompleteTodos(props) {
 
     return (
         <>
-            {props.loadingTodos === true ? <BackdropLoader /> : null}
             <HeaderList />
             <TableContainer className={classes.root}>
                 <Accordion
@@ -155,7 +153,6 @@ const mapStateToProps = state => ({
     lists: state.lists.lists,
     selectedList: state.lists.selectedList,
     todos: state.todos.todos,
-    loadingTodos: state.todos.loadingTodos
 })
 
 export default connect(mapStateToProps, { changeTodoStatus, deleteTodo })(CompleteTodos)
