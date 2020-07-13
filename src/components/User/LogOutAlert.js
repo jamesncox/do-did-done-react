@@ -45,6 +45,7 @@ function LogOutAlert(props) {
         props.clearCurrentUser()
         props.getToken()
         history.push("/")
+        setOpen(false)
     }
 
 

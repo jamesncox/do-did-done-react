@@ -4,6 +4,7 @@ import CompositionJournal from '../../assets/composition_background.jpg'
 import { Link as RouterLink } from 'react-router-dom';
 
 import Copyright from '../Layout/Copyright'
+import BackdropLoader from '../Layout/BackdropLoader'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -149,6 +150,7 @@ function Home(props) {
                 <Paper style={{ backgroundImage: `url("${CompositionJournal}")`, borderRadius: "1.5rem" }}>
                     <Paper className={classes.whiteBox}>
                         <div className={classes.whiteBoxBorder}>
+                            {props.loadingUser === true ? <BackdropLoader /> : null}
                             <h1 className={classes.title}>
                                 Git-R-Done
                             </h1>
@@ -173,7 +175,8 @@ function Home(props) {
 }
 
 const mapStateToProps = (state) => ({
-    loggedIn: state.users.loggedIn
+    loggedIn: state.users.loggedIn,
+    loadingUser: state.users.loadingUser
 })
 
 export default connect(mapStateToProps)(Home)

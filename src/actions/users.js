@@ -105,6 +105,8 @@ export function setCurrentUser() {
 export function clearCurrentUser() {
     return async (dispatch, getState) => {
 
+        dispatch({ type: LOADING_USER })
+
         const state = getState()
         const token = state.sessions.token
 
