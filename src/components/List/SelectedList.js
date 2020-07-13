@@ -65,6 +65,10 @@ const useStyles = makeStyles((theme) => ({
     divider: {
         height: "2px",
         // backgroundColor: {todoPriorityColor()}
+    },
+    priority: {
+        // marginLeft: theme.spacing(1),
+        marginTop: theme.spacing(1)
     }
 }))
 
@@ -121,7 +125,7 @@ function SelectedList(props) {
                         </Typography> : null}
                         {priorityHighTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
-                                <ListItem>
+                                <ListItem style={{ backgroundColor: "rgba(207, 0, 0, 0.1)" }}>
                                     <Checkbox
                                         onChange={() => handleCheckedComplete(todo)}
                                         inputProps={{ 'aria-label': 'primary checkbox' }}
@@ -131,12 +135,12 @@ function SelectedList(props) {
                                 <Divider className={classes.divider} />
                             </List>
                         ))}
-                        {!priorityMediumTodos[0] === false ? <Typography style={{ color: "orange" }}>
+                        {!priorityMediumTodos[0] === false ? <Typography className={classes.priority} style={{ color: "orange" }}>
                             Medium
                         </Typography> : null}
                         {priorityMediumTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
-                                <ListItem>
+                                <ListItem style={{ backgroundColor: "rgba(175, 99, 0, 0.1)" }}>
                                     <Checkbox
                                         onChange={() => handleCheckedComplete(todo)}
                                         inputProps={{ 'aria-label': 'primary checkbox' }}
@@ -146,12 +150,12 @@ function SelectedList(props) {
                                 <Divider className={classes.divider} />
                             </List>
                         ))}
-                        {!priorityLowTodos[0] === false ? <Typography style={{ color: "green" }}>
+                        {!priorityLowTodos[0] === false ? <Typography className={classes.priority} style={{ color: "green" }}>
                             Low
                         </Typography> : null}
                         {priorityLowTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
-                                <ListItem>
+                                <ListItem style={{ backgroundColor: "rgba(0, 175, 29, 0.1)" }}>
                                     <Checkbox
                                         onChange={() => handleCheckedComplete(todo)}
                                         inputProps={{ 'aria-label': 'primary checkbox' }}
