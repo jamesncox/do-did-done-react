@@ -111,7 +111,7 @@ function NewTodo(props) {
                         <form noValidate autoComplete="off">
                             <TextField
                                 id="standard-basic"
-                                label="What do you need to do?"
+                                label="New Todo"
                                 multiline
                                 variant="outlined"
                                 onChange={handleText}
