@@ -7,6 +7,7 @@ import NavBarList from '../Layout/NavBarList'
 import NewTodo from '../Todo/NewTodo'
 import CompleteTodos from '../Todo/CompleteTodos'
 import BackdropLoader from '../Layout/BackdropLoader'
+import Page from '../Layout/Page'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
@@ -106,6 +107,7 @@ function SelectedList(props) {
     return (
         <>
             <HeaderList />
+            <Page />
             {props.loadingTodos === true ? <BackdropLoader /> : null}
             <TableContainer className={classes.root}>
                 <Accordion

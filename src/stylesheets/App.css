@@ -25,7 +25,7 @@ body {
   width: 100%;
   border-bottom: 2px solid dodgerBlue;
   margin-top: 2.5rem;
-  opacity: 20%;
+  opacity: 10%;
   left: 0;
 }
 
@@ -36,5 +36,5 @@ body {
   position: absolute;
   left: 5rem;
   /* margin-left: -3px; */
-  /* top: 0; */
+  top: -3rem;
 }

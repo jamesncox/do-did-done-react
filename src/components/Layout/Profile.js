@@ -14,12 +14,14 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
     header: {
         fontFamily: "'Nanum Pen Script', cursive",
-        fontSize: "3rem",
+        fontSize: "2rem",
         color: "rgba(27, 27, 27, .8)",
         textAlign: "center",
+        marginBottom: "-.75rem",
         [theme.breakpoints.up('md')]: {
-            marginTop: "1.5em",
-            marginBottom: "-.75rem",
+            marginTop: "7rem",
+            fontSize: "3.5rem",
+            marginBottom: "-1.5rem",
         }
     }
 }))
