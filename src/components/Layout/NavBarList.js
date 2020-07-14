@@ -47,8 +47,8 @@ export default function NavBarList() {
                 />
                 <BottomNavigationAction
                     className={classes.icons}
-                    label="Profile" value="profile"
-                    component={RouterLink} to="/Profile"
+                    label="MyLists" value="My Lists"
+                    component={RouterLink} to="/MyLists"
                     icon={<PersonIcon className={classes.personIcon} />}
                 />
                 <BottomNavigationAction

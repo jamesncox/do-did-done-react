@@ -9,7 +9,8 @@
 [x] Add select form for categories and colors for Category color
 [x] Add loggedIn true/false conditionals to SignUp
 [x] Find Material UI that can simulate the lines of pages
-    [] looks great, but not sure how to make functional yet
+    [x] looks great, but not sure how to make functional yet
+    [x] Actually used CSS to achieve lines, looks GREAT
 [x] Create Profile component to welcome User
 [x] Move "Notebook paper styling" into a new component that I can call wherever
 [x] Create Log Out alert, using dialog boxes
@@ -18,3 +19,5 @@
 # Blog ideas
 
 [] Material UI breakpoints. ORDER MATTERS. (xs, sm, md, lg, xl)
+[] Netlify compiles CSS differently, opacity: .3 > opacity: 30%
+[] Make sure to special attention to case-sensitivity with files when uploading to Netlify

@@ -160,9 +160,9 @@ function Home(props) {
                                     className={classes.profileButton}
                                     color="primary"
                                     component={RouterLink}
-                                    to="/Profile"
+                                    to="/MyLists"
                                 >
-                                    Profile
+                                    My Lists
                                 </Button>
                             </div>
                         </div>

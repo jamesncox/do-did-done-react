@@ -119,7 +119,7 @@ function MyLists(props) {
         return (
             <div className={classes.root}>
                 <Typography className={classes.header}>
-                    Your Lists
+                    My Lists
                 </Typography>
                 {sortedLists.map(list => {
                     return (

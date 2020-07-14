@@ -82,7 +82,7 @@ function SignIn(props) {
 
     if (props.loggedIn === true) {
         return (
-            <Redirect to="/Profile" />
+            <Redirect to="/MyLists" />
         )
     } else {
         return (

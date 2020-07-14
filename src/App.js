@@ -42,7 +42,7 @@ class App extends Component {
             <Route exact path="/SignIn">
               <SignIn />
             </Route>
-            <Route exact path="/Profile">
+            <Route exact path="/MyLists">
               <Profile />
             </Route>
             <Route exact path={`/${this.props.selectedListCategory}`}>

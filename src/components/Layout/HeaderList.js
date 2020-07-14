@@ -79,7 +79,7 @@ function Header(props) {
                         className={classes.userActions}
                         color="inherit"
                         component={RouterLink}
-                        to="/Profile"
+                        to="/MyLists"
                     >
                         My Lists
                     </Button>
