@@ -53,8 +53,8 @@ const useStyles = makeStyles((theme) => ({
             display: "none",
         }
     },
-    logoutIcon: {
-        fontSize: "1.5rem"
+    icon: {
+        marginRight: theme.spacing(2)
     }
 }));
 

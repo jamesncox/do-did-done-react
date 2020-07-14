@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             fontSize: "2.5em",
             cursor: "pointer",
-            marginLeft: theme.spacing(1)
+            marginLeft: theme.spacing(2)
         },
     },
 }))
