@@ -21,13 +21,13 @@ body {
   width: 100%;
   border-bottom: 2px solid dodgerBlue;
   margin-top: 2.5rem;
-  opacity: 10%;
+  opacity: 30%;
   left: 0;
 }
 
 .redline {
   border-left: 2px solid red;
-  opacity: 20%;
+  opacity: 30%;
   height: 100vh;
   position: absolute;
   left: 5rem;
