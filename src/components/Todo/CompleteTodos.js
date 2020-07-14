@@ -86,7 +86,7 @@ function CompleteTodos(props) {
     }
 
     const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false);
+        setExpanded(!isExpanded ? panel : false);
     }
 
     const handleDeleteTodo = (id) => {
@@ -102,11 +102,12 @@ function CompleteTodos(props) {
             <HeaderList />
             <TableContainer className={classes.root}>
                 <Accordion
+                    expanded={expanded !== `${list.id}`}
+                    // defaultExpanded={true}
                     key={list.id}
                     className={classes.category}
                     onChange={handleChange(`${list.id}`)}
                     style={{ backgroundColor: "#bdbdbd" }}
-                    defaultExpanded={true}
                 >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
