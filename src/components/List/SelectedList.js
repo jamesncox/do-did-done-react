@@ -130,7 +130,7 @@ function SelectedList(props) {
                         </Typography> : null}
                         {priorityHighTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
-                                <ListItem style={{ backgroundColor: "rgba(207, 0, 0, 0.1)" }}>
+                                <ListItem style={{ backgroundColor: "rgba(207, 0, 0, 0.08)" }}>
                                     <Tooltip title="Mark Complete">
                                         <Checkbox
                                             onChange={() => handleCheckedComplete(todo)}
@@ -147,7 +147,7 @@ function SelectedList(props) {
                         </Typography> : null}
                         {priorityMediumTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
-                                <ListItem style={{ backgroundColor: "rgba(175, 99, 0, 0.1)" }}>
+                                <ListItem style={{ backgroundColor: "rgba(175, 99, 0, 0.08)" }}>
                                     <Tooltip title="Mark Complete">
                                         <Checkbox
                                             onChange={() => handleCheckedComplete(todo)}
@@ -164,7 +164,7 @@ function SelectedList(props) {
                         </Typography> : null}
                         {priorityLowTodos.map((todo) => (
                             <List key={todo.id} component="nav" aria-label="mailbox folders" className={classes.todoTable}>
-                                <ListItem style={{ backgroundColor: "rgba(0, 175, 29, 0.1)" }}>
+                                <ListItem style={{ backgroundColor: "rgba(0, 175, 29, 0.08)" }}>
                                     <Tooltip title="Mark Complete">
                                         <Checkbox
                                             onChange={() => handleCheckedComplete(todo)}
