@@ -93,7 +93,7 @@ function SelectedList(props) {
     }
 
     const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false);
+        setExpanded(!isExpanded ? panel : false);
     }
 
     const list = props.selectedList
@@ -113,10 +113,10 @@ function SelectedList(props) {
                 <Accordion
                     key={list.id}
                     className={classes.category}
-                    // expanded={expanded === `${list.id}`}
+                    expanded={expanded !== `${list.id}`}
                     onChange={handleChange(`${list.id}`)}
                     style={{ backgroundColor: `${list.color}` }}
-                    defaultExpanded={true}
+                // defaultExpanded={true}
                 >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
