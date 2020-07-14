@@ -9,21 +9,32 @@ const useStyles = makeStyles((theme) => ({
         opacity: "50%",
         marginTop: theme.spacing(10),
         marginBottom: theme.spacing(5),
+        // position: "fixed",
+        height: "2px"
     },
     blueDivider: {
         backgroundColor: "#81d4fa",
         opacity: "50%",
         marginBottom: theme.spacing(5),
+        height: "2px",
+        // position: "fixed"
     },
     redDivider: {
         backgroundColor: "#ff1744",
         opacity: "20%",
         marginLeft: "4rem",
-        position: "absolute",
+        position: "fixed",
+        width: "3px",
         top: "0",
-        bottom: "0"
-    }
-
+    },
+    redLineZIndex: {
+        zIndex: "-1",
+        position: "fixed"
+    },
+    blueLineZIndex: {
+        zIndex: "-2",
+        position: "fixed"
+    },
 }))
 
 
@@ -31,27 +42,31 @@ function Page(props) {
     const classes = useStyles();
     return (
         <>
-            <Divider className={classes.redDivider} orientation="vertical" />
-            <Divider className={classes.topDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
-            <Divider className={classes.blueDivider} />
+            <div className={classes.redLineZIndex}>
+                <Divider className={classes.redDivider} orientation="vertical" />
+            </div>
+            <div className={classes.blueLineZIndex}>
+                <Divider className={classes.topDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+                <Divider className={classes.blueDivider} />
+            </div>
         </>
     )
 }

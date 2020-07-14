@@ -6,6 +6,7 @@ import { getTodos } from '../../actions/todos'
 import Header from './Header'
 import BottomNavBar from './BottomNavBar'
 import MyLists from '../List/MyLists'
+import Page from './Page'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center",
         [theme.breakpoints.up('md')]: {
             marginTop: "1.5em",
+            marginBottom: "-.75rem",
         }
     }
 }))
@@ -37,6 +39,7 @@ function Profile(props) {
     return (
         <div>
             <Header />
+            <Page />
             <Typography className={classes.header}>
                 Welcome, {props.user.username}
             </Typography>
