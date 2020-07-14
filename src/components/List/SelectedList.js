@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
         color: "white",
         margin: theme.spacing(1),
         [theme.breakpoints.up('xs')]: {
-            width: "90%"
+            width: "85%"
         },
         [theme.breakpoints.up('sm')]: {
             width: "75%"
