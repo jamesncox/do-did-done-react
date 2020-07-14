@@ -5,8 +5,6 @@ import {
   Route
 } from 'react-router-dom';
 import './stylesheets/main.css';
-import './stylesheets/responsive.css'
-import './stylesheets/fonts.css'
 import { connect } from 'react-redux';
 import { getToken } from './actions/sessions'
 import { setCurrentUser } from './actions/users'

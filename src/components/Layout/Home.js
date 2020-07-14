@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        marginTop: theme.spacing(5),
         display: 'flex',
         flexWrap: 'wrap',
         fontFamily: "'Nanum Pen Script', cursive",

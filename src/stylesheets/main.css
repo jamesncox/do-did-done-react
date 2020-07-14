@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
 body {
   background-color: rgba(22, 22, 22, 0.1);
+  font-family: 'Nanum Pen Script', cursive;
 }
 
 .container {
