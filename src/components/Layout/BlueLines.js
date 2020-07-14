@@ -11,8 +11,6 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: theme.spacing(5),
         position: "fixed",
         height: "2px",
-        // top: 50
-        // zIndex: "-2",
     },
     blueDivider: {
         backgroundColor: "#81d4fa",
@@ -20,10 +18,9 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: theme.spacing(5),
         height: "2px",
         position: "fixed",
-        // zIndex: "-2",
     },
     blueLineZIndex: {
-        position: "absolute",
+        // position: "fixed",
         zIndex: "-2"
     },
 }))

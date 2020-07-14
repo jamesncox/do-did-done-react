@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-function Page(props) {
+function RedLine(props) {
     const classes = useStyles();
     return (
         <>
@@ -71,4 +71,4 @@ function Page(props) {
     )
 }
 
-export default Page 
+export default RedLine 
