@@ -39,9 +39,9 @@ function Profile(props) {
 
     return (
         <div>
-            <Header />
-            {/* <RedLine /> */}
-            {/* <BlueLines /> */}
+            {/* <Header />
+            <RedLine /> */}
+            <BlueLines />
             <Typography className={classes.header}>
                 Welcome, {props.user.username}
             </Typography>
