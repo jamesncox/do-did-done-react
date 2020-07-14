@@ -19,7 +19,7 @@ export const getTodos = (id) => {
         dispatch({ type: LOADING_TODOS })
 
         try {
-            const res = await fetch(`http://localhost:3000/api/v1/user_todos/${id}`)
+            const res = await fetch(`https://do-did-done.herokuapp.com/api/v1/user_todos/${id}`)
             if (!res.ok) {
                 throw res
             }
@@ -43,7 +43,7 @@ export const createTodo = (todo) => {
             list_id: todo.listId
         }
 
-        const res = await fetch("http://localhost:3000/api/v1/todos", {
+        const res = await fetch("https://do-did-done.herokuapp.com/api/v1/todos", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ export const changeTodoStatus = (todo) => {
             list_id: todo.listId
         }
 
-        const res = await fetch(`http://localhost:3000/api/v1/todos/${todo.todoId}`, {
+        const res = await fetch(`https://do-did-done.herokuapp.com/api/v1/todos/${todo.todoId}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ export function deleteTodo(id) {
 
         dispatch({ type: LOADING_TODOS })
 
-        fetch(`http://localhost:3000/api/v1/todos/${id}`, {
+        fetch(`https://do-did-done.herokuapp.com/api/v1/todos/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

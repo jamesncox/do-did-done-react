@@ -18,7 +18,7 @@ export const getLists = (id) => {
         dispatch({ type: LOADING_LISTS })
 
         try {
-            const res = await fetch(`http://localhost:3000/api/v1/user_lists/${id}`)
+            const res = await fetch(`https://do-did-done.herokuapp.com/api/v1/user_lists/${id}`)
             if (!res.ok) {
                 throw res
             }
@@ -41,7 +41,7 @@ export const createList = (list) => {
             user_id: list.userId
         }
 
-        const res = await fetch("http://localhost:3000/api/v1/lists", {
+        const res = await fetch("https://do-did-done.herokuapp.com/api/v1/lists", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export function deleteList(id) {
     return (dispatch) => {
         dispatch({ type: LOADING_LISTS })
 
-        fetch(`http://localhost:3000/api/v1/lists/${id}`, {
+        fetch(`https://do-did-done.herokuapp.com/api/v1/lists/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

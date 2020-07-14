@@ -8,7 +8,7 @@ const setToken = (token) => {
 
 export function getToken() {
     return (dispatch) => {
-        fetch('http://localhost:3000/api/v1/auth_check')
+        fetch('https://do-did-done.herokuapp.com/api/v1/auth_check')
             .then(res => res.json())
             .then(token => dispatch(setToken(token.csrf_auth_token)))
     }
