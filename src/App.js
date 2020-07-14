@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import './stylesheets/app.css';
+import './stylesheets/main.css';
 import './stylesheets/responsive.css'
 import './stylesheets/fonts.css'
 import { connect } from 'react-redux';
