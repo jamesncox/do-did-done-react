@@ -64,7 +64,7 @@ function Errors(props) {
                     </DialogActions>
                     <DialogActions>
                         <Button onClick={handleClose} color="primary" autoFocus>
-                            Try Again
+                            Close
                         </Button>
                     </DialogActions>
                 </Dialog>
