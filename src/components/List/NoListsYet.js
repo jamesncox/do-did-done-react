@@ -15,7 +15,9 @@ const useStyles = makeStyles({
         marginTop: 90,
         display: "flex",
         backgroundColor: "#ef5350",
-        color: "white"
+        color: "white",
+        zIndex: "1",
+        position: "relative"
     },
     title: {
         fontSize: 20,
