@@ -108,12 +108,20 @@ function MyLists(props) {
 
     const renderLists = (id) => {
         const userLists = props.lists.filter(list => list.user_id === id)
+        const sortedLists = userLists.sort((function (a, b) {
+            let itemA = a.category.toLowerCase(), itemB = b.category.toLowerCase()
+            if (itemA < itemB)
+                return -1
+            if (itemA > itemB)
+                return 1
+            return 0
+        }))
         return (
             <div className={classes.root}>
                 <Typography className={classes.header}>
                     Your Lists
                 </Typography>
-                {userLists.map(list => {
+                {sortedLists.map(list => {
                     return (
                         <Accordion key={list.id} className={classes.category} expanded={expanded === `${list.id}`} onChange={handleChange(`${list.id}`)} style={{ backgroundColor: `${list.color}` }}>
                             <AccordionSummary
