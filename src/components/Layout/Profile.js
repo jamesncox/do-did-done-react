@@ -6,8 +6,7 @@ import { getTodos } from '../../actions/todos'
 import Header from './Header'
 import BottomNavBar from './BottomNavBar'
 import MyLists from '../List/MyLists'
-import RedLine from './RedLine'
-import BlueLines from './BlueLines'
+import Page from './Page'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -39,9 +38,8 @@ function Profile(props) {
 
     return (
         <div>
-            {/* <Header />
-            <RedLine /> */}
-            <BlueLines />
+            <Header />
+            <Page />
             <Typography className={classes.header}>
                 Welcome, {props.user.username}
             </Typography>
