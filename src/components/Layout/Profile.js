@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
         color: "rgba(27, 27, 27, .8)",
         textAlign: "center",
         marginBottom: "-.75rem",
+        zIndex: "1",
+        position: "relative",
         [theme.breakpoints.up('md')]: {
             marginTop: "7rem",
             fontSize: "3.5rem",
