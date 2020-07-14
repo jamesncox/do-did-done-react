@@ -7,6 +7,7 @@ import Header from './Header'
 import BottomNavBar from './BottomNavBar'
 import MyLists from '../List/MyLists'
 import Page from './Page'
+import BlueLines from './BlueLines'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -39,7 +40,8 @@ function Profile(props) {
     return (
         <div>
             <Header />
-            <Page />
+            {/* <Page /> */}
+            {/* <BlueLines /> */}
             <Typography className={classes.header}>
                 Welcome, {props.user.username}
             </Typography>
