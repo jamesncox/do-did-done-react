@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
-        backgroundColor: "#0d47a1"
+        backgroundColor: "#0d47a1",
     },
     title: {
         fontFamily: "'Nanum Pen Script', cursive",
@@ -135,7 +135,7 @@ function SignIn(props) {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                color="primary"
+                                color="secondary"
                                 className={classes.submit}
                             >
                                 Sign In
