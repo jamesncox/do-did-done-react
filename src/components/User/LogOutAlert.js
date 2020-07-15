@@ -49,37 +49,69 @@ function LogOutAlert(props) {
         setOpen(false)
     }
 
-
-    return (
-        <div>
-            <Tooltip title="Log Out">
-                <ExitToAppIcon onClick={handleClickOpen} className={classes.icon} />
-            </Tooltip>
-            <Dialog
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                <Alert className={classes.alert} variant="filled" severity="warning" id="alert-dialog-title">
-                    {`${props.user.username}`}
-                </Alert>
-                <DialogActions>
-                    <DialogContentText id="alert-dialog-description">
-                        Are you sure you want to log out?
+    if (props.user.username.slice(0, 5) === "Guest") {
+        return (
+            <div>
+                <Tooltip title="Log Out">
+                    <ExitToAppIcon onClick={handleClickOpen} className={classes.icon} />
+                </Tooltip>
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <Alert className={classes.alert} variant="filled" severity="warning" id="alert-dialog-title">
+                        {`${props.user.username.slice(0, 5)}`}
+                    </Alert>
+                    <DialogActions>
+                        <DialogContentText id="alert-dialog-description">
+                            Are you sure you want to log out? You will lose your lists and todos.
+                        </DialogContentText>
+                    </DialogActions>
+                    <DialogActions>
+                        <Button onClick={handleLogout} color="primary">
+                            Yes
+                    </Button>
+                        <Button onClick={handleClose} color="primary" autoFocus>
+                            No
+                    </Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <Tooltip title="Log Out">
+                    <ExitToAppIcon onClick={handleClickOpen} className={classes.icon} />
+                </Tooltip>
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <Alert className={classes.alert} variant="filled" severity="warning" id="alert-dialog-title">
+                        {`${props.user.username}`}
+                    </Alert>
+                    <DialogActions>
+                        <DialogContentText id="alert-dialog-description">
+                            Are you sure you want to log out?
                     </DialogContentText>
-                </DialogActions>
-                <DialogActions>
-                    <Button onClick={handleLogout} color="primary">
-                        Yes
+                    </DialogActions>
+                    <DialogActions>
+                        <Button onClick={handleLogout} color="primary">
+                            Yes
                     </Button>
-                    <Button onClick={handleClose} color="primary" autoFocus>
-                        No
+                        <Button onClick={handleClose} color="primary" autoFocus>
+                            No
                     </Button>
-                </DialogActions>
-            </Dialog>
-        </div>
-    );
+                    </DialogActions>
+                </Dialog>
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = (state) => ({
