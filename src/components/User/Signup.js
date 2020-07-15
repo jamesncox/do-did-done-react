@@ -7,6 +7,7 @@ import { signupUser, clearIsUserLoading } from '../../actions/users'
 import Errors from '../Layout/Errors'
 import Copyright from '../Layout/Copyright'
 import BackdropLoader from '../Layout/BackdropLoader'
+import TryAsGuest from '../User/TryAsGuest'
 
 import HeaderLogin from '../Layout/HeaderLogin'
 import NavBarLogin from '../Layout/NavBarLogin'
@@ -161,6 +162,7 @@ function SignUp(props) {
                                 </Grid>
                             </Grid>
                         </form>
+                        <TryAsGuest />
                     </div>
                     <Box mt={5}>
                         <Copyright />

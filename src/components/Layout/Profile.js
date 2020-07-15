@@ -45,6 +45,18 @@ function Profile(props) {
         return (
             <Redirect to="/" />
         )
+    } else if (props.user.username.slice(0, 5) === "Guest") {
+        return (
+            <div>
+                <Header />
+                <Page />
+                <Typography className={classes.header}>
+                    Welcome, Guest User
+                </Typography>
+                <MyLists />
+                <BottomNavBar />
+            </div>
+        )
     } else {
         return (
             <div>
