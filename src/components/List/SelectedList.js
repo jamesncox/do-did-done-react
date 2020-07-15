@@ -116,7 +116,6 @@ function SelectedList(props) {
                     expanded={expanded !== `${list.id}`}
                     onChange={handleChange(`${list.id}`)}
                     style={{ backgroundColor: `${list.color}` }}
-                // defaultExpanded={true}
                 >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}

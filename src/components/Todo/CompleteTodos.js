@@ -103,7 +103,6 @@ function CompleteTodos(props) {
             <TableContainer className={classes.root}>
                 <Accordion
                     expanded={expanded !== `${list.id}`}
-                    // defaultExpanded={true}
                     key={list.id}
                     className={classes.category}
                     onChange={handleChange(`${list.id}`)}
@@ -123,7 +122,6 @@ function CompleteTodos(props) {
                                     <Tooltip title="Incomplete">
                                         <Checkbox
                                             checked={checked}
-                                            // color="primary"
                                             onChange={() => handleCheckedComplete(todo)}
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
                                         />

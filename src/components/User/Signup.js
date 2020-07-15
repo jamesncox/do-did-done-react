@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.main,
     },
     form: {
-        width: '100%', // Fix IE 11 issue.
+        width: '100%',
         marginTop: theme.spacing(3),
     },
     submit: {
@@ -117,7 +117,6 @@ function SignUp(props) {
                                 autoComplete="username"
                                 onChange={handleUsername}
                                 value={username}
-                            // autoFocus
                             />
                             <TextField
                                 variant="outlined"
@@ -176,7 +175,6 @@ function SignUp(props) {
 
 const mapStateToProps = state => ({
     user: state.users.user,
-    // errors: state.errors.errors,
     loggedIn: state.users.loggedIn,
     token: state.sessions.token,
     loadingUser: state.users.loadingUser
