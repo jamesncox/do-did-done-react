@@ -3,6 +3,7 @@ https://do-did-done.netlify.app/
 ## Do Did Done
 
 Do Did Done allows a user to create an account and select several categories to manage their tasks. 
+
 Do Did Done is made with a React frontend and a Rails API backend. 
 The React frontend features Material UI components, React router, Redux and local state management, functional components and React hooks and a thoughtful design for improved UI and UX. 
 The frontend consumes the Rails API with full CRUD functionality. 
