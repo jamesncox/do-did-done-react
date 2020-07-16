@@ -36,3 +36,9 @@ body {
   left: 5rem;
   top: -3rem;
 }
+
+@media only screen and (min-width: 960px) {
+  .redline {
+    left: 8rem;
+  }
+}
