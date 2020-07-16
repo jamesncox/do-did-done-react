@@ -17,6 +17,8 @@ It handles sessions, cookies, CRUD functionality, separation of concerns and MVC
 
 'https://do-did-done.herokuapp.com/api/v1/signup' -  Post request to Users controller create action to save a new user to the database.
 
+'https://do-did-done.herokuapp.com/api/v1/login' - Post request to Sessions controller create action to set a session ID for an existing user.
 
+'https://do-did-done.herokuapp.com/api/v1/logout' - DELETE request to the Sessions controller destroy action, deleting the signed-in user's session, logging them out.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
