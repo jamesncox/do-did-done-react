@@ -6,9 +6,9 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        marginTop: theme.spacing(2),
+        marginTop: theme.spacing(5),
         fontSize: ".7rem",
-        backgroundColor: "rgba(22, 22, 22, 0.4)"
+        backgroundColor: "rgba(22, 22, 22, 0.3)"
     },
 }));
 
