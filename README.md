@@ -37,3 +37,13 @@ https://do-did-done.herokuapp.com/api/v1/todos/${todo.todoId} - PATCH request to
 https://do-did-done.herokuapp.com/api/v1/todos/${id} - DELETE request to Todos controller destroy action to delte a specific todo from the database.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Rails
+
+https://github.com/jamesncox/do-did-done-api
+
+Do Did Done Rails API features a custom rake task, to clean up guest users with a single rake command.
+
+https://github.com/jamesncox/do-did-done-api/blob/master/lib/tasks/delete_guest_users.rake
+
+Just run "rake delete_guest_users" and all the frontend randomly generated guest users, lists and todos will be deleted from the database.
