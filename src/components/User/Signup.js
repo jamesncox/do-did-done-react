@@ -5,7 +5,7 @@ import { Redirect } from "react-router";
 import { signupUser, clearIsUserLoading } from '../../actions/users'
 
 import Errors from '../Layout/Errors'
-// import Copyright from '../Layout/Copyright'
+import Copyright from '../Layout/Copyright'
 import BackdropLoader from '../Layout/BackdropLoader'
 import TryAsGuest from '../User/TryAsGuest'
 
@@ -19,7 +19,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-// import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -163,9 +163,9 @@ function SignUp(props) {
                         </form>
                         <TryAsGuest />
                     </div>
-                    {/* <Box mt={5}>
+                    <Box mt={5}>
                         <Copyright />
-                    </Box> */}
+                    </Box>
                 </Container >
                 <NavBarLogin />
             </>
