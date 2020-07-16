@@ -30,13 +30,12 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     heading: {
-        fontSize: theme.typography.pxToRem(20),
+        fontSize: theme.typography.pxToRem(17),
         flexBasis: '35.33%',
         flexShrink: 0,
-    },
-    secondaryHeading: {
-        fontSize: theme.typography.pxToRem(20),
-        color: theme.palette.text.secondary,
+        [theme.breakpoints.up('md')]: {
+            fontSize: theme.typography.pxToRem(20),
+        },
     },
     header: {
         color: "rgba(27, 27, 27, .5)",

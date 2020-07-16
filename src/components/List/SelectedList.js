@@ -37,9 +37,12 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     heading: {
-        fontSize: theme.typography.pxToRem(20),
-        flexBasis: '33.33%',
+        fontSize: theme.typography.pxToRem(17),
+        flexBasis: '35.33%',
         flexShrink: 0,
+        [theme.breakpoints.up('md')]: {
+            fontSize: theme.typography.pxToRem(20),
+        },
     },
     todoTable: {
         color: "black"
