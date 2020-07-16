@@ -51,7 +51,7 @@ function Profile(props) {
                 <Header />
                 <Page />
                 <Typography className={classes.header}>
-                    Welcome, Guest User
+                    Hello, stranger!
                 </Typography>
                 <MyLists />
                 <BottomNavBar />
@@ -63,7 +63,7 @@ function Profile(props) {
                 <Header />
                 <Page />
                 <Typography className={classes.header}>
-                    Welcome, {props.user.username}
+                    Hello, {props.user.username}
                 </Typography>
                 <MyLists />
                 <BottomNavBar />
