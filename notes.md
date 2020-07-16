@@ -5,7 +5,8 @@
     [x] No profile button when no one is logged in
     [] Add an info icon with info about the app, me, etc.
     [] What other icons can I think of for navigation?
-    
+
+[x] Add Try As Guest functionality
 [x] Add select form for categories and colors for Category color
 [x] Add loggedIn true/false conditionals to SignUp
 [x] Find Material UI that can simulate the lines of pages
