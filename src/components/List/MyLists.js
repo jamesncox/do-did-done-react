@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     heading: {
-        fontSize: theme.typography.pxToRem(17),
+        fontSize: theme.typography.pxToRem(15),
         flexBasis: '35.33%',
         flexShrink: 0,
         [theme.breakpoints.up('md')]: {
