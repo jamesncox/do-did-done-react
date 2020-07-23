@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { changeTodoStatus } from '../../actions/todos'
+import { changeTodoStatus, deleteTodo } from '../../actions/todos'
 
 import HeaderList from '../Layout/HeaderList'
 import NavBarList from '../Layout/NavBarList'
@@ -22,6 +22,9 @@ import Divider from '@material-ui/core/Divider';
 import TableContainer from '@material-ui/core/TableContainer';
 import Checkbox from '@material-ui/core/Checkbox';
 import Tooltip from '@material-ui/core/Tooltip';
+
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -99,6 +102,10 @@ function SelectedList(props) {
         setExpanded(!isExpanded ? panel : false);
     }
 
+    const handleDeleteTodo = (id) => {
+        props.deleteTodo(id)
+    }
+
     const list = props.selectedList
     const listTodos = props.todos.filter(todo => todo.list_id === list.id)
     const notCompleteTodos = listTodos.filter(todo => todo.complete === "false")
@@ -142,6 +149,14 @@ function SelectedList(props) {
                                         />
                                     </Tooltip>
                                     <ListItemText primary={todo.text} />
+                                    <Tooltip title="Delete Todo">
+                                        <Checkbox
+                                            checkedIcon={<DeleteForeverIcon />}
+                                            icon={<DeleteOutlineIcon />}
+                                            onChange={() => handleDeleteTodo(todo.id)}
+                                            inputProps={{ 'aria-label': 'indeterminate checkbox' }}
+                                        />
+                                    </Tooltip>
                                 </ListItem>
                                 <Divider className={classes.divider} />
                             </List>
@@ -159,6 +174,14 @@ function SelectedList(props) {
                                         />
                                     </Tooltip>
                                     <ListItemText primary={todo.text} />
+                                    <Tooltip title="Delete Todo">
+                                        <Checkbox
+                                            checkedIcon={<DeleteForeverIcon />}
+                                            icon={<DeleteOutlineIcon />}
+                                            onChange={() => handleDeleteTodo(todo.id)}
+                                            inputProps={{ 'aria-label': 'indeterminate checkbox' }}
+                                        />
+                                    </Tooltip>
                                 </ListItem>
                                 <Divider className={classes.divider} />
                             </List>
@@ -176,6 +199,14 @@ function SelectedList(props) {
                                         />
                                     </Tooltip>
                                     <ListItemText primary={todo.text} />
+                                    <Tooltip title="Delete Todo">
+                                        <Checkbox
+                                            checkedIcon={<DeleteForeverIcon />}
+                                            icon={<DeleteOutlineIcon />}
+                                            onChange={() => handleDeleteTodo(todo.id)}
+                                            inputProps={{ 'aria-label': 'indeterminate checkbox' }}
+                                        />
+                                    </Tooltip>
                                 </ListItem>
                                 <Divider className={classes.divider} />
                             </List>
@@ -196,4 +227,4 @@ const mapStateToProps = state => ({
     loadingTodos: state.todos.loadingTodos
 })
 
-export default connect(mapStateToProps, { changeTodoStatus })(SelectedList)
+export default connect(mapStateToProps, { changeTodoStatus, deleteTodo })(SelectedList)
